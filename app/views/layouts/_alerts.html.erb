@@ -1,2 +1,14 @@
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<div class="container-fluid mt-3">
+  <div class="container">
+    <% if notice %>
+      <div class="alert alert-info" role="alert">
+        <%= notice %>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div class="alert alert-warning" role="alert">
+        <%= alert %>
+      </div>
+    <% end %>
+  </div>
+</div>
