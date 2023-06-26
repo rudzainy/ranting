@@ -10,5 +10,12 @@
         This is a lead paragraph. It stands out from regular paragraphs.
       </p>
     </div>
+    <div class="row">
+      <div class="col-10 mx-auto">
+        <% @links.each do |link| %>
+          <%= button_to link.title, link.url, target: "_blank", class:"btn btn-lg btn-outline-primary col-10 mx-auto mb-3 rounded-0" %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

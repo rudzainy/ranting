@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-gb" data-bs-theme="light">
   <head>
     <title>Ranting</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -10,7 +10,7 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
+  <body class="">
     <%= render partial: "layouts/navbar" if @should_render_navbar %>
     <%= render partial: "layouts/alerts" %>
     <%= yield %>
