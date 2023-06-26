@@ -9,9 +9,13 @@
             <%= f.error_notification %>
             <div class="form-inputs">
               <%= f.input :avatar, required: false, label: false %>
+              <%= f.input :username, wrapper: :input_group, placeholder: "Your username", label: false, class: "form-control mb-3 rounded-3", required: true, prepend: "@" %>
+              <%= f.input :full_name, placeholder: "Your full name", label: false, class: "form-control mb-3", required: false, autofocus: true %>
+              <%= f.text_area :description, placeholder: "About you", label: false, class:"form-control mb-3", required: false%>
+              
             </div>
             <div class="form-actions d-grid">
-              <%= f.button :submit, "Update Avatar", class: "btn btn-primary" %>
+              <%= f.button :submit, "Update", class: "btn btn-primary" %>
             </div>
           <% end %>
         </div>
@@ -20,6 +24,6 @@
         </div>
       </div>
     </div>
-    <div class="col-12 col-md-6">Preview</div>
+    <div class="col-12 col-md-6">Preview Area</div>
   </div>
 </div>

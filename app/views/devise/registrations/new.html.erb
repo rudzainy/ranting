@@ -7,9 +7,16 @@
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
         <div class="form-inputs">
+          <%= f.input :username, 
+                      wrapper: :input_group, 
+                      placeholder: "Your username", 
+                      label: false, 
+                      class: "form-control mb-3 rounded-3", 
+                      required: true, 
+                      autofocus: true,
+                      prepend: "@" %>
           <%= f.input :email,
                       required: true,
-                      autofocus: true,
                       input_html: { autocomplete: "email" }%>
           <%= f.input :password,
                       required: true,

@@ -1,29 +1,55 @@
-<div class="container d-flex flex-column justify-content-center mt-5">
-  <%= image_tag "3500703.png", class: "my-3 img-fluid col-10 col-md-8 col-lg-4 mx-auto", height: "128" %>
+<div class="container d-flex flex-column justify-content-center mt-3">
   <div class="card text-bg-light my-3 mx-auto col-10 col-md-8 col-lg-4">
-    <div class="card-header">Edit <%= resource_name.to_s.humanize %></div>
-    <%= image_tag "3500703.png", class: "card-img-top px-3 mt-3" %>
+    <div class="card-header">Edit Account Settings</div>
     <div class="card-body">
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= f.error_notification %>
         <div class="form-inputs">
-          <%= f.input :email, required: true, autofocus: true %>
+          <%= f.input :username, 
+                      wrapper: :input_group, 
+                      placeholder: "Your username",
+                      class: "form-control mb-3 rounded-3", 
+                      required: true, 
+                      prepend: "@" %>
+          <%= f.input :email, required: true %>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
           <% end %>
 
-          <%= f.input :password,
-                      hint: "leave it blank if you don't want to change it",
-                      required: false,
-                      input_html: { autocomplete: "new-password" } %>
-          <%= f.input :password_confirmation,
-                      required: false,
-                      input_html: { autocomplete: "new-password" } %>
-          <%= f.input :current_password,
-                      hint: "we need your current password to confirm your changes",
-                      required: true,
-                      input_html: { autocomplete: "current-password" } %>
+          <div class="accordion mb-3" id="passwordAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed px-3 py-2" 
+                        type="button" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#changePassword" 
+                        aria-expanded="false" 
+                        aria-controls="changePassword">
+                  Update Password
+                </button>
+              </h2>
+              <div id="changePassword" class="accordion-collapse collapse" data-bs-parent="#passwordAccordion">
+                <div class="accordion-body">
+                  <small class="text-muted d-block mb-3">Leave it blank if you don't want to change its.</small>
+                  <%= f.input :password,
+                              required: false,
+                              input_html: { autocomplete: "new-password" } %>
+                  <%= f.input :password_confirmation,
+                              required: false,
+                              input_html: { autocomplete: "new-password" } %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+            
+          <div class="bg-info-subtle bg-gradient border border-info rounded p-3 mb-3">
+            <small class="text-muted d-block mb-3">Please enter your current password to confirm your changes.</small>
+            <%= f.input :current_password,
+                        required: true,
+                        input_html: { autocomplete: "current-password" } %>
+          </div>
         </div>
 
         <div class="form-actions d-grid">
@@ -34,9 +60,7 @@
     <div class="card-footer text-body-secondary">
       <h5 class="card-title">Cancel my account</h5>
 
-      <p class="card-text">Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), class: "link-underline-danger", data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></p>
-
-      <%= link_to "Back", :back, class: "btn btn-secondary" %>
+      <p class="card-text">Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), class: " text-danger link-underline-danger", data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></p>
     </div>
   </div>
 </div>
