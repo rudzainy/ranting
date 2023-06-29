@@ -84,3 +84,6 @@ gem "bootstrap-icons", "~> 1.0"
 gem "bootstrap-icons-helper", "~> 2.0"
 
 gem "pg", "~> 1.5"
+
+#TODO: Setup Administrate
+# gem "administrate"
