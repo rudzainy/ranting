@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get 'design', to: 'dashboard#design'
   root 'dashboard#index'
 
-  get ':id', to: 'dashboard#show', as: :user
+  get ':id', to: 'links#show', as: :user
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

@@ -1,6 +1,13 @@
 class LinksController < ApplicationController
-  before_action :authenticate_user!, only: [:update]
+  before_action :authenticate_user!
   before_action :link_params, only: [:update]
+  before_action :set_user, only: [:show]
+
+  def show
+    redirect_to dashboard_path if @user.nil?
+
+    @links = @user.links.where.not(url: '', title: '')
+  end
 
   def update
     @link = Link.find(params[:id])
@@ -11,5 +18,12 @@ class LinksController < ApplicationController
 
   def link_params
     params.require(:link).permit(:title, :url)
+  end
+
+  def set_user
+    @user = User.friendly.find(params[:id])
+  
+  rescue StandardError
+    @user = nil
   end
 end
