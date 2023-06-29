@@ -25,7 +25,7 @@
         </li>
         <hr class="border-light"/>
         <li class="nav-item">
-          <%= button_to "Logout", destroy_user_session_path, data: {turbo_method: "delete"}, class: "btn btn-outline-danger" %>
+          <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: 'Are you sure you want to log out?'}, class: "btn btn-outline-danger mx-auto" %>
         </li>
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-none d-lg-block">
@@ -37,7 +37,7 @@
             <li><%= link_to "My Account", edit_user_registration_path, class: "dropdown-item" %></li>
             <li><%= link_to "View My Profile", user_path(current_user.slug), target: "_blank", class: "dropdown-item" %></li>
             <li><hr class="dropdown-divider"></li>
-            <li><%= link_to "Logout", destroy_user_session_path, data: {turbo_method: "delete"}, class: "dropdown-item" %></li>
+            <li><%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: 'Are you sure you want to log out?'}, class: "dropdown-item" %></li>
           </ul>
         </li>
       </ul>
