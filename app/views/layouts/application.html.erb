@@ -10,8 +10,9 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body class="">
+  <body class="bg-light bg-opacity-70">
     <%= render partial: "layouts/navbar" if @should_render_navbar %>
+    <%= render partial: "layouts/navbar_public" if !user_signed_in? %>
     <%= render partial: "layouts/alerts" %>
     <%= yield %>
   </body>

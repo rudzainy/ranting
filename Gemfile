@@ -10,7 +10,6 @@ gem "rails", "~> 7.0.5"
 gem "sprockets-rails"
 
 # Use mysql as the database for Active Record
-gem "mysql2", "~> 0.5"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -79,3 +78,12 @@ gem "devise", "~> 4.9"
 gem "simple_form", "~> 5.2"
 
 gem "friendly_id", "~> 5.5"
+
+gem "bootstrap-icons", "~> 1.0"
+
+gem "bootstrap-icons-helper", "~> 2.0"
+
+gem "pg", "~> 1.5"
+
+#TODO: Setup Administrate
+# gem "administrate"

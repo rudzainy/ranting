@@ -8,12 +8,22 @@
           <%= simple_form_for(current_user, url: registration_path(current_user), html: { method: :put }) do |f| %>
             <%= f.error_notification %>
             <div class="form-inputs">
-              <%= f.input :avatar, required: false, label: false %>
-              <%= f.input :username, wrapper: :input_group, placeholder: "Your username", label: false, class: "form-control mb-3 rounded-3", required: true, prepend: "@" %>
-              <%= f.input :full_name, placeholder: "Your full name", label: false, class: "form-control mb-3", required: false, autofocus: true %>
-              <%= f.text_area :description, placeholder: "About you", label: false, class:"form-control mb-3", required: false%>
+              <%= f.input :avatar, required: false, label: true %>
+              <%= f.input :username, wrapper: :input_group, placeholder: "Your username", label: true, class: "form-control mb-3 rounded-3", required: true, prepend: "@" %>
+              <%= f.input :full_name, placeholder: "Your full name", label: true, class: "form-control mb-3", required: false, autofocus: true %>
+              <%= f.text_area :description, placeholder: "About you", label: true, class:"form-control mb-3", required: false%>
               
             </div>
+<div class="form-inputs">
+<div class="mb-3">
+  <label for="userBgColour" class="form-label">Background colour</label>
+  <input type="text" class="form-control" id="userBgColour" placeholder="Coming soon" disabled>
+</div>
+<div class="mb-3">
+  <label for="eWallet" class="form-label">E-Wallet</label>
+  <input type="text" class="form-control" id="eWallet" placeholder="Coming soon" disabled>
+</div>
+</div>
             <div class="form-actions d-grid">
               <%= f.button :submit, "Update", class: "btn btn-primary" %>
             </div>

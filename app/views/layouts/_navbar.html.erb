@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg bg-primary bg-opacity-10">
   <div class="container-fluid">
     <%= link_to dashboard_path, class: "navbar-brand" do %>
-      <%= image_tag("ranting-logo.png", height: "48") %>
+      <%= image_tag "ranting-logo.png", height: "48", class: "border-light" %>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -19,15 +19,16 @@
         </li>
       </ul>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-block d-lg-none">
+        <hr class="border-light"/>
         <li class="nav-item">
           <%= link_to "My Account", edit_user_registration_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "View My Profile", user_path(current_user.slug), target: "_blank", class: "nav-link" %>
         </li>
-        <hr />
+        <hr class="border-light"/>
         <li class="nav-item">
-          <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: "delete"}, class: "nav-link" %>
+          <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: 'Are you sure you want to log out?'}, class: "btn btn-outline-danger mx-auto" %>
         </li>
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-none d-lg-block">
@@ -39,11 +40,10 @@
             <li><%= link_to "My Account", edit_user_registration_path, class: "dropdown-item" %></li>
             <li><%= link_to "View My Profile", user_path(current_user.slug), target: "_blank", class: "dropdown-item" %></li>
             <li><hr class="dropdown-divider"></li>
-            <li><%= link_to "Logout", destroy_user_session_path, data: {turbo_method: "delete"}, class: "dropdown-item" %></li>
+            <li><%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: 'Are you sure you want to log out?'}, class: "dropdown-item" %></li>
           </ul>
         </li>
       </ul>
-
     </div>
   </div>
 </nav>
