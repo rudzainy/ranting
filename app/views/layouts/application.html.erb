@@ -7,13 +7,12 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= stylesheet_link_tag("_theme_hexagon", "data-turbo-track": "reload") if user_signed_in? && current_user.username == "rudzainy" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body class="bg-light bg-opacity-70">
     <%= render partial: "layouts/navbar" if @should_render_navbar %>
-    <%= render partial: "layouts/navbar_public" if !user_signed_in? %>
+    <%= render partial: "layouts/navbar_public" if @should_render_navbar_public %>
     <%= render partial: "layouts/alerts" %>
     <%= yield %>
   </body>
