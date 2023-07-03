@@ -19,9 +19,29 @@ export default class extends Controller {
     // console.log(`resourceID: ${resourceID}`)
     // console.log(`url: ${url}`)
     let parentID = event.target.getAttribute(dataParent)
-    console.log(`parentID: ${parentID}`)
+    console.log(`dragStart parentID: ${parentID}`)
 
     event.dataTransfer.effectAllowed = "move"
+  }
+
+  drop(event) {
+    event.preventDefault()
+
+    let parentID = event.target.getAttribute(dataParent)
+    const dropTarget = this.findDropTarget(event.target, parentID)
+    const draggedItem = document.querySelector(`[data-resource-id="${resourceID}"]`)
+
+    console.log(`event: ${event}`)
+    console.log(`event.target: ${event.target}`)
+    console.log(`parentID: ${parentID}`)
+    console.log(`dropTarget: ${dropTarget}`)
+    console.log(`draggedItem: ${draggedItem}`)
+    
+    if(draggedItem === null || dropTarget === null) {
+      return true
+    }
+    this.setNewPosition(dropTarget, draggedItem, event)
+    newPosition = [...this.element.parentElement.children].indexOf(draggedItem)
   }
 
   dragEnd(event) {
@@ -47,31 +67,15 @@ export default class extends Controller {
     })
   }
 
-  dragEnter(event) {
-    event.preventDefault()
-  }
-
   dragOver(event) {
     event.preventDefault()
     return true
   }
 
-  drop(event) {
+  dragEnter(event) {
     event.preventDefault()
-
     let parentID = event.target.getAttribute(dataParent)
-    const dropTarget = this.findDropTarget(event.target, parentID)
-    const draggedItem = document.querySelector(`[data-resource-id="${resourceID}"]`)
-
-    console.log(`parentID: ${parentID}`)
-    console.log(`dropTarget: ${dropTarget}`)
-    console.log(`draggedItem: ${draggedItem}`)
-    
-    if(draggedItem === null || dropTarget === null) {
-      return true
-    }
-    this.setNewPosition(dropTarget, draggedItem, event)
-    newPosition = [...this.element.parentElement.children].indexOf(draggedItem)
+    console.log(`dragEnter parentID: ${parentID}`)
   }
 
   findDropTarget(target, parentID) {
