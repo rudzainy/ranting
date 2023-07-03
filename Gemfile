@@ -87,3 +87,4 @@ gem "pg", "~> 1.5"
 
 #TODO: Setup Administrate
 # gem "administrate"
+gem "acts_as_list", "~> 1.1"

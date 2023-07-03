@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'about', to: 'static#about'
 
   patch 'links/:id' => 'links#update', as: :links
+  patch 'drag/links'
   
   devise_for :users, controllers: {
     sessions: 'users/sessions',

@@ -12,7 +12,7 @@
 
   <body class="bg-light bg-opacity-70">
     <%= render partial: "layouts/navbar" if @should_render_navbar %>
-    <%= render partial: "layouts/navbar_public" if !user_signed_in? %>
+    <%= render partial: "layouts/navbar_public" if @should_render_navbar_public %>
     <%= render partial: "layouts/alerts" %>
     <%= yield %>
   </body>

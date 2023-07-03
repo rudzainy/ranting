@@ -1,0 +1,21 @@
+<% dragActions = "dragstart->drag#dragStart 
+                    dragover->drag#dragOver 
+                    dragenter->drag#dragEnter
+                    drop->drag#drop
+                    dragend->drag#dragEnd" %>
+
+<%= content_tag(:div, class: "col-12 col-lg-10 mx-auto", draggable: true, data: { 
+  controller: "drag",
+  action: dragActions,
+  resource_id: link.id,
+  url: "/drag/links",
+  parent: "linksContainer"
+}) do %>
+  <div class="bg-info-subtle bg-gradient border border-info rounded p-3 mb-3">
+    <%= simple_form_for(link, url: links_url(link)) do |f| %>
+      <%= f.input :title, placeholder: "Title", label: false, class:"form-control" %>
+      <%= f.input :url, placeholder: "URL", label: false, class:"form-control" %>
+      <%= f.submit "Update Link", class:"btn btn-primary me-auto" %>
+    <% end %>
+  </div>
+<% end %>

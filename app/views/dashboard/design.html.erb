@@ -1,8 +1,12 @@
 <div class="container mt-5">
+  <div class="row">
+    <div class="col"><h1>Edit your profile page design</h1></div>
+  </div>
+
   <div class="row g-3">
     <div class="col-12 col-md-6">
       <div class="card">
-        <div class="card-header">Edit your profile page design</div>
+        <div class="card-header">Basic Info</div>
         <%= image_tag current_user.avatar, class: "d-block mx-auto my-3 col-3 rounded-circle" if current_user.avatar.attached? %>
         <div class="card-body">
           <%= simple_form_for(current_user, url: registration_path(current_user), html: { method: :put }) do |f| %>
