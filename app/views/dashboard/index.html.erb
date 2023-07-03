@@ -4,7 +4,9 @@
       <h1>My Links</h1>
     </div>
   </div>
-  <div class="row" id="linksContainer">
+</div>
+<div class="container-fluid p-5" id="links-container">
+  <div class="row">
     <% @links.each do |link| %>
       <%= render "links/draggable", link: link %>
     <% end %>

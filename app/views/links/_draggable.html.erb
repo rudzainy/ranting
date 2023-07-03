@@ -9,7 +9,7 @@
   action: dragActions,
   resource_id: link.id,
   url: "/drag/links",
-  parent: "linksContainer"
+  parent: "links-container"
 }) do %>
   <div class="bg-info-subtle bg-gradient border border-info rounded p-3 mb-3">
     <%= simple_form_for(link, url: links_url(link)) do |f| %>
