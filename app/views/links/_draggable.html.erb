@@ -4,8 +4,7 @@
                     drop->drag#drop
                     dragend->drag#dragEnd"
       hackLink = "console.log('clicked');document.getElementById('update-link-#{link.id}').click()" %>
-<div class="col-12 col-sm-6 position-relative">
-  <%= content_tag(:div, class: "draggable", draggable: true, data: { 
+  <%= content_tag(:div, class: "col-12 col-sm-6 position-relative draggable", draggable: true, data: { 
     controller: "drag",
     action: dragActions,
     resource_id: link.id,
@@ -13,6 +12,12 @@
     parent: "links-container"
   }) do %>
     <div class="card border-primary">
+      <%# Button for small screens %>
+      <div class="d-lg-none position-absolute top-0 end-0" style="z-index: 3000;">
+        <a onClick=<%= hackLink %> class="btn btn-primary btn-sm">
+          <i class="bi bi-pencil-fill"></i>
+        </a>
+      </div>
       <div class="card-header">
         <i class="bi bi-arrows-move draggable-hook"></i>
       </div>
@@ -26,12 +31,5 @@
           <i class="bi bi-pencil-fill me-2"></i> Update link
         <% end %>
       </div>    
-      <%# Button for small screens %>
-      <div class="d-lg-none position-absolute top-0 end-0" style="z-index: 3000;">
-        <a onClick=<%= hackLink %> class="btn btn-primary btn-sm">
-          <i class="bi bi-pencil-fill"></i>
-        </a>
-      </div>
     </div>
   <% end %>
-</div>
