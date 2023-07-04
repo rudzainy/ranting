@@ -21,7 +21,7 @@
         <%= f.input :title, placeholder: "Name your link", label: false, class:"form-control high-z" %>
         <div class="input-group flex-nowrap">
           <span class="input-group-text mb-3">https://</span>
-          <%= f.input :url, placeholder: "www.site.com", label: false, class:"form-control rounded-start-0 high-z" %>
+          <%= f.input :url, placeholder: "www.site.com", input_html: { value: link.url.gsub(/https:\/\/|http:\/\//, "")}, label: false, class:"form-control rounded-start-0 high-z" %>
         </div>
       </div>
       <div class="card-footer">
