@@ -4,18 +4,24 @@
                     drop->drag#drop
                     dragend->drag#dragEnd" %>
 
-<%= content_tag(:div, class: "col-12 col-lg-10 mx-auto", draggable: true, data: { 
+<%= content_tag(:div, class: "col-12 col-sm-6 draggable", draggable: true, data: { 
   controller: "drag",
   action: dragActions,
   resource_id: link.id,
   url: "/drag/links",
   parent: "links-container"
 }) do %>
-  <div class="bg-info-subtle bg-gradient border border-info rounded p-3 mb-3">
-    <%= simple_form_for(link, url: links_url(link)) do |f| %>
-      <%= f.input :title, placeholder: "Title", label: false, class:"form-control" %>
-      <%= f.input :url, placeholder: "URL", label: false, class:"form-control" %>
-      <%= f.submit "Update Link", class:"btn btn-primary me-auto" %>
-    <% end %>
+  <div class="card border-primary">
+    <div class="card-body">
+      <i class="bi bi-house-door-fill"></i>
+      <%= simple_form_for(link, url: links_url(link)) do |f| %>
+        <%= f.input :title, placeholder: "Name your link", label: false, class:"form-control" %>
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text mb-3">https://</span>
+          <%= f.input :url, placeholder: "www.site.com", label: false, class:"form-control rounded-start-0" %>
+        </div>
+        <%= f.submit "Update Link", class:"btn btn-primary me-auto" %>
+      <% end %>
+    </div>
   </div>
 <% end %>

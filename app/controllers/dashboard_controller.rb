@@ -3,7 +3,8 @@ class DashboardController < ApplicationController
 
   def index
     @should_render_navbar = true
-    @links = current_user.links.order(position: :asc)
+    @user = current_user
+    @links = @user.links.order(position: :asc)
   end
 
   def design
