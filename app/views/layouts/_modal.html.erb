@@ -1,0 +1,17 @@
+<% 
+  title ||= "Modal"
+  body ||= ""
+%>
+<div class="modal fade" tabindex="-1" data-controller="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <%= tag.h5 title, class: "modal-title" %>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <%= tag.div class: "modal-body" do %>
+        <%= render body %>
+      <% end if body.present? %>
+    </div>
+  </div>
+</div>

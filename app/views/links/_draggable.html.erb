@@ -15,18 +15,19 @@
     <div class="card-header">
       <i class="bi bi-arrows-move draggable-hook"></i>
     </div>
-    <%= simple_form_for(link, url: links_url(link)) do |f| %>
-      <div class="card-body">
-        <i class="bi bi-house-door-fill"></i>
-        <%= f.input :title, placeholder: "Name your link", label: false, class:"form-control high-z" %>
-        <div class="input-group flex-nowrap">
-          <span class="input-group-text mb-3">https://</span>
-          <%= f.input :url, placeholder: "www.site.com", input_html: { value: link.url.gsub(/https:\/\/|http:\/\//, "")}, label: false, class:"form-control rounded-start-0 high-z" %>
-        </div>
-      </div>
-      <div class="card-footer">
-        <%= f.submit "Update Link", class:"btn btn-primary me-auto" %>
-      </div>
-    <% end %>
+    <div class="card-body">
+      <i class="bi bi-house-door-fill"></i>
+      <h5 class="card-title"><%= link.title %></h5>
+    </div>
+    <div class="card-footer">
+      <%= link_to edit_link_path(link),
+                  class: "btn btn-primary" do %>
+        <i class="bi bi-pencil-fill me-2"></i> Update link
+      <% end %>
+    </div>
+    
   </div>
 <% end %>
+
+
+    

@@ -1,0 +1,9 @@
+<%= simple_form_for(@link, url: links_url(@link), data: { turbo: false }) do |f| %>
+  <i class="bi bi-house-door-fill"></i>
+  <%= f.input :title, placeholder: "Name your link", label: false, class:"form-control high-z" %>
+  <div class="input-group flex-nowrap">
+    <span class="input-group-text mb-3">https://</span>
+    <%= f.input :url, placeholder: "www.site.com", input_html: { value: @link.url.gsub(/https:\/\/|http:\/\//, "")}, label: false, class:"form-control rounded-start-0 high-z" %>
+  </div>
+  <%= f.submit "Update Link", class:"btn btn-primary me-auto" %>
+<% end %>
