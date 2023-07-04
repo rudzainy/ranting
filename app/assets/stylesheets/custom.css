@@ -13,3 +13,11 @@
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
+
+.navbar-avatar {
+  height: 24px;
+}
+
+.high-z {
+  z-index: 3000;
+}
