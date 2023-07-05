@@ -3,7 +3,7 @@
   <%- resource_class.omniauth_providers.each do |provider| %>
     <% service = OmniAuth::Utils.camelize(provider) %>
     <%#= button_to "#{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-secondary", data: { turbo: false } %>
-    <%= button_to omniauth_authorize_path(resource_name, provider), class: "btn btn-outline-primary mb-2", data: { turbo: false } do %>
+    <%= button_to omniauth_authorize_path(resource_name, provider), class: "btn btn-outline-primary mb-2 w-100 shadow", data: { turbo: false } do %>
       <i class="bi bi-google me-2"></i><%= service == "GoogleOauth2" ? "Google" : service %>
     <% end %>
   <% end %>

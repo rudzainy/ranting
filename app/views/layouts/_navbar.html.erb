@@ -1,34 +1,68 @@
-<nav class="navbar navbar-expand-lg bg-primary bg-opacity-10">
+<nav class="navbar navbar-expand-lg bg-primary-subtle">
   <div class="container-fluid">
     <%= link_to dashboard_path, class: "navbar-brand" do %>
-      <%= image_tag "ranting-logo.png", height: "48", class: "border-light" %>
+      <%= image_tag "logo.png", height: "24", class: "me-1 d-inline-block align-text-top" %>
+      Ranting
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<% if @hacker_variable %>
-					<li class="nav-item">TU: <%= @hacker_variable %></li>
-				<% end %>
-        <li class="nav-item">
-          <%= link_to "Update My Links", dashboard_path, class: "nav-link" %>
+      <ul class="navbar-nav me-auto my-1 mb-lg-0 d-none d-lg-flex">
+        <li class="nav-item me-2">
+          <%= link_to dashboard_path, class: "btn btn-outline-primary" do %>
+            <i class="bi bi-signpost-split me-2"></i>Update My Links
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "Update My Profile Page", design_path, class: "nav-link" %>
+          <%= link_to design_path, class: "btn btn-outline-primary" do %>
+            <i class="bi bi-person-badge me-2"></i>Update My Profile Page
+          <% end %>
         </li>
       </ul>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-block d-lg-none">
-        <hr class="border-light"/>
+      <ul class="navbar-nav me-auto my-1 mb-lg-0 d-block d-lg-none">
+				<% if @hacker_variables %>
+          <li class="nav-item d-flex flex-col gap-3 m-3">
+            <div class="input-group">
+              <span class="input-group-text bg-secondary-subtle" id="basic-addon1">
+                <i class="bi bi-people-fill text-secondary"></i>
+              </span>
+              <input type="text" class="form-control" placeholder=<%= @hacker_variables[0] %> aria-label="Input group example" aria-describedby="basic-addon1" disabled>
+            </div>
+            <div class="input-group">
+              <span class="input-group-text bg-secondary-subtle" id="basic-addon1">
+                <i class="bi bi-signpost-split-fill text-secondary"></i>
+              </span>
+              <input type="text" class="form-control" placeholder=<%= @hacker_variables[1] %> aria-label="Input group example" aria-describedby="basic-addon1" disabled>
+            </div>
+          </li>
+				<% end %>
         <li class="nav-item">
-          <%= link_to "My Account", edit_user_registration_path, class: "nav-link" %>
+          <%= link_to dashboard_path, class: "btn btn-light d-block mb-1 shadow" do %>
+            <i class="bi bi-signpost-split me-2"></i>Update My Links
+          <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to "View My Profile", user_path(current_user.slug), target: "_blank", class: "nav-link" %>
+          <%= link_to design_path, class: "btn btn-light d-block mb-1 shadow" do %>
+            <i class="bi bi-person-badge me-2"></i>Update My Profile Page
+          <% end %>
         </li>
         <hr class="border-light"/>
         <li class="nav-item">
-          <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: 'Are you sure you want to log out?'}, class: "btn btn-outline-danger mx-auto" %>
+          <%= link_to edit_user_registration_path, class: "btn btn-light d-block mb-1 shadow" do %>
+            <i class="bi bi-gear-wide-connected me-2"></i>My Account Settings
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to user_path(current_user.slug), target: "_blank", class: "btn btn-light d-block shadow" do %>
+            <i class="bi bi-rocket-takeoff me-2 "></i>View My Profile
+          <% end %>
+        </li>
+        <hr class="border-light"/>
+        <li class="nav-item">
+          <%= link_to destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: 'Are you sure you want to log out?'}, class: "btn btn-light d-block shadow" do %>
+            <i class="bi bi-door-open me-2"></i>Logout
+          <% end %>
         </li>
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-none d-lg-block">
@@ -42,10 +76,21 @@
             <% end %>
           </a>
           <ul class="dropdown-menu dropdown-menu-end">
-            <li><%= link_to "My Account", edit_user_registration_path, class: "dropdown-item" %></li>
-            <li><%= link_to "View My Profile", user_path(current_user.slug), target: "_blank", class: "dropdown-item" %></li>
+            <li>
+              <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
+                <i class="bi bi-gear-wide-connected me-2"></i>My Account Settings
+              <% end %>
+            </li>
+            <li><%= link_to  user_path(current_user.slug), target: "_blank", class: "dropdown-item" do %>
+                <i class="bi bi-rocket-takeoff me-2"></i>View My Profile
+            <% end %>
+            </li>
             <li><hr class="dropdown-divider"></li>
-            <li><%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: 'Are you sure you want to log out?'}, class: "dropdown-item" %></li>
+            <li>
+              <%= link_to destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: 'Are you sure you want to log out?'}, class: "dropdown-item" do %>
+                <i class="bi bi-door-open me-2"></i>Logout
+              <% end %>
+            </li>
           </ul>
         </li>
       </ul>

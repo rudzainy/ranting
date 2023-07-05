@@ -5,5 +5,5 @@
     <span class="input-group-text mb-3">https://</span>
     <%= f.input :url, placeholder: "www.site.com", input_html: { value: @link.url.gsub(/https:\/\/|http:\/\//, "")}, label: false, class:"form-control rounded-start-0 high-z" %>
   </div>
-  <%= f.submit "Update Link", class:"btn btn-primary me-auto" %>
+  <%= f.submit "Update Link", class:"btn btn-primary me-auto shadow" %>
 <% end %>

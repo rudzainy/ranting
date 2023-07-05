@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_should_render_navbar
   before_action :set_should_render_navbar_public
-  before_action :set_hacker_variable
+  before_action :set_hacker_variables
   before_action :turbo_frame_request_variant
 
   private 
@@ -23,11 +23,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def set_hacker_variable
+  def set_hacker_variables
     if user_signed_in? && current_user.username == "rudzainy"
-        @hacker_variable = User.count
+      @hacker_variables = []
+      @hacker_variables[0] = User.count
+      @hacker_variables[1] = Link.count
     else
-        @hacker_variable = false
+        @hacker_variables = false
     end
   end
 

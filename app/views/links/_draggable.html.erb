@@ -14,7 +14,7 @@
     <div class="card border-primary">
       <%# Button for small screens %>
       <div class="d-lg-none position-absolute top-0 end-0" style="z-index: 3000;">
-        <a onClick=<%= hackLink %> class="btn btn-primary btn-sm">
+        <a onClick=<%= hackLink %> class="btn btn-primary btn-sm shadow">
           <i class="bi bi-pencil-fill"></i>
         </a>
       </div>
@@ -26,8 +26,8 @@
         <h5 class="card-title"><%= link.title %></h5>
       </div>
       <%# Button for large screens %>
-      <div class="d-none d-lg-flex card-footer">
-        <%= link_to edit_link_path(link), class: "btn btn-primary", id: "update-link-#{link.id}" do %>
+      <div class="d-none d-lg-grid card-footer">
+        <%= link_to edit_link_path(link), class: "btn btn-primary shadow", id: "update-link-#{link.id}" do %>
           <i class="bi bi-pencil-fill me-2"></i> Update link
         <% end %>
       </div>    
