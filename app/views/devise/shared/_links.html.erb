@@ -1,3 +1,15 @@
+<%- if devise_mapping.omniauthable? %>
+  <p class="text-muted">You can also log in or sign up with</p>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <% service = OmniAuth::Utils.camelize(provider) %>
+    <%#= button_to "#{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-secondary", data: { turbo: false } %>
+    <%= button_to omniauth_authorize_path(resource_name, provider), class: "btn btn-outline-primary mb-2", data: { turbo: false } do %>
+      <i class="bi bi-google me-2"></i><%= service == "GoogleOauth2" ? "Google" : service %>
+    <% end %>
+  <% end %>
+  <hr />
+<% end %>
+
 <%- if controller_name != 'sessions' %>
   <p>Already have an account?<br />
   <%= link_to "Log in here!", new_session_path(resource_name), class: "link-underline-primary" %></p>
@@ -19,10 +31,4 @@
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
-<% end %>
-
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= button_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), data: { turbo: false } %><br />
-  <% end %>
 <% end %>

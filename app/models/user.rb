@@ -3,7 +3,9 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         # for Google OmniAuth
+         :omniauthable, omniauth_providers: [:google_oauth2]
 
   has_one_attached :avatar
   has_many :links, dependent: :destroy
@@ -30,6 +32,16 @@ class User < ApplicationRecord
 
   def should_generate_new_friendly_id?
     username_changed? || slug.blank?
+  end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0, 20]
+      user.username = auth.info.email.split('@').first
+      user.full_name = auth.info.name
+      user.avatar_url = auth.info.image
+    end
   end
 
   private

@@ -88,3 +88,8 @@ gem "pg", "~> 1.5"
 #TODO: Setup Administrate
 # gem "administrate"
 gem "acts_as_list", "~> 1.1"
+
+gem "dotenv-rails", "~> 2.8"
+gem "omniauth", "~> 2.1"
+gem "omniauth-google-oauth2", "~> 1.1"
+gem "omniauth-rails_csrf_protection", "~> 1.0"
