@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  
+  get "/service-worker.js" => "service_worker#service_worker"
+  get "/manifest.json" => "service_worker#manifest"
+  
   get 'pricing', to: 'static#pricing'
   get 'licences_disclaimer', to: 'static#licences_disclaimer'
   get 'contact', to: 'static#contact'
@@ -19,7 +23,4 @@ Rails.application.routes.draw do
   root 'dashboard#index'
 
   get ':id', to: 'links#show', as: :user
-  
-  get "/service-worker.js" => "service_worker#service_worker"
-  get "/manifest.json" => "service_worker#manifest"
 end
