@@ -38,4 +38,5 @@
 | Price               | Free       | RM4/year | RM48/year or RM4/month  | RM48/year  |
 | Account Maintenance | 30 days    | 1 year   | 1 Year or 30 days       | 1 year     |
 | Features            | Restricted | Limited  | Essentials              | Expandable |
+| Cost                | Minimal    | Minimal  | Bearable                | Expensive  |
 
