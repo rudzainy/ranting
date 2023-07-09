@@ -1,4 +1,4 @@
-<div class="container mt-5 text-center">
+<div class="container my-5 text-center">
   <div class="row g-3">
     <div class="col-lg-6 mx-auto">
       <%= image_tag @user.avatar, class: "d-block mx-auto my-3 col-3 col-md-4 col-lg-2 rounded-circle" if @user.avatar.attached? %>
@@ -31,7 +31,7 @@
     </div>
   </div>
 </div>
-<div class="container sticky-bottom text-center">
+<div class="container fixed-bottom text-center">
 <%= link_to root_path, class: "btn btn-small btn-outline-primary" do %>
 Build your own bio with Ranting
 <% end %>
