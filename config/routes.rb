@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get 'contact', to: 'static#contact'
   get 'about', to: 'static#about'
 
-  get 'links/:id/edit', to: 'links#edit', as: :edit_link
-  patch 'links/:id' => 'links#update', as: :links
+  resources :links, except: :destroy
+
   patch 'drag/links'
   
   devise_for :users, controllers: {
@@ -18,9 +18,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  get 'dashboard', to: 'dashboard#index'
+  get 'analytics', to: 'analytics#index'
   get 'design', to: 'dashboard#design'
-  root 'dashboard#index'
+  root 'links#index'
 
   get ':id', to: 'links#show', as: :user
 end
