@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-primary-subtle">
   <div class="container-fluid">
-    <%= link_to dashboard_path, class: "navbar-brand" do %>
+    <%= link_to links_path, class: "navbar-brand" do %>
       <%= image_tag "logo.png", height: "24", class: "me-1 d-inline-block align-text-top" %>
       Ranting
     <% end %>
@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto my-1 mb-lg-0 d-none d-lg-flex">
         <li class="nav-item me-2">
-          <%= link_to dashboard_path, class: "btn btn-outline-secondary border-0" do %>
+          <%= link_to links_path, class: "btn btn-outline-secondary border-0" do %>
             <i class="bi bi-signpost-split me-2"></i>Update My Links
           <% end %>
         </li>
@@ -38,7 +38,7 @@
           </li>
 				<% end %>
         <li class="nav-item">
-          <%= link_to dashboard_path, class: "btn btn-light d-block mb-1 shadow" do %>
+          <%= link_to links_path, class: "btn btn-light d-block mb-1 shadow" do %>
             <i class="bi bi-signpost-split me-2"></i>Update My Links
           <% end %>
         </li>
@@ -69,8 +69,8 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <span class="me-2"><%= current_user.username %></span>
-            <% if @user.avatar.attached? %>
-              <%= image_tag @user.avatar, class: "navbar-avatar rounded-circle" %>
+            <% if current_user.avatar.attached? %>
+              <%= image_tag current_user.avatar, class: "navbar-avatar rounded-circle" %>
             <% else %>
               <i class="bi bi-person-circle navbar-brand"></i>
             <% end %>
