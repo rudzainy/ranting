@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'contact', to: 'static#contact'
   get 'about', to: 'static#about'
 
-  resources :links, except: :destroy
+
 
   patch 'drag/links'
   
@@ -18,8 +18,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  get 'analytics', to: 'analytics#index'
-  get 'design', to: 'dashboard#design'
+  resources :links, except: :destroy
+  resources :users, only: :edit
+
   root 'links#index'
 
   get ':id', to: 'links#show', as: :user
