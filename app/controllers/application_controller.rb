@@ -9,6 +9,13 @@ class ApplicationController < ActionController::Base
 
   private 
 
+  def set_user
+    @user = User.friendly.find(params[:id]) || User.find(params[:id])
+
+  rescue StandardError
+    @user = nil
+  end
+
   def set_should_render_navbar
     @should_render_navbar = false
   end

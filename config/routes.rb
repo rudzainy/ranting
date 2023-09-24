@@ -8,8 +8,6 @@ Rails.application.routes.draw do
   get 'contact', to: 'static#contact'
   get 'about', to: 'static#about'
 
-
-
   patch 'drag/links'
   
   devise_for :users, controllers: {
@@ -23,5 +21,5 @@ Rails.application.routes.draw do
 
   root 'links#index'
 
-  get ':id', to: 'links#show', as: :user
+  get ':id', to: 'users#show', as: :user
 end

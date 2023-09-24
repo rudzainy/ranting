@@ -1,18 +1,12 @@
 class LinksController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!
   before_action :link_params, only: [:update]
-  before_action :set_user, only: [:show, :edit, :index]
+  before_action :set_user, only: [:edit, :index]
   before_action :set_link, only: [:update, :edit]
 
   def index
     @should_render_navbar = true
     @links = current_user.links.order(position: :asc)
-  end
-
-  def show
-    redirect_to links_path if @user.nil?
-
-    @links = @user.links.where.not(url: 'https://', title: '').order(position: :asc)
   end
 
   def edit; end
@@ -35,13 +29,6 @@ class LinksController < ApplicationController
 
   def link_params
     params.require(:link).permit(:title, :url)
-  end
-
-  def set_user
-    @user = User.friendly.find(params[:id]) || User.find(params[:id])
-
-  rescue StandardError
-    @user = nil
   end
 
   def set_link
