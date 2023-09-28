@@ -1,2 +1,13 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+// https://discuss.rubyonrails.org/t/unable-to-import-font-awesome/82423
+// importing core styling file
+@import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
+
+// our project needs Solid + Brands + Regular
+@import "@fortawesome/fontawesome-free/scss/solid.scss";
+@import "@fortawesome/fontawesome-free/scss/brands.scss";
+@import "@fortawesome/fontawesome-free/scss/regular.scss";
+
+$fa-font-path: "../webfonts";

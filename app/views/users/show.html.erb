@@ -15,24 +15,21 @@
       </p>
     </div>
     <div class="col-lg-6">
-
-      <div class="row g-3">
-        <% @links.each do |link| %>
-          <div class="col-6">
-            <div class="card border-primary">
-              <%= link_to link.url, target: "_blank", class:"card-body" do %>
-                <i class="bi bi-house-door-fill"></i>
-                <h5 class="card-title"><%= link.title %></h5>
-              <% end %>
+      <% @links.each do |link| %>
+        <div class="d-grid gap-2 mb-3">
+          <%= link_to link.url, target: "_blank", class: "text-decoration-none" do %>
+            <div class="btn-group w-100 d-flex" role="group">
+              <div class="btn btn-lg btn-primary flex-shrink-1"><i class="fa-<%= link.icon_style %> fa-<%= link.icon %> mr-2"></i></div>
+              <div class="btn btn-lg btn-outline-primary w-100 text-start"><%= link.title %></div>
             </div>
-          </div>
-        <% end %>
-      </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
 <div class="container fixed-bottom text-center">
-<%= link_to root_path, class: "btn btn-small btn-outline-primary mb-2" do %>
+<%= link_to root_path, class: "btn btn-small btn-outline-secondary mb-2" do %>
 Build your own bio with Ranting
 <% end %>
 </div>

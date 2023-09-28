@@ -108,7 +108,7 @@ GEM
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
-    ffi (1.15.5)
+    ffi (1.16.2)
     font-awesome-sass (6.4.2)
       sassc (~> 2.0)
     friendly_id (5.5.0)
@@ -286,8 +286,6 @@ PLATFORMS
 DEPENDENCIES
   acts_as_list (~> 1.1)
   bootsnap
-  bootstrap-icons (~> 1.0)
-  bootstrap-icons-helper (~> 2.0)
   byebug
   capybara
   cssbundling-rails
