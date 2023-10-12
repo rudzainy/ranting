@@ -40,3 +40,6 @@
 | Features            | Restricted | Limited  | Essentials              | Expandable |
 | Cost                | Minimal    | Minimal  | Bearable                | Expensive  |
 
+## References
+
+- https://learn.deanin.com/courses/build-a-linktree-on-rails
