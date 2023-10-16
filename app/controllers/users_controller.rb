@@ -3,6 +3,8 @@ class UsersController < ApplicationController
 
   def edit
     @should_render_navbar = true
+
+    @links = @user.links.where.not(url: 'https://', title: '').order(position: :asc)
   end
 
   def show
