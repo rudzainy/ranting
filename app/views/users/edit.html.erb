@@ -27,7 +27,7 @@
           </div>
           <div class="card-footer text-body-secondary mt-3">
             <div class="form-actions d-grid">
-              <%= f.button :submit, "Update", class: "btn btn-primary shadow" %>
+              <%= f.button :submit, "Update Basic Info", class: "btn btn-primary shadow" %>
             </div>
           </div>
         <% end %>
@@ -55,7 +55,7 @@
           </div>
           <div class="card-footer text-body-secondary mt-3">
             <div class="form-actions d-grid">
-              <%= f.button :submit, "Update", class: "btn btn-primary shadow" %>
+              <%= f.button :submit, "Update Page Settings", class: "btn btn-primary shadow" %>
             </div>
           </div>
         <% end %>
@@ -64,8 +64,14 @@
         </div>
       </div>
     </div>
-    <div class="col-12 col-md-6 d-flex align-items-stretc rounded p-5 border border-secondary">
-      <%= render 'profile_preview', user: @user %>
+    <div class="col-12 col-md-6 d-flex align-items-stretch">
+      <div class="card mb-3">
+        <div class="card-header"><i class="bi bi-emoji-heart-eyes me-2"></i>Preview</div>
+          <div class="card-body" style="background-color: <%=@user.background_color %>">
+            <%= render 'profile_preview', user: @user %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
