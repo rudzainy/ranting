@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_04_233701) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_16_132337) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,6 +49,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_04_233701) do
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.integer "position"
+    t.string "icon", default: "link"
+    t.string "icon_style", default: "solid"
     t.index ["user_id"], name: "index_links_on_user_id"
   end
 
@@ -67,6 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_04_233701) do
     t.string "uid"
     t.string "avatar_url"
     t.string "provider"
+    t.string "background_color", default: "FFFFFF"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["slug"], name: "index_users_on_slug", unique: true

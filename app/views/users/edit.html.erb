@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col">
       <h1>Update your profile page design</h1>
-      <% if !current_user.username.nil? %>
+      <% if !@user.username.nil? %>
         <button onclick="copyText()" class="btn btn-outline-secondary">
           <i class="bi bi-clipboard-plus me-2"></i>Copy my profile link
         </button>
@@ -14,52 +14,65 @@
     <div class="col-12 col-md-6">
       <div class="card mb-3">
         <div class="card-header"><i class="bi bi-person-badge me-2"></i>Basic Info</div>
-        <%= image_tag current_user.avatar, class: "d-block mx-auto my-3 col-3 rounded-circle" if current_user.avatar.attached? %>
-        <%= simple_form_for(current_user, url: registration_path(current_user), html: { method: :put }) do |f| %>
+        <%= image_tag @user.avatar, class: "d-block mx-auto my-3 col-3 rounded-circle" if @user.avatar.attached? %>
+        <%= simple_form_for(@user, url: registration_path(@user), html: { method: :put }) do |f| %>
           <div class="card-body">
             <%= f.error_notification %>
             <div class="form-inputs">
               <%= f.input :avatar, required: false, label: "Upload your profile photo" %>
               <%= f.input :username, wrapper: :input_group, placeholder: "Your username", label: "Username", class: "form-control mb-3 rounded-3", required: true, prepend: "@" %>
               <%= f.input :full_name, placeholder: "Your full name", label: "Full name", class: "form-control mb-3", required: false %>
-              <%= f.text_area :description, placeholder: "About you", label: "Short description", class:"form-control mb-3", required: false%>
+              <%= f.text_area :description, placeholder: "About you", label: "Short description", class:"form-control mb-3", required: false %>
             </div>
           </div>
           <div class="card-footer text-body-secondary mt-3">
             <div class="form-actions d-grid">
-              <%= f.button :submit, "Update", class: "btn btn-primary shadow" %>
+              <%= f.button :submit, "Update Basic Info", class: "btn btn-primary shadow" %>
             </div>
           </div>
         <% end %>
       </div>
-
       
       <div class="card">
         <div class="card-header"><i class="bi bi-sliders me-2"></i>Page Settings</div>
-        <div class="card-body">
-          <div class="form-inputs">
-            <div class="mb-3">
-              <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDisabled" disabled>
-                <label class="form-check-label" for="flexSwitchCheckDisabled">Make profile private</label>
+        <%= simple_form_for(@user, url: registration_path(@user), html: { method: :put }) do |f| %>
+          <div class="card-body">
+            <div class="form-inputs">
+              <div class="mb-3">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDisabled" disabled>
+                  <label class="form-check-label" for="flexSwitchCheckDisabled">Make profile private</label>
+                </div>
+              </div>
+              <div class="mb-3">
+                <%= f.color_field :background_color, label: "Background colour",  class: "form-control" %>
+              </div>
+              <div class="mb-3">
+                <label for="eWallet" class="form-label">E-Wallet</label>
+                <input type="text" class="form-control" id="eWallet" placeholder="Coming soon" disabled>
               </div>
             </div>
-            <div class="mb-3">
-              <label for="userBgColour" class="form-label">Background colour</label>
-              <input type="text" class="form-control" id="userBgColour" placeholder="Coming soon" disabled>
-            </div>
-            <div class="mb-3">
-              <label for="eWallet" class="form-label">E-Wallet</label>
-              <input type="text" class="form-control" id="eWallet" placeholder="Coming soon" disabled>
+          </div>
+          <div class="card-footer text-body-secondary mt-3">
+            <div class="form-actions d-grid">
+              <%= f.button :submit, "Update Page Settings", class: "btn btn-primary shadow" %>
             </div>
           </div>
-        </div>
+        <% end %>
         <div class="card-footer text-body-secondary mt-3">
           <%= link_to "+ Add social links", "", class: "btn btn-outline-secondary disabled", disabled: :true %>
         </div>
       </div>
     </div>
-    <div class="col-12 col-md-6 d-flex align-items-stretch bg-warning-subtle rounded p-5">Preview Area&nbsp;<span class="text-muted">(Coming soon)</span></div>
+    <div class="col-12 col-md-6 d-flex align-items-stretch">
+      <div class="card mb-3">
+        <div class="card-header"><i class="bi bi-emoji-heart-eyes me-2"></i>Preview</div>
+          <div class="card-body" style="background-color: <%=@user.background_color %>">
+            <%= render 'profile_preview', user: @user %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -67,7 +80,7 @@
   function copyText() {
     /* Copy text into clipboard */
     const app_url = "<%= request.base_url %>"
-    const username = "<%= current_user.username %>"
+    const username = "<%= @user.username %>"
     navigator.clipboard.writeText(app_url + "/" + username);
   }
 </script>

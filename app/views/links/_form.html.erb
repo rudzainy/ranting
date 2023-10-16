@@ -1,9 +1,25 @@
 <%= simple_form_for(@link, data: { turbo: false }) do |f| %>
-  <i class="bi bi-house-door-fill"></i>
-  <%= f.input :title, placeholder: "Name your link", label: false, class:"form-control high-z" %>
-  <div class="input-group flex-nowrap">
-    <span class="input-group-text mb-3">https://</span>
-    <%= f.input :url, placeholder: "www.site.com", input_html: { value: @link.url.gsub(/https:\/\/|http:\/\//, "")}, label: false, class:"form-control rounded-start-0 high-z" %>
+  <div class="row mb-3">
+    <i class="fa-<%= @link.icon_style %> fa-<%= @link.icon %>"></i>
+    <label for="icon" class="col-sm-3 col-form-label">Link icon</label>
+    <div class="col-sm-9"> 
+      <%= f.input :icon, :collection => icons_list, label: false, class: "form-select" %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label for="title" class="col-sm-3 col-form-label">Link title</label>
+    <div class="col-sm-9">
+      <%= f.input :title, placeholder: "Name your link", label: false, class:"form-control high-z", html: {id: "title"} %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label for="url" class="col-sm-3 col-form-label">Link URL</label>
+    <div class="col-sm-9">
+      <div class="input-group flex-nowrap">
+        <span class="input-group-text h-50">https://</span>
+        <%= f.input :url, placeholder: sanitize_link(@link.url), input_html: { value: sanitize_link(@link.url)}, label: false, class:"form-control rounded-start-0 high-z" %>
+      </div>
+    </div>
   </div>
   <%= f.submit "Update Link", class:"btn btn-primary me-auto shadow" %>
 <% end %>

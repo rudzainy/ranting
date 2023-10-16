@@ -18,11 +18,11 @@
 
       <div class="row g-3">
         <% @links.each do |link| %>
-          <div class="col-6">
+          <div class="col-12 col-md-6">
             <div class="card border-primary">
-              <%= link_to link.url, target: "_blank", class:"card-body" do %>
-                <i class="bi bi-house-door-fill"></i>
-                <h5 class="card-title"><%= link.title %></h5>
+              <%= link_to link.url, target: "_blank", class:"card-body d-flex flex-row align-items-center text-decoration-none" do %>
+                <i class="bi bi-house-door-fill me-2"></i>
+                <h5 class="card-title mb-0"><%= link.title %></h5>
               <% end %>
             </div>
           </div>

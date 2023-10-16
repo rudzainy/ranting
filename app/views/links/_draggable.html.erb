@@ -1,35 +1,42 @@
 <% dragActions = "dragstart->drag#dragStart 
-                    dragover->drag#dragOver 
-                    dragenter->drag#dragEnter
-                    drop->drag#drop
-                    dragend->drag#dragEnd"
+                  dragover->drag#dragOver 
+                  dragenter->drag#dragEnter
+                  drop->drag#drop
+                  dragend->drag#dragEnd"
       hackLink = "console.log('clicked');document.getElementById('update-link-#{link.id}').click()" %>
-  <%= content_tag(:div, class: "col-12 col-sm-6 position-relative draggable", draggable: true, data: { 
-    controller: "drag",
-    action: dragActions,
-    resource_id: link.id,
-    url: "/drag/links",
-    parent: "links-container"
-  }) do %>
-    <div class="card border-primary">
-      <%# Button for small screens %>
-      <div class="d-lg-none position-absolute top-0 end-0" style="z-index: 3000;">
-        <a onClick=<%= hackLink %> class="btn btn-primary btn-sm shadow">
-          <i class="bi bi-pencil-fill"></i>
-        </a>
-      </div>
-      <div class="card-header">
-        <i class="bi bi-arrows-move draggable-hook"></i>
-      </div>
-      <div class="card-body">
-        <i class="bi bi-house-door-fill"></i>
-        <h5 class="card-title"><%= link.title %></h5>
-      </div>
-      <%# Button for large screens %>
-      <div class="d-none d-lg-grid card-footer">
-        <%= link_to edit_link_path(link), class: "btn btn-primary shadow", id: "update-link-#{link.id}" do %>
-          <i class="bi bi-pencil-fill me-2"></i> Update link
-        <% end %>
-      </div>    
+<%= content_tag(:div, class: "col-12 position-relative draggable", draggable: true, data: { 
+  controller: "drag",
+  action: dragActions,
+  resource_id: link.id,
+  url: "/drag/links",
+  parent: "links-container"
+}) do %>
+  <div class="card border-primary">
+    <%# Button for small screens %>
+    <div class="d-lg-none position-absolute top-0 end-0" style="z-index: 3000;">
+      <a onClick=<%= hackLink %> class="btn btn-primary btn-sm shadow">
+        <i class="bi bi-pencil-fill"></i>
+      </a>
     </div>
-  <% end %>
+    <div class="card-header">
+      <i class="bi bi-arrows-move draggable-hook"></i>
+    </div>
+    <div class="card-body">
+      <div class="d-grid gap-2 mb-3">
+          <%= link_to link.url, target: "_blank", class: "text-decoration-none" do %>
+            <div class="btn-group w-100 d-flex" role="group">
+              <div class="btn btn-lg btn-primary flex-shrink-1"><i class="fa-<%= link.icon_style %> fa-<%= link.icon %> mr-2"></i></div>
+              <div class="btn btn-lg btn-outline-primary w-100 text-start"><%= link.title %></div>
+            </div>
+          <% end %>
+        </div>
+    </div>
+    <%# Button for large screens %>
+    <div class="d-none d-lg-grid card-footer">
+      <%= link_to edit_link_path(link), class: "btn btn-primary shadow", id: "update-link-#{link.id}" do %>
+        <i class="bi bi-pencil-fill me-2"></i> Update link
+      <% end %>
+    </div>    
+  </div>
+<% end %>
+
