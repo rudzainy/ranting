@@ -23,13 +23,17 @@
     </div>
     <div class="card-body">
       <div class="d-grid gap-2 mb-3">
+        <% if link.empty?%>
+          Click Update Link
+        <% else %>
           <%= link_to link.url, target: "_blank", class: "text-decoration-none" do %>
             <div class="btn-group w-100 d-flex" role="group">
               <div class="btn btn-lg btn-primary flex-shrink-1"><i class="fa-<%= link.icon_style %> fa-<%= link.icon %> mr-2"></i></div>
               <div class="btn btn-lg btn-outline-primary w-100 text-start"><%= link.title %></div>
             </div>
           <% end %>
-        </div>
+        <% end %>
+      </div>
     </div>
     <%# Button for large screens %>
     <div class="d-none d-lg-grid card-footer">

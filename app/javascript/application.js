@@ -3,6 +3,7 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 import * as bootstrap from "bootstrap"
 import "./custom/companion"
+import "./links"
 
 // https://discuss.rubyonrails.org/t/unable-to-import-font-awesome/82423
 // importing core styling file

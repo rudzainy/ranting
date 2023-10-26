@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
 
   def set_should_render_navbar_public
     if !user_signed_in? 
+      byebug
       if params[:controller] == "links"
         @should_render_navbar_public = false
       else

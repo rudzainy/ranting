@@ -11,5 +11,12 @@ class UsersController < ApplicationController
     redirect_to links_path if @user.nil?
 
     @links = @user.links.where.not(url: 'https://', title: '').order(position: :asc)
+    set_background_color
+  end
+
+  private
+
+  def set_background_color
+    @inject_background_color = "background-color: " + @user.background_color
   end
 end

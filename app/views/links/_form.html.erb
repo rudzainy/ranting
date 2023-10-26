@@ -1,9 +1,26 @@
 <%= simple_form_for(@link, data: { turbo: false }) do |f| %>
   <div class="row mb-3">
-    <i class="fa-<%= @link.icon_style %> fa-<%= @link.icon %>"></i>
     <label for="icon" class="col-sm-3 col-form-label">Link icon</label>
-    <div class="col-sm-9"> 
-      <%= f.input :icon, :collection => icons_list, label: false, class: "form-select" %>
+    <div class="col-sm-9">
+
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="icon" id="selected-icon">
+          <i class="fa-<%= @link.icon_style %> fa-<%= @link.icon %> mr-2"></i>
+        </label>
+        <%= f.select :icon, icons_list, {}, {class: "form-select", id: "icon"} do %>
+          <%= icons_list.each do |i| %>
+            <% if i == @link.icon %>
+              <option selected value="<%= i %>">
+                <%= i %>
+              </option>
+            <% else %>
+              <option value="<%= i %>">
+                <%= i %>
+              </option>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
   <div class="row mb-3">
