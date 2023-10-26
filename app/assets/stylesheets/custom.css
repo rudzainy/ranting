@@ -21,3 +21,7 @@
 .high-z {
   z-index: 3000;
 }
+
+select {
+  font-family: 'Font Awesome\ 5 Solid' , 'sans-serif';
+}

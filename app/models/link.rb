@@ -3,6 +3,10 @@ class Link < ApplicationRecord
   acts_as_list
   before_save :sanitize_url
 
+  def empty?
+    self.title == "" && self.url == "https://"
+  end
+
   private
 
   def sanitize_url

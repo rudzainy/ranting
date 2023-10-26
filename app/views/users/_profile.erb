@@ -9,24 +9,24 @@
       <h5>Social Links</h5>
       <div class="d-grid gap-2 mb-3" id="social-buttons">
         <div class="btn-group w-100 d-flex" role="group">
-          <div class="btn btn-lg btn-primary flex-shrink-1 disabled"><i class="fa-brands fa-twitter mr-2"></i></div>
-          <div class="btn btn-lg btn-outline-primary w-100 text-start disabled">@your_name</div>
+          <div class="btn btn-lg btn-primary flex-shrink-1 disabled col-2 text-center"><i class="fa-brands fa-twitter mr-2"></i></div>
+          <div class="btn btn-lg btn-outline-primary bg-white w-100 text-start disabled">@your_name</div>
         </div>
         <div class="btn-group w-100 d-flex" role="group">
-          <div class="btn btn-lg btn-primary disabled flex-shrink-1"><i class="fa-brands fa-youtube mr-2"></i></div>
-          <div class="btn btn-lg btn-outline-primary disabled w-100 text-start">@your_name</div>
+          <div class="btn btn-lg btn-primary disabled flex-shrink-1 col-2 text-center"><i class="fa-brands fa-youtube mr-2"></i></div>
+          <div class="btn btn-lg btn-outline-primary bg-white disabled w-100 text-start">@your_name</div>
         </div>
         <div class="btn-group w-100 d-flex" role="group">
-          <div class="btn btn-lg btn-primary disabled flex-shrink-1"><i class="fa-brands fa-facebook mr-2"></i></div>
-          <div class="btn btn-lg btn-outline-primary disabled w-100 text-start">@your_name</div>
+          <div class="btn btn-lg btn-primary disabled flex-shrink-1 col-2 text-center"><i class="fa-brands fa-facebook mr-2"></i></div>
+          <div class="btn btn-lg btn-outline-primary bg-white disabled w-100 text-start">@your_name</div>
         </div>
         <div class="btn-group w-100 d-flex" role="group">
-          <div class="btn btn-lg btn-primary disabled flex-shrink-1"><i class="fa-brands fa-whatsapp mr-2"></i></div>
-          <div class="btn btn-lg btn-outline-primary disabled w-100 text-start">@your_name</div>
+          <div class="btn btn-lg btn-primary disabled flex-shrink-1 col-2 text-center"><i class="fa-brands fa-whatsapp mr-2"></i></div>
+          <div class="btn btn-lg btn-outline-primary bg-white disabled w-100 text-start">@your_name</div>
         </div>
         <div class="btn-group w-100 d-flex" role="group">
-          <div class="btn btn-lg btn-primary disabled flex-shrink-1"><i class="fa-brands fa-telegram mr-2"></i></div>
-          <div class="btn btn-lg btn-outline-primary disabled w-100 text-start">@your_name</div>
+          <div class="btn btn-lg btn-primary disabled flex-shrink-1 col-2 text-center"><i class="fa-brands fa-telegram mr-2"></i></div>
+          <div class="btn btn-lg btn-outline-primary bg-white disabled w-100 text-start">@your_name</div>
         </div>
       </div>
     </div>
@@ -36,8 +36,8 @@
         <div class="d-grid gap-2 mb-3">
           <%= link_to link.url, target: "_blank", class: "text-decoration-none" do %>
             <div class="btn-group w-100 d-flex" role="group">
-              <div class="btn btn-lg btn-primary flex-shrink-1"><i class="fa-<%= link.icon_style %> fa-<%= link.icon %> mr-2"></i></div>
-              <div class="btn btn-lg btn-outline-primary w-100 text-start"><%= link.title %></div>
+              <div class="btn btn-lg btn-primary flex-shrink-1 col-2 text-center"><i class="fa-<%= link.icon_style %> fa-<%= link.icon %> mr-2"></i></div>
+              <div class="btn btn-lg btn-outline-primary bg-white w-100 text-start"><%= link.title %></div>
             </div>
           <% end %>
         </div>
