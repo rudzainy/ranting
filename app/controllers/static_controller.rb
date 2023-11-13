@@ -1,5 +1,5 @@
 class StaticController < ApplicationController
-  # before_action :set_should_render_navbar
+  before_action :set_should_render_navbar
 
   def pricing
   end
@@ -16,6 +16,8 @@ class StaticController < ApplicationController
   private
 
   def set_should_render_navbar
-    # @should_render_navbar = true
+    if user_signed_in? 
+      @should_render_navbar = true
+    end
   end
 end
