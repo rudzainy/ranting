@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def show
     redirect_to links_path if @user.nil?
 
+    impressionist(@user)
     @links = @user.links.where.not(url: 'https://', title: '').order(position: :asc)
     set_background_color
   end

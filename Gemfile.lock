@@ -115,6 +115,8 @@ GEM
     hashie (5.0.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
+    impressionist (2.0.0)
+      nokogiri (~> 1)
     io-console (0.6.0)
     irb (1.7.0)
       reline (>= 0.3.0)
@@ -288,6 +290,7 @@ DEPENDENCIES
   devise (~> 4.9)
   dotenv-rails (~> 2.8)
   friendly_id (~> 5.5)
+  impressionist
   jbuilder
   jsbundling-rails
   omniauth (~> 2.1)

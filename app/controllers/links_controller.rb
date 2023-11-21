@@ -2,7 +2,7 @@ class LinksController < ApplicationController
   before_action :authenticate_user!
   before_action :link_params, only: [:update]
   before_action :set_user, only: [:edit, :index]
-  before_action :set_link, only: [:update, :edit]
+  before_action :set_link, only: [:update, :edit, :show]
 
   def index
     @should_render_navbar = true
@@ -10,6 +10,11 @@ class LinksController < ApplicationController
   end
 
   def edit; end
+
+  def show
+    impressionist(@link)
+    redirect_to(@link.url, allow_other_host: true)
+  end
 
   def update
     respond_to do |format|
