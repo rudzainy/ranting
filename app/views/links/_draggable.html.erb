@@ -4,43 +4,28 @@
                   drop->drag#drop
                   dragend->drag#dragEnd"
       hackLink = "console.log('clicked');document.getElementById('update-link-#{link.id}').click()" %>
-<%= content_tag(:div, class: "col-12 position-relative draggable", draggable: true, data: { 
+<%= content_tag(:tr, class: "col-12 position-relative draggable", draggable: true, data: { 
   controller: "drag",
   action: dragActions,
   resource_id: link.id,
   url: "/drag/links",
   parent: "links-container"
 }) do %>
-  <div class="card border-primary">
-    <%# Button for small screens %>
-    <div class="d-lg-none position-absolute top-0 end-0" style="z-index: 3000;">
-      <a onClick=<%= hackLink %> class="btn btn-primary btn-sm shadow">
-        <i class="bi bi-pencil-fill"></i>
-      </a>
-    </div>
-    <div class="card-header">
-      <i class="bi bi-arrows-move draggable-hook"></i>
-    </div>
-    <div class="card-body">
-      <div class="d-grid gap-2 mb-3">
-        <% if link.empty?%>
-          Click Update Link
-        <% else %>
-          <%= link_to link.url, target: "_blank", class: "text-decoration-none" do %>
-            <div class="btn-group w-100 d-flex" role="group">
-              <div class="btn btn-lg btn-primary flex-shrink-1"><i class="fa-<%= link.icon_style %> fa-<%= link.icon %> mr-2"></i></div>
-              <div class="btn btn-lg btn-outline-primary w-100 text-start"><%= link.title %></div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-    <%# Button for large screens %>
-    <div class="d-none d-lg-grid card-footer">
-      <%= link_to edit_link_path(link), class: "btn btn-primary shadow", id: "update-link-#{link.id}" do %>
-        <i class="bi bi-pencil-fill me-2"></i> Update link
-      <% end %>
-    </div>    
-  </div>
+  <td class="text-center"><i class="fa-solid fa-grip-lines draggable-hook text-secondary"></i></td>
+  <% if link.empty? %>
+    <%# form to create link %>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  <% else %>
+    <td class="text-center"><i class="fa-<%= link.icon_style %> fa-<%= link.icon %> mr-2 <%= "color--#{link.icon}" if link.social? %>"></i></td>
+    <td><%= link.title %></td>
+    <td><%= link.url %></td>
+    <td><%= link.impressionist_count %></td>
+  <% end %>
+  <td class="text-end"><%= link_to edit_link_path(link), class: "btn btn-outline-primary btn-sm shadow bg-white", id: "update-link-#{link.id}" do %>
+    <i class="bi bi-pencil-fill me-2"></i> Update link
+  <% end %></td>
 <% end %>
-
+ 

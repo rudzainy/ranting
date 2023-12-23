@@ -1,13 +1,15 @@
 <div class="container-fluid mt-3">
   <div class="container">
     <% if notice %>
-      <div class="alert alert-info" role="alert">
+      <div class="alert alert-info alert-dismissible" role="alert">
         <%= notice %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     <% end %>
     <% if alert %>
-      <div class="alert alert-warning" role="alert">
+      <div class="alert alert-warning alert-dismissible" role="alert">
         <%= alert %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     <% end %>
   </div>

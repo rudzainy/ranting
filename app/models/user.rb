@@ -14,7 +14,7 @@ class User < ApplicationRecord
   friendly_id :username, use: %i[slugged]
 
   after_create :create_default_links
-  after_update :create_default_links
+  after_update :create_default_links 
 
   validates :full_name, length: { maximum: 64 }
   validates :description, length: { maximum: 128 }
@@ -48,7 +48,56 @@ class User < ApplicationRecord
   private
 
   def create_default_links
-    Link.create(user: self, title: '', url: '') while links.count < 5
-  end
+    if links.count == 0
+      Link.create(user: self, title: '', url: '', category: 'free') while links.count < 5
 
+      if links.where(category: "social").count == 0
+        Link.create(
+          category: 'social',
+          icon: 'twitter',
+          icon_style: 'brands',
+          position: '6',
+          title: 'Twitter', 
+          url: '', 
+          user: self, 
+        )
+        Link.create(
+          category: 'social',
+          icon: 'youtube',
+          icon_style: 'brands',
+          position: '7',
+          title: 'Youtube', 
+          url: '', 
+          user: self, 
+        )
+        Link.create(
+          category: 'social',
+          icon: 'facebook',
+          icon_style: 'brands',
+          position: '8',
+          title: 'Facebook', 
+          url: '', 
+          user: self, 
+        )
+        Link.create(
+          category: 'social',
+          icon: 'whatsapp',
+          icon_style: 'brands',
+          position: '9',
+          title: 'WhatsApp', 
+          url: '', 
+          user: self, 
+        )
+        Link.create(
+          category: 'social',
+          icon: 'telegram',
+          icon_style: 'brands',
+          position: '10',
+          title: 'Telegram', 
+          url: '', 
+          user: self, 
+        )
+      end
+    end
+  end
 end
