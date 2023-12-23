@@ -11,12 +11,12 @@
       <ul class="navbar-nav me-auto my-1 mb-lg-0 d-none d-lg-flex">
         <li class="nav-item me-2">
           <%= link_to links_path, class: "btn btn-outline-secondary border-0" do %>
-            <i class="bi bi-signpost-split me-2"></i>Update My Links
+            <i class="bi bi-signpost-split me-2"></i>Links
           <% end %>
         </li>
         <li class="nav-item">
           <%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary border-0" do %>
-            <i class="bi bi-person-badge me-2"></i>Update My Profile Page
+            <i class="bi bi-person-badge me-2"></i>Profile Page
           <% end %>
         </li>
       </ul>
@@ -39,23 +39,23 @@
 				<% end %>
         <li class="nav-item">
           <%= link_to links_path, class: "btn btn-light d-block mb-1 shadow" do %>
-            <i class="bi bi-signpost-split me-2"></i>Update My Links
+            <i class="bi bi-signpost-split me-2"></i>Links
           <% end %>
         </li>
         <li class="nav-item">
           <%= link_to edit_user_path(current_user), class: "btn btn-light d-block mb-1 shadow" do %>
-            <i class="bi bi-person-badge me-2"></i>Update My Profile Page
+            <i class="bi bi-person-badge me-2"></i>Profile Page
           <% end %>
         </li>
         <hr class="border-light"/>
         <li class="nav-item">
           <%= link_to edit_user_registration_path, class: "btn btn-light d-block mb-1 shadow" do %>
-            <i class="bi bi-gear-wide-connected me-2"></i>My Account Settings
+            <i class="bi bi-gear-wide-connected me-2"></i>Account Settings
           <% end %>
         </li>
         <li class="nav-item">
           <%= link_to user_path(current_user.slug), target: "_blank", class: "btn btn-light d-block shadow" do %>
-            <i class="bi bi-rocket-takeoff me-2 "></i>View My Profile
+            <i class="bi bi-rocket-takeoff me-2 "></i>View My Profile Page
           <% end %>
         </li>
         <hr class="border-light"/>
@@ -78,11 +78,11 @@
           <ul class="dropdown-menu dropdown-menu-end">
             <li>
               <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
-                <i class="bi bi-gear-wide-connected me-2"></i>My Account Settings
+                <i class="bi bi-gear-wide-connected me-2"></i>Account Settings
               <% end %>
             </li>
             <li><%= link_to  user_path(current_user.slug), target: "_blank", class: "dropdown-item" do %>
-                <i class="bi bi-rocket-takeoff me-2"></i>View My Profile
+                <i class="bi bi-rocket-takeoff me-2"></i>View My Profile Page
             <% end %>
             </li>
             <li><hr class="dropdown-divider"></li>

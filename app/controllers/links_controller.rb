@@ -6,7 +6,8 @@ class LinksController < ApplicationController
 
   def index
     @should_render_navbar = true
-    @links = current_user.links.order(position: :asc)
+    @free_links = current_user.links.where(category: "free").order(position: :asc)
+    @social_links = current_user.links.where(category: "social").order(position: :asc)
   end
 
   def edit; end
@@ -33,7 +34,7 @@ class LinksController < ApplicationController
   private
 
   def link_params
-    params.require(:link).permit(:title, :url, :icon)
+    params.require(:link).permit(:title, :url, :icon, :category)
   end
 
   def set_link

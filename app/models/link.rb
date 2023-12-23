@@ -4,6 +4,11 @@ class Link < ApplicationRecord
   acts_as_list
   before_save :sanitize_url
 
+  enum category: {
+    free: 0,
+    social: 1
+  }
+
   def empty?
     self.title == "" && self.url == "https://"
   end
