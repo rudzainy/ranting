@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   def show
     redirect_to links_path if @user.nil?
 
+    @should_render_navbar_public = false
     impressionist(@user)
     links = @user.links.where.not(url: 'https://', title: '').order(position: :asc)
     @free_links = links.where(category: "free")

@@ -10,23 +10,23 @@
     </div>
   </div>
   <div class="row mt-3">
-    <div class="col-3">
+    <div class="col-6 col-lg-3">
       <div class="card">
         <div class="card-header">
-          Visitors this week
+          Unique Visitors
         </div>
         <div class="card-body">
-          <h5 class="card-title">1,234</h5>          
+          <h5 class="card-title"><%= @user.impressionist_count(filter: :ip_address) %></h5>          
         </div>
       </div>
     </div>
-    <div class="col-3">
+    <div class="col-6 col-lg-3">
       <div class="card">
         <div class="card-header">
-          Total Visitors
+          Page Views
         </div>
         <div class="card-body">
-          <h5 class="card-title">1,234,567</h5>          
+          <h5 class="card-title"><%= @user.impressionist_count %></h5>          
         </div>
       </div>
     </div>
@@ -81,9 +81,6 @@
             </div>
           </div>
         <% end %>
-        <div class="card-footer text-body-secondary mt-3">
-          <%= link_to "+ Add social links", "", class: "btn btn-outline-secondary disabled", disabled: :true %>
-        </div>
       </div>
     </div>
     <div class="col-12 col-md-6 d-flex align-items-stretch">
