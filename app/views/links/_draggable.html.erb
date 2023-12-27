@@ -1,3 +1,4 @@
+<%# This is individual table row %>
 <% dragActions = "dragstart->drag#dragStart 
                   dragover->drag#dragOver 
                   dragenter->drag#dragEnter
@@ -11,20 +12,20 @@
   url: "/drag/links",
   parent: "links-container"
 }) do %>
-  <td class="text-center"><i class="fa-solid fa-grip-lines draggable-hook text-secondary"></i></td>
+  <td class="text-center flex-shrink-1"><i class="fa-solid fa-grip-lines draggable-hook text-secondary"></i></td>
   <% if link.empty? %>
     <%# form to create link %>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td class="text-center flex-shrink-1"></td>
+    <td class="flex-grow-1"></td>
+    <td class="flex-grow-1"></td>
     <td></td>
   <% else %>
-    <td class="text-center"><i class="fa-<%= link.icon_style %> fa-<%= link.icon %> mr-2 <%= "color--#{link.icon}" if link.social? %>"></i></td>
-    <td><%= link.title %></td>
-    <td><%= link.url %></td>
+    <td class="text-center flex-shrink-1"><i class="fa-<%= link.icon_style %> fa-<%= link.icon %> mr-2 <%= "color--#{link.icon}" if link.social? %>"></i></td>
+    <td class="flex-grow-1"><%= link.title %></td>
+    <td class="flex-grow-1"><%= link.url %></td>
     <td><%= link.impressionist_count %></td>
   <% end %>
-  <td class="text-end"><%= link_to edit_link_path(link), class: "btn btn-outline-primary btn-sm shadow bg-white", id: "update-link-#{link.id}" do %>
+  <td class="text-end flex-shrink-1"><%= link_to edit_link_path(link), class: "btn btn-outline-primary btn-sm shadow bg-white", id: "update-link-#{link.id}" do %>
     <i class="bi bi-pencil-fill me-2"></i> Update link
   <% end %></td>
 <% end %>
