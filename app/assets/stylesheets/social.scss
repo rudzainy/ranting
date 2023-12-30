@@ -24,6 +24,7 @@ $color--twitter            : hsla(198, 100%, 47%, 1);    // #00a9f1
 $color--vimeo              : hsla(200, 82%, 61%, 1);     // #48b6ed
 $color--yelp               : hsla(5, 100%, 38%, 1);      // #c30f00
 $color--youtube            : hsla(0, 100%, 60%, 1);      // #ff3333
+$color--whatsapp           : hsla(142, 70%, 49%, 1);     // #25D366, alt 075E54;
 
 $social-media-variables: ( 
   // ("amazon", $color--amazon),
@@ -48,6 +49,7 @@ $social-media-variables: (
 	("vimeo", $color--vimeo),
 	("yelp", $color--yelp),
 	("youtube", $color--youtube),
+	("whatsapp", $color--whatsapp),
 );
 
 :root {
