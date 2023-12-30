@@ -1,13 +1,20 @@
 # Ranting.my
 
+## Setup: 
 
+```bash
+yarn
+bin/rails db:create
+bin/rails db:migrate
+```
 
-- People had had their chances playing around with anonymity on the internet.
-- Having multiple personas online is cheap monitarely wise, however the cost of time is limitless.
-- It is physically devistating to the human body when the human mind is overworked.
-- Ranting wants to help people curate their ultimate online persona.
+## Run
 
-## One Persona to Rule Them All
+```bash
+bin/dev
+```
+
+## Take control to your presence on the Internet
 
 ### Solving the problem of maintaining accounts on multiple platforms
 

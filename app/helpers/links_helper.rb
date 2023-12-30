@@ -6,6 +6,12 @@ module LinksHelper
 
   def icons_list
     [
+      "twitter",
+      "youtube",
+      "facebook",
+      "whatsapp",
+      "linkedin",
+      "telegram",
       "address-book",
       "address-card",
       "angry",

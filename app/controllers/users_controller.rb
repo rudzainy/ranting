@@ -4,9 +4,10 @@ class UsersController < ApplicationController
   def edit
     @should_render_navbar = true
 
-    links = @user.links.where.not(url: 'https://', title: '').order(position: :asc)
+    links = @user.links.where.not(url: 'https://').order(position: :asc)
     @free_links = links.where(category: "free")
     @social_links = links.where(category: "social")
+    @group_name = @free_links.first.group.name
   end
 
   def show
@@ -14,9 +15,10 @@ class UsersController < ApplicationController
 
     @should_render_navbar_public = false
     impressionist(@user)
-    links = @user.links.where.not(url: 'https://', title: '').order(position: :asc)
+    links = @user.links.where.not(url: 'https://').order(position: :asc)
     @free_links = links.where(category: "free")
     @social_links = links.where(category: "social")
+    @group_name = @free_links.first.group.name
     set_background_color
   end
 

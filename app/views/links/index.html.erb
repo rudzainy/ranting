@@ -21,11 +21,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <% @free_links.each do |link| %>
-            <%= render "links/draggable", link: link %>
-          <% end %>
-        </tr>
+        <% @free_links.each do |link| %>
+          <%= render "links/draggable", link: link %>
+        <% end %>
       </tbody>
     </table>
   </div>
@@ -46,11 +44,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <% @social_links.each do |link| %>
-            <%= render "links/draggable", link: link %>
-          <% end %>
-        </tr>
+        <% @social_links.each do |link| %>
+          <%= render "links/draggable", link: link %>
+        <% end %>
       </tbody>
     </table>
   </div>
