@@ -49,6 +49,7 @@ class User < ApplicationRecord
 
   def create_default_links
     if links.count == 0
+      # Creates 5 free links
       Link.create(user: self, title: '', url: '', category: 'free') while links.count < 5
 
       if links.where(category: "social").count == 0
@@ -90,10 +91,10 @@ class User < ApplicationRecord
         )
         Link.create(
           category: 'social',
-          icon: 'telegram',
+          icon: 'linkedin',
           icon_style: 'brands',
           position: '10',
-          title: 'Telegram', 
+          title: 'LinkedIn', 
           url: '', 
           user: self, 
         )
