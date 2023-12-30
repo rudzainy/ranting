@@ -10,11 +10,11 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
   has_many :links, dependent: :destroy
-  
+
   friendly_id :username, use: %i[slugged]
 
   after_create :create_default_links
-  after_update :create_default_links 
+  after_update :create_default_links
 
   validates :full_name, length: { maximum: 64 }
   validates :description, length: { maximum: 128 }
@@ -25,7 +25,7 @@ class User < ApplicationRecord
     if self.should_generate_new_friendly_id?
       errors.add(:username, ' is already taken.') if User.exists?(username:)
     end
-    
+
     restricted_username_list = %(admin root dashboard analytics design settings preferences)
 
     errors.add(:username, ' is restricted.') if restricted_username_list.include?(username)
@@ -49,56 +49,58 @@ class User < ApplicationRecord
 
   def create_default_links
     if links.count == 0
+      # Create default group
+      group = Group.create(name: "My Links")
       # Creates 5 free links
-      Link.create(user: self, title: '', url: '', category: 'free') while links.count < 5
+      group.link.create(user: self, title: '', url: '', category: 'free') while links.count < 5
+    end
 
-      if links.where(category: "social").count == 0
-        Link.create(
-          category: 'social',
-          icon: 'twitter',
-          icon_style: 'brands',
-          position: '6',
-          title: 'Twitter', 
-          url: '', 
-          user: self, 
-        )
-        Link.create(
-          category: 'social',
-          icon: 'youtube',
-          icon_style: 'brands',
-          position: '7',
-          title: 'Youtube', 
-          url: '', 
-          user: self, 
-        )
-        Link.create(
-          category: 'social',
-          icon: 'facebook',
-          icon_style: 'brands',
-          position: '8',
-          title: 'Facebook', 
-          url: '', 
-          user: self, 
-        )
-        Link.create(
-          category: 'social',
-          icon: 'whatsapp',
-          icon_style: 'brands',
-          position: '9',
-          title: 'WhatsApp', 
-          url: '', 
-          user: self, 
-        )
-        Link.create(
-          category: 'social',
-          icon: 'linkedin',
-          icon_style: 'brands',
-          position: '10',
-          title: 'LinkedIn', 
-          url: '', 
-          user: self, 
-        )
-      end
+    if links.where(category: "social").count == 0
+      Link.create(
+        category: 'social',
+        icon: 'twitter',
+        icon_style: 'brands',
+        position: '6',
+        title: 'Twitter',
+        url: '',
+        user: self,
+      )
+      Link.create(
+        category: 'social',
+        icon: 'youtube',
+        icon_style: 'brands',
+        position: '7',
+        title: 'Youtube',
+        url: '',
+        user: self,
+      )
+      Link.create(
+        category: 'social',
+        icon: 'facebook',
+        icon_style: 'brands',
+        position: '8',
+        title: 'Facebook',
+        url: '',
+        user: self,
+      )
+      Link.create(
+        category: 'social',
+        icon: 'whatsapp',
+        icon_style: 'brands',
+        position: '9',
+        title: 'WhatsApp',
+        url: '',
+        user: self,
+      )
+      Link.create(
+        category: 'social',
+        icon: 'linkedin',
+        icon_style: 'brands',
+        position: '10',
+        title: 'LinkedIn',
+        url: '',
+        user: self,
+      )
     end
   end
 end

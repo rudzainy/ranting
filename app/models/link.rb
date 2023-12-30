@@ -1,6 +1,7 @@
 class Link < ApplicationRecord
   is_impressionable
   belongs_to :user
+  belongs_to :group
   acts_as_list
   before_save :sanitize_url
 
