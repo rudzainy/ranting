@@ -8,6 +8,12 @@ class LinksController < ApplicationController
     @should_render_navbar = true
     @free_links = current_user.links.where(category: "free").order(position: :asc)
     @social_links = current_user.links.where(category: "social").order(position: :asc)
+    
+    unless @free_links.empty?
+      @group_name = @free_links.first.group.name 
+    else
+      @group_name = ""
+    end
   end
 
   def edit; end

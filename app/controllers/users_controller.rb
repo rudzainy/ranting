@@ -7,7 +7,11 @@ class UsersController < ApplicationController
     links = @user.links.where.not(url: 'https://').order(position: :asc)
     @free_links = links.where(category: "free")
     @social_links = links.where(category: "social")
-    @group_name = @free_links.first.group.name
+    unless @free_links.empty?
+      @group_name = @free_links.first.group.name 
+    else
+      @group_name = ""
+    end
   end
 
   def show
@@ -18,7 +22,11 @@ class UsersController < ApplicationController
     links = @user.links.where.not(url: 'https://').order(position: :asc)
     @free_links = links.where(category: "free")
     @social_links = links.where(category: "social")
-    @group_name = @free_links.first.group.name
+    unless @free_links.empty?
+      @group_name = @free_links.first.group.name 
+    else
+      @group_name = ""
+    end
     set_background_color
   end
 
