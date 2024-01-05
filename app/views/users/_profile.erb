@@ -1,13 +1,13 @@
 <div class="container my-5 pb-5 text-center">
   <div class="row g-5">
-    <div class="col-12 col-lg-12 mx-auto">
+    <div class="col-12 offset-lg-3 col-lg-6">
       <%= image_tag user.avatar, class: "d-block mx-auto my-3 col-3 col-md-4 col-lg-1 rounded-circle" if user.avatar.attached? %>
       <h3><%= user.full_name.nil? ? user.email : user.full_name %></h3>
       <p class="lead mb-5">
         <%= user.description %>
       </p>
     </div>
-    <div class="col-lg-6">
+    <div class="col-12">
       <div class="grid gap-2 mb-3">
         <% @social_links.each do |link| %>
           <%= link_to link_path(link), target: "_blank", class: "text-decoration-none" do %>
@@ -16,7 +16,7 @@
         <% end %>
       </div>
     </div>
-    <div class="col-lg-6">
+    <div class="col-12 offset-lg-3 col-lg-6">
       <h5><%= @group_name %></h5>
       <% @free_links.each do |link| %>
         <div class="grid gap-2 mb-3">
