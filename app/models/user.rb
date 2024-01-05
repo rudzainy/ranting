@@ -48,15 +48,14 @@ class User < ApplicationRecord
   private
 
   def create_default_links
-    if links.count == 0
+    if self.links.count == 0
       # Create default group
-      group = Group.create(name: "My Links")
+      default_group = Group.create(name: "My Links")
       # Creates 5 free links
-      group.links.create(user: self, title: '', url: '', category: 'free') while links.count < 5
-    end
-
-    if links.where(category: "social").count == 0
-      Link.create(
+      default_group.links.create(user: self, title: '', url: '', category: 'free') while self.links.count < 5
+      
+      social_group = Group.create(name: "My Social Media")
+      social_group.links.create(
         category: 'social',
         icon: 'twitter',
         icon_style: 'brands',
@@ -65,7 +64,7 @@ class User < ApplicationRecord
         url: '',
         user: self,
       )
-      Link.create(
+      social_group.links.create(
         category: 'social',
         icon: 'youtube',
         icon_style: 'brands',
@@ -74,7 +73,7 @@ class User < ApplicationRecord
         url: '',
         user: self,
       )
-      Link.create(
+      social_group.links.create(
         category: 'social',
         icon: 'facebook',
         icon_style: 'brands',
@@ -83,7 +82,7 @@ class User < ApplicationRecord
         url: '',
         user: self,
       )
-      Link.create(
+      social_group.links.create(
         category: 'social',
         icon: 'whatsapp',
         icon_style: 'brands',
@@ -92,7 +91,7 @@ class User < ApplicationRecord
         url: '',
         user: self,
       )
-      Link.create(
+      social_group.links.create(
         category: 'social',
         icon: 'linkedin',
         icon_style: 'brands',
