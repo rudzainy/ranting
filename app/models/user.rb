@@ -52,7 +52,7 @@ class User < ApplicationRecord
       # Create default group
       group = Group.create(name: "My Links")
       # Creates 5 free links
-      group.link.create(user: self, title: '', url: '', category: 'free') while links.count < 5
+      group.links.create(user: self, title: '', url: '', category: 'free') while links.count < 5
     end
 
     if links.where(category: "social").count == 0
