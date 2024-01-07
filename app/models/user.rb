@@ -17,7 +17,7 @@ class User < ApplicationRecord
   after_update :create_default_links
 
   validates :full_name, length: { maximum: 64 }
-  validates :description, length: { maximum: 128 }
+  validates :description, length: { maximum: 256 }
   validates_format_of :username, :with => /\A[a-z0-9]+\z/i
   validate :valid_username
 
