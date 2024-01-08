@@ -4,7 +4,7 @@
                   dragenter->drag#dragEnter
                   drop->drag#drop
                   dragend->drag#dragEnd" %>
-<%= content_tag(:div, class: "card col-12 position-relative draggable draggable-mobile text-center", draggable: true, data: { 
+<%= content_tag(:div, class: "card mb-3 col-12 position-relative draggable draggable-mobile text-center", draggable: true, data: { 
   controller: "drag",
   action: dragActions,
   resource_id: link.id,
