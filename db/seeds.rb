@@ -6,11 +6,13 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-User.create!(
-  username: "about",
-  full_name: "Ranting = Network!",
-  email: "hello@ranting.my",
-  password: "123456",
-  password_confirmation: "123456",
-  description: "Ranting is a link-in-bio platform that allows any Malaysian creators to showcase their work and social media profiles in a single, easy-to-share link ♥️"
-)
+if User.count == 0
+  User.create!(
+    username: "about",
+    full_name: "Ranting = Network!",
+    email: "hello@ranting.my",
+    password: "123456",
+    password_confirmation: "123456",
+    description: "Ranting is a link-in-bio platform that allows any Malaysian creators to showcase their work and social media profiles in a single, easy-to-share link ♥️"
+  )
+end
