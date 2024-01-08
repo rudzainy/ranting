@@ -3,14 +3,13 @@
                   dragover->drag#dragOver 
                   dragenter->drag#dragEnter
                   drop->drag#drop
-                  dragend->drag#dragEnd"
-      hackLink = "console.log('clicked');document.getElementById('update-link-#{link.id}').click()" %>
+                  dragend->drag#dragEnd" %>
 <%= content_tag(:tr, class: "col-12 position-relative draggable", draggable: true, data: { 
   controller: "drag",
   action: dragActions,
   resource_id: link.id,
   url: "/drag/links",
-  parent: "links-container"
+  parent: parentID
 }) do %>
   <td class="text-center flex-shrink-1"><i class="fa-solid fa-grip-lines draggable-hook text-secondary"></i></td>
   <% if link.empty? %>
