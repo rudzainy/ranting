@@ -4,6 +4,10 @@ module LinksHelper
     url.gsub(/https:\/\/|http:\/\//, "")
   end
 
+  def link_class(link)
+    link.css_class.gsub("_","-")
+  end
+
   def icons_list
     [
       "twitter",

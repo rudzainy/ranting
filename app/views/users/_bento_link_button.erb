@@ -1,0 +1,46 @@
+<%# This is individual table row %>
+<% dragActions = "dragstart->drag#dragStart 
+                  dragover->drag#dragOver 
+                  dragenter->drag#dragEnter 
+                  drop->drag#drop 
+                  dragend->drag#dragEnd"
+   linkClass = "link-card-draggable overflow-visible draggable draggable-mobile " + link_class(link) %>
+<%= content_tag(:div, class: linkClass, draggable: true, data: { 
+  controller: "drag",
+  action: dragActions,
+  resource_id: link.id,
+  url: "/drag/links",
+  parent: parentID
+}) do %>
+
+
+
+
+  <button type="button" class="link_action_move btn btn-light w-100 rounded-circle shadow draggable-hook"><i class="fa-solid fa-arrows-up-down-left-right"></i></button>
+  <%= link_to edit_link_path(link), class: "link_action_edit btn btn-light w-100 rounded-circle shadow", id: "update-link-#{link.id}" do %>
+    <i class="fa-solid fa-pen draggable-hook"></i>
+  <% end %>
+
+
+  <%= link_to link_path(link), target: "_blank", class: "card link-card p-3 text-decoration-none" do %>
+    <i class="fa-<%= link.icon_style %> fa-<%= link.icon %> mr-2 <%= "color--#{link.icon}" if link.social? %>"></i>
+    <div class="link-title"><%= link.title %></div>
+    <div class="link-url"><%= link.url %></div>
+    <button type="button" class="btn btn-primary rounded-pill">Action</button>
+  <% end %>
+
+
+
+
+
+
+  <% if false %>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><i class="fa-<%= link.icon_style %> fa-<%= link.icon %> mr-2 <%= "color--#{link.icon}" if link.social? %>"></i></li>
+      <li class="list-group-item"><%= link.title %></li>
+      <li class="list-group-item"><%= link.url %></li>
+      <li class="list-group-item"><%= link.impressionist_count %> <span class="d-lg-none">clicks</span></li>
+    </ul>
+  <% end %>
+<% end %>
+
