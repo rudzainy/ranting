@@ -16,18 +16,21 @@
 
 
 
-  <button type="button" class="link_action_move btn btn-light w-100 rounded-circle shadow draggable-hook"><i class="fa-solid fa-arrows-up-down-left-right"></i></button>
-  <%= link_to edit_link_path(link), class: "link_action_edit btn btn-light w-100 rounded-circle shadow", id: "update-link-#{link.id}" do %>
+  <button type="button" class="link_action_move hidable btn btn-light w-100 rounded-circle shadow draggable-hook"><i class="fa-solid fa-arrows-up-down-left-right"></i></button>
+  
+  <%= link_to edit_link_path(link), class: "link_action_edit hidable btn btn-light w-100 rounded-circle shadow", id: "update-link-#{link.id}" do %>
     <i class="fa-solid fa-pen draggable-hook"></i>
   <% end %>
 
 
-  <%= link_to link_path(link), target: "_blank", class: "card link-card p-3 text-decoration-none" do %>
+  <div class="card link-card p-3 text-decoration-none">
     <i class="fa-<%= link.icon_style %> fa-<%= link.icon %> mr-2 <%= "color--#{link.icon}" if link.social? %>"></i>
-    <div class="link-title"><%= link.title %></div>
     <div class="link-url"><%= link.url %></div>
-    <button type="button" class="btn btn-primary rounded-pill">Action</button>
-  <% end %>
+    <div class="link-title"><%= link.title %></div>
+    <%= link_to link_path(link), target: "_blank", class: "btn btn-primary rounded-pill" do %>
+      Visit link
+    <% end %>
+  </div>
 
 
 
