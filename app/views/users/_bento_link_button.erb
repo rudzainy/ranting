@@ -23,13 +23,21 @@
   <% end %>
 
 
-  <div class="card link-card p-3 text-decoration-none">
-    <i class="fa-<%= link.icon_style %> fa-<%= link.icon %> mr-2 <%= "color--#{link.icon}" if link.social? %>"></i>
-    <div class="link-url"><%= link.url %></div>
-    <div class="link-title"><%= link.title %></div>
-    <%= link_to link_path(link), target: "_blank", class: "btn btn-primary rounded-pill" do %>
-      Visit link
+  <div class="card link-card text-decoration-none">
+    <% if link_class(link) == "link-card-1x3" %>
+      <%= image_tag('jalur_gemilang_FA_no_sig.jpg', class: 'card-img-top', loading: 'lazy', srcset: { 'jalur_gemilang_FA_no_sig.jpg' => '1x', 'jalur_gemilang_FA_no_sig@2x.jpg' => '2x' }) %>
     <% end %>
+    <div class="link-icon">
+      <i class="fa-<%= link.icon_style %> fa-<%= link.icon %> <%= "color--#{link.icon}" if link.social? %>"></i>
+    </div>
+    <div class="card-body py-0 link-url"><%= link.url %></div>
+    <div class="card-body py-0 link-title"><%= link.title %></div>
+
+    <div class="card-body py-0 link-cta">
+      <%= link_to link_path(link), target: "_blank", class: "btn btn-primary rounded-pill" do %>
+        Visit link
+      <% end %>
+    </div>
   </div>
 
 

@@ -85,7 +85,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_09_152049) do
     t.string "icon_style", default: "solid"
     t.integer "category", default: 0
     t.bigint "group_id"
-    t.integer "css_class", default: 0
+    t.integer "css_class", default: 3
     t.index ["group_id"], name: "index_links_on_group_id"
     t.index ["user_id"], name: "index_links_on_user_id"
   end

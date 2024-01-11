@@ -13,8 +13,11 @@ class Link < ApplicationRecord
   enum css_class: {
     link_card_1x1: 0,
     link_card_1x2: 1,
-    link_card_2x1: 2,
-    link_card_2x2: 3
+    link_card_1x3: 2,
+    link_card_2x1: 3,
+    link_card_2x2: 4,
+    link_card_2x3: 5,
+
   }
 
   def empty?
