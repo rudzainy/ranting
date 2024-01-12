@@ -73,20 +73,3 @@
     </div>
   </div>
 <% end %>
-
-<script>
-  let hideHidables = true
-  let toggleHidables = () => {
-    let hidables = document.querySelectorAll(".hidable")
-    hidables.forEach( (btn) => {
-      if(hideHidables) {
-        btn.style.display = 'block';
-        document.getElementById("editLinksButton").innerHTML = "Finish Edit";
-      } else {
-        btn.style.display = 'none';
-        document.getElementById("editLinksButton").innerHTML = "Edit Links";
-      }
-    })
-    hideHidables = !hideHidables;
-  }
-</script>
