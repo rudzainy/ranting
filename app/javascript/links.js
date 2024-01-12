@@ -1,7 +1,13 @@
+function handleDragStart(e) {
+  this.style.opacity = '0.4';
+}
 
-console.log("links.js")
-let select = document.getElementById('icon').addEventListener('change', function handleChange(event) {
-  console.log("event")
-  console.log(document.querySelector('label#selected-icon').child) //.classList.remove("fa-*")
-  // document.querySelector('#selected-icon > i').classList.add("fa-solid")
+function handleDragEnd(e) {
+  this.style.opacity = '1';
+}
+
+let items = document.querySelectorAll('.container .link-card-draggable');
+items.forEach(function (item) {
+  item.addEventListener('dragstart', handleDragStart);
+  item.addEventListener('dragend', handleDragEnd);
 });
