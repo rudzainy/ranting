@@ -47,7 +47,10 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # logs impressions
-gem 'impressionist'
+gem 'impressionist',
+  git: 'https://github.com/charlotte-ruby/impressionist.git',
+  ref: '46a582ff8cd3496da64f174b30b91f9d97e86643'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
