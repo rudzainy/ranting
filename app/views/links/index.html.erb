@@ -1,13 +1,19 @@
-<div class="container">
+<%#
+    This page should show all user's links by group. 
+    Web view should show data table to focus on analytics. 
+    Mobile view should be more compact. 
+%>
+
+<div class="container mt-5">
   <div class="row">
-    <div class="col-10 mx-auto">
-      <h1>Links</h1>
+    <div class="col">
+      <h1>Manage all your links</h1>
     </div>
   </div>
 </div>
 <% if mobile_device? %>
-  <div class="container mt-5">
-    <h5>Social Links</h5>
+  <div class="container mt-5 border-3">
+    <h5 class="text-center mb-3">Social Links</h5>
     <div id="mobileSocialContainer">
       <% @social_links.each do |link| %>
         <%= render "links/draggable_mobile", link: link, parentID: "mobileSocialContainer" %>
@@ -15,7 +21,7 @@
     </div>
   </div>
   <div class="container mt-5">
-    <h5><%= @group_name %></h5>
+    <h5 class="text-center mb-3"><%= @group_name %></h5>
     <div id="mobileLinksContainer">
       <% @free_links.each do |link| %>
         <%= render "links/draggable_mobile", link: link, parentID: "mobileLinksContainer" %>

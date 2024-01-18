@@ -4,7 +4,7 @@
                   dragenter->drag#dragEnter
                   drop->drag#drop
                   dragend->drag#dragEnd" %>
-<%= content_tag(:div, class: "card mb-3 col-12 position-relative draggable draggable-mobile text-center", draggable: true, data: { 
+<%= content_tag(:div, class: "card mb-5 col-12 position-relative draggable draggable-mobile text-center flex-row", draggable: true, data: { 
   controller: "drag",
   action: dragActions,
   resource_id: link.id,
@@ -13,9 +13,7 @@
 }) do %>
   <% unless link.empty? %>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item"><i class="fa-<%= link.icon_style %> fa-<%= link.icon %> mr-2 <%= "color--#{link.icon}" if link.social? %>"></i></li>
-      <li class="list-group-item"><%= link.title %></li>
-      <li class="list-group-item"><%= link.url %></li>
+      <li class="list-group-item"><i class="fa-<%= link.icon_style %> fa-<%= link.icon %> mr-2 <%= "color--#{link.icon}" if link.social? %>"></i> <%= link.title %></li>
       <li class="list-group-item"><%= link.impressionist_count %> <span class="d-lg-none">clicks</span></li>
     </ul>
   <% end %>
