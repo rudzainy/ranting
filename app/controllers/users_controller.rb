@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     links = @user.links.where.not(url: 'https://').order(position: :asc)
     @free_links = links.where(category: "free")
     @social_links = links.where(category: "social")
-    @free_links.first.group.name
+    @group_name = @free_links.first.group.name 
     set_background_color
     render template: "users/show"
   end

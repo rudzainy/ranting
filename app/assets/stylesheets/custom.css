@@ -29,9 +29,9 @@ select {
 [id^="links-container-"] {
   display: grid;
   gap: 1em;
-  grid-template-rows: repeat(5, 70px);
-  grid-template-columns: 1fr 1fr;
-  grid-auto-rows: 70px;
+  grid-template-rows: repeat(auto-fit, minmax(70px, auto));
+  grid-template-columns: 1fr;
+  grid-auto-rows: minmax(70px, auto);
 }
 
 .link-card-draggable {
@@ -57,7 +57,7 @@ select {
 
 .link-card {
   display: grid;
-  grid-auto-rows: 70px;
+  grid-auto-rows: minmax(70px, auto);
   height: 100%;
   justify-items: end;
   align-items: center;
@@ -67,9 +67,14 @@ select {
   justify-self: start;
 }
 
-.link-card-1x1 {
-  grid-column: span 1;
-  grid-row: span 1;
+.link-card .link-cta {
+  padding-top: 0;
+}
+
+.link-card-1x1 .link-cta,
+.link-card-2x1 .link-cta,
+.link-card-1x1 .link-cta {
+  padding-bottom: 0;
 }
 
 .link-card-1x1 .link-card {
@@ -85,11 +90,6 @@ select {
 .link-card-1x1 .link-card .link-url,
 .link-card-2x1 .link-card .link-url {
   display: none;
-}
-
-.link-card-1x2 {
-  grid-column: span 1;
-  grid-row: span 2;
 }
 
 .link-card-1x2 .link-card, 
@@ -108,11 +108,6 @@ select {
   grid-area: 1 / 1 / 2 / 2;
 }
 
-.link-card-2x1 {
-  grid-column: span 2;
-  grid-row: span 1;
-}
-
 .link-card-2x1 .link-card {
   grid-template-rows: 1fr;
   grid-template-columns: 32px auto auto;
@@ -126,16 +121,7 @@ select {
   justify-self: start;
 }
 
-.link-card-2x2 {
-  grid-column: span 2;
-  grid-row: span 2;
-}
-
 /* Currently not enabling 3 rows until more customization option becomes available */
-.link-card-1x3 {
-  grid-column: span 1;
-  grid-row: span 3;
-}
 
 .link-card-1x3 .link-card {
   grid-template-rows: 104px 1fr 1fr 1fr;
@@ -155,15 +141,45 @@ select {
   object-fit: cover;
 }
 
-.link-card-2x3 {
-  grid-column: span 2;
-  grid-row: span 3;
-}
-
 .link-icon {
   margin-left: 16px;
 }
 
 .hidable {
   display: none;
+}
+
+
+
+@media (min-width: 576px) {
+
+  .link-card-1x1 {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .link-card-1x2 {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+  
+  .link-card-2x1 {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .link-card-2x2 {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .link-card-1x3 {
+    grid-column: span 1;
+    grid-row: span 3;
+  }
+  
+  .link-card-2x3 {
+    grid-column: span 2;
+    grid-row: span 3;
+  }
 }

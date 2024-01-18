@@ -1,10 +1,12 @@
 <div class="container mt-5">
   <div class="row">
-    <div class="col">
+    <div class="col-12 col-lg-9">
       <h1>Update your profile page design</h1>
+    </div>
+    <div class="col-12 text-end col-lg-3">
       <% if !@user.username.nil? %>
-        <button onclick="copyText()" class="btn btn-outline-secondary">
-          <i class="bi bi-clipboard-plus me-2"></i>Copy my profile link
+        <button onclick="copyProfileLink()" class="btn btn-outline-secondary">
+          <i class="bi bi-clipboard-plus me-2"></i>Copy your profile link
         </button>
       <% end %>
     </div>
@@ -90,7 +92,7 @@
       <div class="card mb-3 w-100">
         <div class="card-header"><i class="bi bi-emoji-heart-eyes me-2"></i>Preview</div>
           <div class="card-body" style="background-color: <%=@user.background_color %>">
-            <%= render 'profile', user: @user %>
+            <%= render 'profile_preview', user: @user %>
           </div>
         </div>
       </div>
@@ -99,8 +101,8 @@
 </div>
 
 <script>
-  function copyText() {
-    /* Copy text into clipboard */
+  function copyProfileLink() {
+    /* Copy user profile link into clipboard */
     const app_url = "<%= request.base_url %>"
     const username = "<%= @user.username %>"
     navigator.clipboard.writeText(app_url + "/" + username);
