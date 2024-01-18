@@ -153,6 +153,10 @@ select {
 
 @media (min-width: 576px) {
 
+  [id^="links-container-"] {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .link-card-1x1 {
     grid-column: span 1;
     grid-row: span 1;
