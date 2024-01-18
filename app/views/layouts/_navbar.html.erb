@@ -17,10 +17,11 @@
         <div class="vr"></div>
         <li class="nav-item mx-2">
           <%= link_to edit_user_path(current_user), class: "btn btn-outline-primary border-0" do %>
-            <i class="bi bi-person-badge me-2"></i>Profile Page
+            <i class="bi bi-person-badge me-2"></i>Layout
           <% end %>
         </li>
       </ul>
+      <%# Mobile navigation list %>
       <ul class="navbar-nav me-auto my-1 mb-lg-0 d-block d-lg-none">
 				<% if @hacker_variables %>
           <li class="nav-item d-flex flex-col gap-3 m-3">
@@ -45,27 +46,26 @@
         </li>
         <li class="nav-item">
           <%= link_to edit_user_path(current_user), class: "btn btn-light d-block mb-1 shadow" do %>
-            <i class="bi bi-person-badge me-2"></i>Profile Page
+            <i class="bi bi-person-badge me-2"></i>Layout
           <% end %>
         </li>
         <hr class="border-light"/>
         <li class="nav-item">
-          <%= link_to edit_user_registration_path, class: "btn btn-light d-block mb-1 shadow" do %>
+          <%= link_to user_path(current_user.slug), target: "_blank", class: "btn btn-light btn-outline-primary d-block shadow" do %>
+            <i class="bi bi-rocket-takeoff me-2 "></i>Open Your Profile Page
+          <% end %>
+        </li>
+        <hr class="border-light"/>
+        <li class="nav-item d-flex flex-row gap-3">
+          <%= link_to destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: 'Are you sure you want to log out?'}, class: "btn btn-light d-block shadow flex-fill" do %>
+            <i class="bi bi-door-open me-2"></i>Logout
+          <% end %>
+          <%= link_to edit_user_registration_path, class: "btn btn-light d-block shadow flex-fill" do %>
             <i class="bi bi-gear-wide-connected me-2"></i>Account Settings
           <% end %>
         </li>
-        <li class="nav-item">
-          <%= link_to user_path(current_user.slug), target: "_blank", class: "btn btn-light d-block shadow" do %>
-            <i class="bi bi-rocket-takeoff me-2 "></i>View My Profile Page
-          <% end %>
-        </li>
-        <hr class="border-light"/>
-        <li class="nav-item">
-          <%= link_to destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: 'Are you sure you want to log out?'}, class: "btn btn-light d-block shadow" do %>
-            <i class="bi bi-door-open me-2"></i>Logout
-          <% end %>
-        </li>
       </ul>
+      <%# Web navigation list %>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-none d-lg-block">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -82,9 +82,10 @@
                 <i class="bi bi-gear-wide-connected me-2"></i>Account Settings
               <% end %>
             </li>
-            <li><%= link_to  user_path(current_user.slug), target: "_blank", class: "dropdown-item" do %>
-                <i class="bi bi-rocket-takeoff me-2"></i>View My Profile Page
-            <% end %>
+            <li>
+              <%= link_to  user_path(current_user.slug), target: "_blank", class: "dropdown-item" do %>
+                <i class="bi bi-rocket-takeoff me-2"></i>Open Your Profile Page
+              <% end %>
             </li>
             <li><hr class="dropdown-divider"></li>
             <li>

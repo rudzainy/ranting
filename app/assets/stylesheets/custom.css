@@ -29,8 +29,8 @@ select {
 [id^="links-container-"] {
   display: grid;
   gap: 1em;
-  grid-template-rows: repeat(5, 70px);
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(auto-fit, 70px);
+  grid-template-columns: repeat(auto-fill, minmax(1fr, 2fr));
   grid-auto-rows: 70px;
 }
 
