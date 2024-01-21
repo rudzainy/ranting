@@ -1,17 +1,6 @@
-<%# This is individual table row %>
-<% dragActions = "dragstart->drag#dragStart 
-                  dragover->drag#dragOver 
-                  dragenter->drag#dragEnter
-                  drop->drag#drop
-                  dragend->drag#dragEnd" %>
-<%= content_tag(:tr, class: "col-12 position-relative draggable", draggable: true, data: { 
-  controller: "drag",
-  action: dragActions,
-  resource_id: link.id,
-  url: "/drag/links",
-  parent: parentID
-}) do %>
-  <td class="text-center flex-shrink-1"><i class="fa-solid fa-grip-lines draggable-hook text-secondary"></i></td>
+<%# This is the individual table row %>
+
+<tr>
   <% if link.empty? %>
     <%# form to create link %>
     <td class="text-center flex-shrink-1"></td>
@@ -26,11 +15,11 @@
   <% end %>
   <td class="text-end flex-shrink-1">
     <%= link_to edit_link_path(link), 
-                class: "btn btn-outline-primary btn-sm shadow bg-white", 
+                class: "btn btn-outline-primary btn-sm shadow", 
                 id: "update-link-#{link.id}", 
                 data: { turbo_frame: "modal" } do %>
       <i class="bi bi-pencil-fill me-2"></i> Edit
     <% end %>
   </td>
-<% end %>
+</tr>
  

@@ -1,29 +1,14 @@
-<%# This is individual table row %>
-<% dragActions = "dragstart->drag#dragStart 
-                  dragover->drag#dragOver 
-                  dragenter->drag#dragEnter
-                  drop->drag#drop
-                  dragend->drag#dragEnd" %>
-<%= content_tag(:div, class: "card mb-5 col-12 position-relative draggable draggable-mobile text-center flex-row", draggable: true, data: { 
-  controller: "drag",
-  action: dragActions,
-  resource_id: link.id,
-  url: "/drag/links",
-  parent: parentID
-}) do %>
+<%# This is the individual link card %>
+
+<%= link_to edit_link_path(link), 
+            class: "text-decoration-none", 
+            id: "update-link-#{link.id}", 
+            data: { turbo_frame: "modal" } do %>
   <% unless link.empty? %>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item"><i class="fa-<%= link.icon_style %> fa-<%= link.icon %> mr-2 <%= "color--#{link.icon}" if link.social? %>"></i> <%= link.title %></li>
+    <ul class="list-group list-group-flush flex-row justify-content-between">
+      <li class="list-group-item flex-fill"><i class="fa-<%= link.icon_style %> fa-<%= link.icon %> mr-2 <%= "color--#{link.icon}" if link.social? %>"></i> <%= link.title %></li>
       <li class="list-group-item"><%= link.impressionist_count %> <span class="d-lg-none">clicks</span></li>
     </ul>
   <% end %>
-  <div class="card-footer">
-    <%= link_to edit_link_path(link), 
-                class: "btn btn-outline-primary btn-md shadow bg-white col-12", 
-                id: "update-link-#{link.id}", 
-                data: { turbo_frame: "modal" } do %>
-      <i class="bi bi-pencil-fill me-2"></i> Edit
-    <% end %>
-  </div>
 <% end %>
  
