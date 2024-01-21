@@ -18,8 +18,11 @@
     </ul>
   <% end %>
   <div class="card-footer">
-    <%= link_to edit_link_path(link), class: "btn btn-outline-primary btn-md shadow bg-white col-12", id: "update-link-#{link.id}" do %>
-      <i class="bi bi-pencil-fill me-2"></i> Update link
+    <%= link_to edit_link_path(link), 
+                class: "btn btn-outline-primary btn-md shadow bg-white col-12", 
+                id: "update-link-#{link.id}", 
+                data: { turbo_frame: "modal" } do %>
+      <i class="bi bi-pencil-fill me-2"></i> Edit
     <% end %>
   </div>
 <% end %>

@@ -24,8 +24,13 @@
     <td class="flex-grow-1"><%= link.url %></td>
     <td><%= link.impressionist_count %></td>
   <% end %>
-  <td class="text-end flex-shrink-1"><%= link_to edit_link_path(link), class: "btn btn-outline-primary btn-sm shadow bg-white", id: "update-link-#{link.id}" do %>
-    <i class="bi bi-pencil-fill me-2"></i> Update link
-  <% end %></td>
+  <td class="text-end flex-shrink-1">
+    <%= link_to edit_link_path(link), 
+                class: "btn btn-outline-primary btn-sm shadow bg-white", 
+                id: "update-link-#{link.id}", 
+                data: { turbo_frame: "modal" } do %>
+      <i class="bi bi-pencil-fill me-2"></i> Edit
+    <% end %>
+  </td>
 <% end %>
  
