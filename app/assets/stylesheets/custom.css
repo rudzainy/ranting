@@ -45,12 +45,12 @@ select {
   height: 40px;
 }
 
-.btn.link_action_edit {
-  top: -20px;
-  left: -20px;
+.btn.link-action-edit {
+  top: 21px;
+  right: -20px;
 }
 
-.btn.link_action_move {
+.btn.link-action-move {
   top: -20px;
   right: -20px;
 }

@@ -16,8 +16,7 @@ class Link < ApplicationRecord
     link_card_1x3: 2,
     link_card_2x1: 3,
     link_card_2x2: 4,
-    link_card_2x3: 5,
-
+    link_card_2x3: 5
   }
 
   def empty?
