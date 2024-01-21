@@ -16,9 +16,15 @@
 
 
 
-  <button type="button" class="link_action_move hidable btn btn-light w-100 rounded-circle shadow draggable-hook"><i class="fa-solid fa-arrows-up-down-left-right"></i></button>
+  <button type="button" class="link-action-move hidable btn btn-light w-100 rounded-circle rounded-bottom-0 shadow draggable-hook"><i class="fa-solid fa-arrows-up-down-left-right"></i></button>
   
-  <%= link_to edit_link_path(link), class: "link_action_edit hidable btn btn-light w-100 rounded-circle shadow", id: "update-link-#{link.id}" do %>
+  <%= link_to edit_link_path(link), 
+              class: "link-action-edit hidable btn btn-light w-100 rounded-circle rounded-top-0 shadow", 
+              id: "update-link-#{link.id}", 
+              data: { 
+                turbo_frame: "modal",
+                # parent_id: parentID 
+              } do %>
     <i class="fa-solid fa-pen draggable-hook"></i>
   <% end %>
 
