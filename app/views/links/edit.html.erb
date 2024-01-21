@@ -8,7 +8,9 @@
         <% end %>
       </div>
       <div class="card-body">
-        <%= render "form" %>
+        <%= turbo_frame_tag "modal" do %>
+          <%= render "form" %>
+        <% end %>
       </div>
     </div>
   </div>  
