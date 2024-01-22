@@ -16,17 +16,21 @@
   <div class="container mt-5 border-3">
     <h5 class="text-center mb-3">Social Links</h5>
     <div id="mobileSocialContainer" class="card col-12">
-      <% @social_links.each do |link| %>
-        <%= render "links/draggable_mobile", link: link, parentID: "mobileSocialContainer" %>
-      <% end %>
+      <ul class="list-group list-group-flush">
+        <% @social_links.each do |link| %>
+          <%= render "links/table_row_mobile", link: link, parentID: "mobileSocialContainer" %>
+        <% end %>
+      </ul>
     </div>
   </div>
   <div class="container mt-5">
     <h5 class="text-center mb-3"><%= @group_name %></h5>
     <div id="mobileLinksContainer" class="card col-12">
-      <% @free_links.each do |link| %>
-        <%= render "links/draggable_mobile", link: link, parentID: "mobileLinksContainer" %>
-      <% end %>
+      <ul class="list-group list-group-flush">
+        <% @free_links.each do |link| %>
+          <%= render "links/table_row_mobile", link: link, parentID: "mobileLinksContainer" %>
+        <% end %>
+      </ul>
     </div>
   </div>
 <% else %>
@@ -45,7 +49,7 @@
         </thead>
         <tbody id="socialContainer">
           <% @social_links.each do |link| %>
-            <%= render "links/draggable", link: link, parentID: "socialContainer" %>
+            <%= render "links/table_row", link: link, parentID: "socialContainer" %>
           <% end %>
         </tbody>
       </table>
@@ -66,7 +70,7 @@
         </thead>
         <tbody id="linksContainer">
           <% @free_links.each do |link| %>
-          <%= render "links/draggable", link: link, parentID: "linksContainer" %>
+          <%= render "links/table_row", link: link, parentID: "linksContainer" %>
           <% end %>
         </tbody>
       </table>

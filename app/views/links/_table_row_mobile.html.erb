@@ -1,0 +1,13 @@
+<%# This is the individual link card %>
+<% unless link.empty? %>
+  <li class="list-group-item d-flex justify-content-between">
+    <%= link_to edit_link_path(link), 
+                class: "text-decoration-none text-dark", 
+                id: "update-link-#{link.id}", 
+                data: { turbo_frame: "modal" } do %>
+      <i class="fa-<%= link.icon_style %> fa-<%= link.icon %> mr-3 <%= "color--#{link.icon}" if link.social? %>"></i> <%= link.title %>
+    <% end %>
+    <div><%= link.impressionist_count %> clicks</div>
+  </li>
+<% end %>
+ 
