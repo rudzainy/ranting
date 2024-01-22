@@ -1,24 +1,53 @@
 <%= render 'profile', user: @user %>
 
-<div class="container-fluid fixed-bottom text-center bg-white py-3"> <%# TODO: need to set to bottom of the page %> 
-  <%= link_to root_path, class: "btn btn-small btn-outline-secondary mb-2" do %>
-    Build your own bio with Ranting
+<div class="container-fluid text-center">
+  <% if user_signed_in? %> 
+    <% if @user == current_user %>
+      <div id="editLinksButton" class="btn btn-sm btn-outline-secondary" onclick="toggleHidables()">Edit layout</div> 
+      <%= link_to "Profile page settings", edit_user_path(current_user), class: "btn btn-sm btn-outline-secondary" %>
+    <% else %>
+      <%= link_to "Go to your profile page", user_path(current_user), class: "btn btn-sm btn-outline-secondary" %>
+    <% end %>
+  <% else %>
+    <%= link_to root_path, class: "btn btn-small btn-outline-secondary mb-2" do %>
+      Build your own bio with Ranting
+    <% end %>
   <% end %>
 </div>
 
 <script>
-  let hideHidables = true
+  let isHidden = true
+
+  let hidables = document.querySelectorAll(".hidable")
+  let editLinksButton = document.getElementById("editLinksButton")
+  let dragables = document.querySelectorAll(".link-card-draggable")
+
   let toggleHidables = () => {
-    let hidables = document.querySelectorAll(".hidable")
+
+    isHidden = !isHidden;
+
     hidables.forEach( (btn) => {
-      if(hideHidables) {
-        btn.style.display = 'block';
-        document.getElementById("editLinksButton").innerHTML = "Finish Edit";
-      } else {
+      if(isHidden) {
         btn.style.display = 'none';
-        document.getElementById("editLinksButton").innerHTML = "Edit Links";
+      } else {
+        btn.style.display = 'block';
       }
     })
-    hideHidables = !hideHidables;
+
+    dragables.forEach( (card) => {
+      card.classList.toggle('draggable');
+      
+      if(isHidden) {
+        card.draggable = false;
+      } else {
+        card.draggable = true;
+      }
+    })
+
+    if(isHidden) {
+      editLinksButton.innerHTML = "Edit layout";
+    } else {
+      editLinksButton.innerHTML = "Finish editing";
+    }
   }
 </script>

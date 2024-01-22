@@ -24,9 +24,6 @@
           <%= render "bento_link_button", link: link, parentID: "links-container-" + index.to_s %>
         <% end %>
       </div>
-      <% if user_signed_in? && @user == current_user %>
-        <div id="editLinksButton" class="btn btn-sm btn-outline-secondary mt-3" onclick="toggleHidables()">Edit Links</div>
-      <% end %>
     </div>
   </div>
 </div>

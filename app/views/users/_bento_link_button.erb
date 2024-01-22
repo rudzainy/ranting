@@ -4,8 +4,8 @@
                   dragenter->drag#dragEnter 
                   drop->drag#drop 
                   dragend->drag#dragEnd"
-   linkClass = "link-card-draggable overflow-visible draggable draggable-mobile " + link_class(link) %>
-<%= content_tag(:div, class: linkClass, draggable: true, data: { 
+   linkClass = "link-card-draggable overflow-visible draggable-mobile " + link_class(link) %>
+<%= content_tag(:div, class: linkClass, draggable: false, data: { 
   controller: "drag",
   action: dragActions,
   resource_id: link.id,

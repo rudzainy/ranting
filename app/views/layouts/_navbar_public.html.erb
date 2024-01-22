@@ -19,14 +19,16 @@
           <%= link_to "Contact", contact_path, class: "nav-link" %>
         </li>
       </ul>
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="me-lg-2 mb-3 mb-lg-0">
-          <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-primary navbar-btn shadow w-100" %>
-        </li>
-        <li>
-          <%= link_to "Register your username", new_user_registration_path, class: "btn btn-primary navbar-btn shadow w-100" %>
-        </li>
-      </ul>
+      <% unless user_signed_in? %>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="me-lg-2 mb-3 mb-lg-0">
+            <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-primary navbar-btn shadow w-100" %>
+          </li>
+          <li>
+            <%= link_to "Register your username", new_user_registration_path, class: "btn btn-primary navbar-btn shadow w-100" %>
+          </li>
+        </ul>
+      <% end %>
     </div>
   </div>
 </nav>
