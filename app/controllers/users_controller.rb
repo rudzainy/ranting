@@ -8,26 +8,28 @@ class UsersController < ApplicationController
     @free_links = links.where(category: "free")
     @social_links = links.where(category: "social")
     unless @free_links.empty?
-      @group_name = @free_links.first.group.name 
+      @group_name = @free_links.first.group.name
     else
       @group_name = ""
     end
   end
 
   def show
-    redirect_to links_path if @user.nil?
-
-    @should_render_navbar_public = false
-    impressionist(@user)
-    links = @user.links.where.not(url: 'https://').order(position: :asc)
-    @free_links = links.where(category: "free")
-    @social_links = links.where(category: "social")
-    unless @free_links.empty?
-      @group_name = @free_links.first.group.name 
+    if @user.nil?
+      redirect_to links_path
     else
-      @group_name = ""
+      @should_render_navbar_public = false
+      impressionist(@user)
+      links = @user.links.where.not(url: 'https://').order(position: :asc)
+      @free_links = links.where(category: "free")
+      @social_links = links.where(category: "social")
+      unless @free_links.empty?
+        @group_name = @free_links.first.group.name
+      else
+        @group_name = ""
+      end
+      set_background_color
     end
-    set_background_color
   end
 
   def about
@@ -38,7 +40,7 @@ class UsersController < ApplicationController
     links = @user.links.where.not(url: 'https://').order(position: :asc)
     @free_links = links.where(category: "free")
     @social_links = links.where(category: "social")
-    @group_name = @free_links.first.group.name 
+    @group_name = @free_links.first.group.name
     set_background_color
     render template: "users/show"
   end
