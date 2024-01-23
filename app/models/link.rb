@@ -1,5 +1,6 @@
 class Link < ApplicationRecord
   is_impressionable
+  has_one_attached :image
   belongs_to :user
   belongs_to :group
   acts_as_list

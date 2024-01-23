@@ -1,13 +1,13 @@
 <%= simple_form_for(@link) do |f| %>
   <div class="row mb-3">
-    <label for="icon" class="col-sm-3 col-form-label">Link icon</label>
+    <label for="icon" class="col-sm-3 col-form-label">Icon</label>
     <div class="col-sm-9">
 
       <div class="input-group mb-3">
-        <label class="input-group-text" for="icon" id="selected-icon">
+        <label class="input-group-text" for="icon" id="displayedIcon<%= @link.id %>">
           <i class="fa-<%= @link.icon_style %> fa-<%= @link.icon %> mr-2"></i>
         </label>
-        <%= f.select :icon, icons_list, {}, {class: "form-select", id: "icon"} do %>
+        <%= f.select :icon, icons_list, {}, {class: "form-select", id: "iconDropdown#{@link.id}"} do %>
           <%= icons_list.each do |i| %>
             <% if i == @link.icon %>
               <option selected value="<%= i %>">
@@ -24,13 +24,13 @@
     </div>
   </div>
   <div class="row mb-3">
-    <label for="title" class="col-sm-3 col-form-label">Link title</label>
+    <label for="title" class="col-sm-3 col-form-label">Title</label>
     <div class="col-sm-9">
       <%= f.input :title, placeholder: "Name your link", label: false, class:"form-control high-z", html: {id: "title"} %>
     </div>
   </div>
-  <div class="row mb-3">
-    <label for="url" class="col-sm-3 col-form-label">Link URL</label>
+  <div class="row">
+    <label for="url" class="col-sm-3 col-form-label">URL</label>
     <div class="col-sm-9">
       <div class="input-group flex-nowrap">
         <span class="input-group-text h-50">https://</span>
@@ -38,5 +38,25 @@
       </div>
     </div>
   </div>
+  <div class="row mb-3">
+    <% if @link.image.attached? %>
+      <img src="<%= (url_for(@link.image)) %>">
+    <% end %>
+    <label for="image" class="col-sm-3 col-form-label">Image</label>
+    <div class="col-sm-9">
+      <%= f.file_field :image, accept: 'image/png, image/gif, image/jpeg', label: false, class:"form-control high-z", html: {id: "image"} %></p>
+    </div>
+  </div>
   <%= f.submit "Update Link", class:"btn btn-primary me-auto shadow" %>
 <% end %>
+
+<script>
+  let displayedIcon<%= @link.id %> = document.getElementById('displayedIcon<%= @link.id %>');
+  let iconDropdown<%= @link.id %> = document.getElementById("iconDropdown<%= @link.id %>")
+
+  let replaceDisplayedIcon<%= @link.id %> = () => {
+      let newIcon = '<i class="fa-<%= @link.icon_style %> ' + 'fa-' + iconDropdown<%= @link.id %>.options[iconDropdown<%= @link.id %>.selectedIndex].value + ' mr-2">'
+      displayedIcon<%= @link.id %>.innerHTML = newIcon;
+  }
+  iconDropdown<%= @link.id %>.onchange = replaceDisplayedIcon<%= @link.id %>;
+</script>

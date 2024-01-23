@@ -8,9 +8,9 @@ class LinksController < ApplicationController
     @should_render_navbar = true
     @free_links = current_user.links.where(category: "free").order(position: :asc)
     @social_links = current_user.links.where(category: "social").order(position: :asc)
-    
+
     unless @free_links.empty?
-      @group_name = @free_links.first.group.name 
+      @group_name = @free_links.first.group.name
     else
       @group_name = ""
     end
@@ -40,12 +40,12 @@ class LinksController < ApplicationController
   private
 
   def link_params
-    params.require(:link).permit(:title, :url, :icon, :category)
+    params.require(:link).permit(:title, :url, :icon, :category, :image)
   end
 
   def set_link
     @link = Link.find(params[:id])
-  
+
   rescue StandardError
     @link = nil
   end
