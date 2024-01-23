@@ -9,5 +9,12 @@
     <% end %>
     <div><%= link.impressionist_count %> clicks</div>
   </li>
+<% else %>
+  <li class="list-group-item d-flex justify-content-center">
+    <%= link_to "Edit link", edit_link_path(link), 
+                class: "btn btn-secondary", 
+                id: "update-link-#{link.id}", 
+                data: { turbo_frame: "modal" } %>
+  </li>
 <% end %>
  
