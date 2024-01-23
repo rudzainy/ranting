@@ -50,3 +50,27 @@ bin/dev
 ## References
 
 - https://learn.deanin.com/courses/build-a-linktree-on-rails
+
+
+## IA
+
+### User
+
+- user has many links
+- user can create groups, however group does not belong to a user
+  - TODO: might need to add `creator_id` in group table
+- user can be private or public
+
+### Link
+
+- link belongs to a user
+- link belongs to a group
+
+### Group
+
+- group has may links
+- group can have many users
+  - users create and share / collaborate groups
+  - TODO: this has not been built
+- group can be private or public
+

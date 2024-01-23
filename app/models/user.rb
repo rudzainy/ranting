@@ -84,10 +84,10 @@ class User < ApplicationRecord
       )
       social_group.links.create(
         category: 'social',
-        icon: 'whatsapp',
+        icon: 'instagram',
         icon_style: 'brands',
         position: '9',
-        title: 'WhatsApp',
+        title: 'Instagram',
         url: '',
         user: self,
       )
