@@ -39,6 +39,12 @@
     </div>
   </div>
   <div class="row mb-3">
+    <label for="css_class" class="col-sm-3 col-form-label">Layout</label>
+    <div class="col-sm-9">
+      <%= f.select :css_class, options_for_select(Link.css_classes.map {|key, value| [key.gsub("link_card_", "").titleize, Link.css_classes.key(value)]}, @link.css_class), {}, {class: "form-select", id: "iconDropdown#{@link.id}"} %>
+    </div>
+  </div>
+  <div class="row mb-3">
     <% if @link.image.attached? %>
       <img src="<%= (url_for(@link.image)) %>">
     <% end %>

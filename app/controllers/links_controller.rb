@@ -40,7 +40,7 @@ class LinksController < ApplicationController
   private
 
   def link_params
-    params.require(:link).permit(:title, :url, :icon, :category, :image)
+    params.require(:link).permit(:title, :url, :icon, :category, :image, :css_class)
   end
 
   def set_link
