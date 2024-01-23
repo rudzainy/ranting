@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-12 col-lg-9">
-      <h1>Update your profile page design</h1>
+      <h1>Update your profile page layout</h1>
     </div>
     <div class="col-12 text-end col-lg-3">
       <% if !@user.username.nil? %>
@@ -63,25 +63,25 @@
           <div class="card-body">
             <div class="form-inputs">
               <div class="mb-3">
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" role="switch" id="make-profile-private" disabled>
+                <div class="form-check form-switch d-flex justify-content-between ps-0">
                   <label class="form-check-label" for="make-profile-private">Hide profile from public</label>
+                  <input class="form-check-input" type="checkbox" role="switch" id="make-profile-private" disabled>
                 </div>
               </div>
               <div class="mb-3">
-                <div class="form-check form-switch">
-                  <input class="form-check-input" type="checkbox" role="switch" id="enable-ewallet" disabled>
+                <div class="form-check form-switch d-flex justify-content-between ps-0">
                   <label class="form-check-label" for="enable-ewallet">Enable e-wallet</label>
+                  <input class="form-check-input" type="checkbox" role="switch" id="enable-ewallet" disabled>
                 </div>
-                <input type="text" class="form-control" id="eWallet" placeholder="Coming soon" disabled>
+                <input type="text" class="form-control d-none" id="eWallet" placeholder="E-wallet link" disabled>
               </div>
-              <div class="mb-3">
-                <label for="eWallet" class="form-label">Background Color</label>
-                <%= f.color_field :background_color, label: "Background colour", class: "form-control", style: "min-height: 38px;" %>
+              <div class="mb-3 d-flex justify-content-between">
+                <label for="background-color" class="form-label">Background colour</label>
+                <%= f.color_field :background_color, label: "Background colour", class: "form-control", style: "min-height: 24px; width:56px;" %>
               </div>
             </div>
           </div>
-          <div class="card-footer text-body-secondary mt-3">
+          <div class="card-footer text-body-secondary">
             <div class="form-actions d-grid">
               <%= f.button :submit, "Update Page Settings", class: "btn btn-outline-primary shadow" %>
             </div>

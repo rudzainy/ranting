@@ -16,6 +16,7 @@ module LinksHelper
       "whatsapp",
       "linkedin",
       "telegram",
+      "instagram",
       "address-book",
       "address-card",
       "angry",
