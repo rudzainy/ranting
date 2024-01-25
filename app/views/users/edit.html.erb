@@ -37,7 +37,7 @@
     <div class="col-12 col-md-6">
       <div class="card mb-3">
         <div class="card-header"><i class="bi bi-person-badge me-2"></i>Profile Details</div>
-        <%= image_tag @user.avatar, class: "d-block mx-auto my-3 col-3 rounded-circle" if @user.avatar.attached? %>
+        <%= image_tag @user.avatar, class: "user-avatar d-block mx-auto my-3 col-3 rounded-circle object-fit-cover" if @user.avatar.attached? %>
         <%= simple_form_for(@user, url: registration_path(@user), html: { method: :put }) do |f| %>
           <div class="card-body">
             <%= f.error_notification %>

@@ -71,7 +71,7 @@
           <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <span class="me-2"><%= current_user.username %></span>
             <% if current_user.avatar.attached? %>
-              <%= image_tag current_user.avatar, class: "navbar-avatar rounded-circle" %>
+              <%= image_tag current_user.avatar, class: "navbar-avatar rounded-circle object-fit-cover " %>
             <% else %>
               <i class="bi bi-person-circle navbar-brand"></i>
             <% end %>
