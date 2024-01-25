@@ -187,3 +187,14 @@ select {
     grid-row: span 3;
   }
 }
+
+/* @media (min-width: 576px) { */
+  .user-avatar {
+    width: 135px;
+    height: 135px;
+  }
+  .navbar-avatar {
+    width: 24px;
+}
+/* } */
+
