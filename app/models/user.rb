@@ -61,7 +61,7 @@ class User < ApplicationRecord
         icon_style: 'brands',
         position: '6',
         title: 'Twitter',
-        url: '',
+        url: 'twitter.com/your_username',
         user: self,
       )
       social_group.links.create(
@@ -70,7 +70,7 @@ class User < ApplicationRecord
         icon_style: 'brands',
         position: '7',
         title: 'Youtube',
-        url: '',
+        url: 'youtube.com/@your_username',
         user: self,
       )
       social_group.links.create(
@@ -79,7 +79,7 @@ class User < ApplicationRecord
         icon_style: 'brands',
         position: '8',
         title: 'Facebook',
-        url: '',
+        url: 'facebook.com/your_username',
         user: self,
       )
       social_group.links.create(
@@ -88,7 +88,7 @@ class User < ApplicationRecord
         icon_style: 'brands',
         position: '9',
         title: 'Instagram',
-        url: '',
+        url: 'instagram.com/your_username',
         user: self,
       )
       social_group.links.create(
@@ -97,7 +97,7 @@ class User < ApplicationRecord
         icon_style: 'brands',
         position: '10',
         title: 'LinkedIn',
-        url: '',
+        url: 'linkedin.com/in/your_username',
         user: self,
       )
     end

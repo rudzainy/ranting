@@ -1,4 +1,8 @@
 class Link < ApplicationRecord
+  # TODO: More features for links
+
+  enum 
+
   is_impressionable
   has_one_attached :image
   belongs_to :user
@@ -7,9 +11,16 @@ class Link < ApplicationRecord
   before_save :sanitize_url
 
   enum category: {
-    free: 0,
+    free:   0,
     social: 1
   }
+
+  # enum category: {
+  #   url:    0,
+  #   social: 1,
+  #   embed:  2,
+  #   custom: 3
+  # }
 
   enum css_class: {
     link_card_1x1: 0,

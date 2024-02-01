@@ -3,21 +3,21 @@
     <div class="row">
       <div class="col-6 col-md-2 mb-3">
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Contact</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Licences & Disclaimer</a></li>
+          <li class="nav-item mb-2"><%= link_to "Home", root_path, class: "nav-link p-0 text-body-secondary" %></li>
+          <li class="nav-item mb-2"><%= link_to "About", about_path, class: "nav-link p-0 text-body-secondary" %></li>
+          <li class="nav-item mb-2"><%= link_to "Contact", contact_path, class: "nav-link p-0 text-body-secondary" %></li>
+          <li class="nav-item mb-2"><%= link_to "Pricing", pricing_path, class: "nav-link p-0 text-body-secondary" %></li>
+          <li class="nav-item mb-2"><%= link_to "Licences & Disclaimer", faq_path, class: "nav-link p-0 text-body-secondary" %></li>
         </ul>
       </div>
       <% if user_signed_in? %>
         <div class="col-6 col-md-4 mb-3">
           <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Links</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Profile Page</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Account Settings</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">View My Profile Page</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Logout</a></li>
+            <li class="nav-item mb-2"><%= link_to "Links", links_path, class: "nav-link p-0 text-body-secondary" %></li>
+            <li class="nav-item mb-2"><%= link_to "Layout", edit_user_path(current_user), class: "nav-link p-0 text-body-secondary" %></li>
+            <li class="nav-item mb-2"><%= link_to "Account Settings", edit_user_registration_path, class: "nav-link p-0 text-body-secondary" %></li>
+            <li class="nav-item mb-2"><%= link_to "View your page", user_path(current_user.slug), class: "nav-link p-0 text-body-secondary" %></li>
+            <li class="nav-item mb-2"><%= link_to "Logout", destroy_user_session_path, class: "nav-link p-0 text-body-secondary" %></li>
           </ul>
         </div>
       <% end %>

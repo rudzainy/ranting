@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get 'pricing', to: 'static#pricing'
   get 'licences_disclaimer', to: 'static#licences_disclaimer'
   get 'contact', to: 'static#contact'
+  get 'usecases', to: 'static#use_cases'
   get 'about', to: 'users#about', as: :about
+  get 'faq', to: 'static#faq'
 
   patch 'drag/links'
 

@@ -16,6 +16,12 @@ class StaticController < ApplicationController
   def about
   end
 
+  def use_cases
+  end
+
+  def faq 
+  end
+
   private
 
   def set_should_render_navbar
