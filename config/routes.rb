@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   resources :links, except: :destroy
   resources :users, only: :edit
+  resources :short_links
 
   root 'static#index'
 

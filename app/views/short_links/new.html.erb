@@ -1,0 +1,5 @@
+<%= simple_form_for @short_links do |f| %>
+  <%= f.label :url %>
+  <%= text_field_tag :url %>
+  <%= f.button :submit, 'Submit' %>
+<% end %>
