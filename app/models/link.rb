@@ -6,7 +6,8 @@ class Link < ApplicationRecord
   is_impressionable
   has_one_attached :image
   belongs_to :user, optional: true
-  belongs_to :group
+  belongs_to :group, optional: true
+  has_many :short_links
   acts_as_list
   before_save :sanitize_url
 

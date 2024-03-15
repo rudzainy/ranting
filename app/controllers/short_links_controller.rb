@@ -5,12 +5,12 @@ class ShortLinksController < ApplicationController
   end
 
   def create
-    link = Link.create(
+    link = Link.create!(
       url: url,
       category: 2
     )
 
-    short_link = ShortLink.create(
+    ShortLink.create!(
       link: link,
       statistics_token: SecureRandom.base64(8),
       url_token: SecureRandom.base64(8)
@@ -22,6 +22,6 @@ class ShortLinksController < ApplicationController
   private
 
   def url
-    params[:short_link][:url]
+    params[:url]
   end
 end
