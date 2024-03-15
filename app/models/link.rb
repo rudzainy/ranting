@@ -1,14 +1,15 @@
 class Link < ApplicationRecord
   is_impressionable
   has_one_attached :image
-  belongs_to :user
+  belongs_to :user, optional: true
   belongs_to :group
   acts_as_list
   before_save :sanitize_url
 
   enum category: {
     free: 0,
-    social: 1
+    social: 1,
+    anonymous_short_link: 2
   }
 
   enum css_class: {
