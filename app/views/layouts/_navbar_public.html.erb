@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-primary-subtle">
   <div class="container-fluid">
     <%= image_tag "logo.png", height: "24", class: "me-1 d-inline-block align-text-top" do %>
-      Ranting
+      gugel.my
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -9,10 +9,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <%= link_to "About", about_path, class: "nav-link" %>
+          <%= link_to "Use Cases", usecases_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Pricing", pricing_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "About", about_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Contact", contact_path, class: "nav-link" %>
@@ -21,10 +24,10 @@
       <% unless user_signed_in? %>
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="me-lg-2 mb-3 mb-lg-0">
-            <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-primary navbar-btn shadow w-100" %>
+            <%= link_to "Shorten A Link", new_short_link_path, class: "btn btn-primary navbar-btn shadow w-100" %>
           </li>
           <li>
-            <%= link_to "Register your username", new_user_registration_path, class: "btn btn-primary navbar-btn shadow w-100" %>
+            <%= link_to "Create Links Page", new_user_session_path, class: "btn btn-outline-primary navbar-btn shadow w-100" %>
           </li>
         </ul>
       <% end %>
