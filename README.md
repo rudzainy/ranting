@@ -1,4 +1,4 @@
-# Ranting.my
+# gugel.my
 
 ## Setup: 
 
@@ -23,7 +23,7 @@ bin/dev
 - Links are the fundamental of the internet.
 - Every person who is on the internet should have a safe place they can call home.
 - Social media platforms like Friendster, Facebook and Twitter initially was popular because of the impression that it has the potential to become that safe space. History has proven otherwise.
-- Ranting wants to solve that problem for Malaysia.
+- Gugel.my wants to solve that problem for Malaysia.
 
 #### Malaysia
 

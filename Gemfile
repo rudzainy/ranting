@@ -60,6 +60,15 @@ gem 'impressionist',
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+
+  # The RSpec testing framework
+  gem 'rspec-rails'
+ 
+  # Capybara, the library that allows us to interact with the browser using Ruby
+  gem 'capybara'
+ 
+  # This gem helps Capybara interact with the web browser.
+  gem 'webdrivers'
 end
 
 group :development do
@@ -76,9 +85,7 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
   gem "selenium-webdriver"
-  gem "webdrivers"
 end
 
 gem "devise", "~> 4.9"

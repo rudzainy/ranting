@@ -1,15 +1,28 @@
 class Link < ApplicationRecord
+  # TODO: More features for links
+
+  enum 
+
   is_impressionable
   has_one_attached :image
-  belongs_to :user
-  belongs_to :group
+  belongs_to :user, optional: true
+  belongs_to :group, optional: true
+  has_many :short_links
   acts_as_list
   before_save :sanitize_url
 
   enum category: {
     free: 0,
-    social: 1
+    social: 1,
+    anonymous_short_link: 2
   }
+
+  # enum category: {
+  #   url:    0,
+  #   social: 1,
+  #   embed:  2,
+  #   custom: 3
+  # }
 
   enum css_class: {
     link_card_1x1: 0,

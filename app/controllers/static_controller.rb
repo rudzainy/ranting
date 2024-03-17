@@ -1,6 +1,9 @@
 class StaticController < ApplicationController
   before_action :set_should_render_navbar
 
+  def index
+  end
+
   def pricing
   end
 
@@ -13,10 +16,17 @@ class StaticController < ApplicationController
   def about
   end
 
+  def use_cases
+    @use_cases = User.find(2)
+  end
+
+  def faq 
+  end
+
   private
 
   def set_should_render_navbar
-    if user_signed_in? 
+    if user_signed_in?
       @should_render_navbar = true
     end
   end

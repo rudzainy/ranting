@@ -7,13 +7,13 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 if User.count == 0
-  ranting_about_page = User.create!(
+  gugel_about_page = User.create!(
     username: "about",
-    full_name: "Ranting = Network!",
-    email: "hello@ranting.my",
+    full_name: "gugel.my = Network!",
+    email: "hello@gugel.my",
     password: "123456",
     password_confirmation: "123456",
-    description: "Ranting is a link-in-bio platform that allows any Malaysian creators to showcase their work and social media profiles in a single, easy-to-share link ♥️"
+    description: "gugel.my is a link-in-bio platform that allows any Malaysian creators to showcase their work and social media profiles in a single, easy-to-share link ♥️"
   )
 
   default_group = Group.create(name: "🌊 Surf the web through these links 🏄‍♂️")
@@ -23,8 +23,8 @@ if User.count == 0
     icon_style: 'solid',
     position: '1',
     title: 'Visit our office',
-    url: 'https://ranting-mvp.onrender.com/links/1',
-    user: ranting_about_page,
+    url: 'https://gugel.my/gugeloffice',
+    user: gugel_about_page,
     css_class: 2
   )
   default_group.links.create!(
@@ -33,8 +33,8 @@ if User.count == 0
     icon_style: 'solid',
     position: '2',
     title: 'Say hi to Faris',
-    url: 'ranting.my/faris',
-    user: ranting_about_page,
+    url: 'gugel.my/faris',
+    user: gugel_about_page,
     css_class: 1
   )
   default_group.links.create!(
@@ -43,8 +43,8 @@ if User.count == 0
     icon_style: 'solid',
     position: '3',
     title: 'Say hi to Jeanette',
-    url: 'ranting.my/jeanette',
-    user: ranting_about_page,
+    url: 'gugel.my/jeanette',
+    user: gugel_about_page,
     css_class: 1
   )
   default_group.links.create!(
@@ -53,8 +53,8 @@ if User.count == 0
     icon_style: 'solid',
     position: '4',
     title: 'Read our blog',
-    url: 'ranting.my/blog',
-    user: ranting_about_page,
+    url: 'gugel.my/blog',
+    user: gugel_about_page,
     css_class: 2
   )
   default_group.links.create!(
@@ -63,8 +63,8 @@ if User.count == 0
     icon_style: 'solid',
     position: '5',
     title: 'Say hi to Rudzainy',
-    url: 'ranting.my/rudzainy',
-    user: ranting_about_page,
+    url: 'gugel.my/rudzainy',
+    user: gugel_about_page,
     css_class: 1
   )
 end
