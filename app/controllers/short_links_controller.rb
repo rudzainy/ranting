@@ -5,7 +5,6 @@ class ShortLinksController < ApplicationController
   end
 
   def create
-    byebug
     link = Link.create!(
       url: url,
       category: 2
