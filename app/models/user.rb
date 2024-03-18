@@ -19,21 +19,16 @@ class User < ApplicationRecord
   validates :full_name, length: { maximum: 64 }
   validates :description, length: { maximum: 256 }
   validates_format_of :username, :with => /\A[a-z0-9]+\z/i
+  validates :username, uniqueness: true
   validate :valid_username
 
   def valid_username
-    if self.should_generate_new_friendly_id?
-      errors.add(:username, ' is already taken.') if User.exists?(username:)
-    end
-
+    
     restricted_username_list = %(admin root dashboard analytics design settings preferences)
 
     errors.add(:username, ' is restricted.') if restricted_username_list.include?(username)
   end
 
-  def should_generate_new_friendly_id?
-    username_changed? || slug.blank?
-  end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
