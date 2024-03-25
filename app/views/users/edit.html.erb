@@ -62,22 +62,26 @@
         <%= simple_form_for(@user, url: registration_path(@user), html: { method: :put }) do |f| %>
           <div class="card-body">
             <div class="form-inputs">
+              <div class="mb-3 d-flex justify-content-between">
+                <label for="background-color" class="form-label">Background colour</label>
+                <%= f.color_field :background_color, label: "Background colour", class: "form-control", style: "min-height: 24px; width:56px;" %>
+              </div>
               <div class="mb-3">
                 <div class="form-check form-switch d-flex justify-content-between ps-0">
-                  <label class="form-check-label" for="make-profile-private">Hide profile from public</label>
+                  <label class="form-check-label text-muted" for="make-profile-private">Hide profile from public</label>
                   <input class="form-check-input" type="checkbox" role="switch" id="make-profile-private" disabled>
                 </div>
               </div>
               <div class="mb-3">
                 <div class="form-check form-switch d-flex justify-content-between ps-0">
-                  <label class="form-check-label" for="enable-ewallet">Enable e-wallet</label>
+                  <label class="form-check-label text-muted" for="enable-ewallet">Enable e-wallet</label>
                   <input class="form-check-input" type="checkbox" role="switch" id="enable-ewallet" disabled>
                 </div>
                 <input type="text" class="form-control d-none" id="eWallet" placeholder="E-wallet link" disabled>
               </div>
               <div class="mb-3">
                 <div class="form-check form-switch d-flex justify-content-between ps-0">
-                  <label class="form-check-label" for="custom-seo">Custom SEO</label>
+                  <label class="form-check-label text-muted" for="custom-seo">Custom SEO</label>
                   <input class="form-check-input" type="checkbox" role="switch" id="custom-seo" disabled>
                 </div>
                 <input type="text" class="form-control d-none" id="customSeoTitle" placeholder="Title" disabled>
@@ -86,14 +90,10 @@
               </div>
               <div class="mb-3">
                 <div class="form-check form-switch d-flex justify-content-between ps-0">
-                  <label class="form-check-label" for="google-analytics">Google Analytics</label>
+                  <label class="form-check-label text-muted" for="google-analytics">Google Analytics</label>
                   <input class="form-check-input" type="checkbox" role="switch" id="google-analytics" disabled>
                 </div>
                 <input type="text" class="form-control d-none" id="eWallet" placeholder="G-1234567890" disabled>
-              </div>
-              <div class="mb-3 d-flex justify-content-between">
-                <label for="background-color" class="form-label">Background colour</label>
-                <%= f.color_field :background_color, label: "Background colour", class: "form-control", style: "min-height: 24px; width:56px;" %>
               </div>
             </div>
           </div>
