@@ -11,7 +11,7 @@
     <td class="text-center flex-shrink-1"><i class="fa-<%= link.icon_style %> fa-<%= link.icon %> mr-2 <%= "color--#{link.icon}" if link.social? %>"></i></td>
     <td class="flex-grow-1"><%= link.title %></td>
     <td class="flex-grow-1"><%= link.url %></td>
-    <td><%= link.impressionist_count %></td>
+    <td><%= line_chart [link.impressionist_count(start_date: 7.days.ago, end_date: 7.days.ago), link.impressionist_count(start_date: 6.days.ago, end_date: 6.days.ago), link.impressionist_count(start_date: 5.days.ago, end_date: 5.days.ago)] %><%= link.impressionist_count(:filter=>:all) %></td>
   <% end %>
   <td class="text-end flex-shrink-1">
     <%= link_to edit_link_path(link), 

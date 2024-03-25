@@ -3,6 +3,8 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 import "./dragdroptouch"
 import * as bootstrap from "bootstrap"
+import "chartkick"
+import "Chart.bundle"
 
 // https://discuss.rubyonrails.org/t/unable-to-import-font-awesome/82423
 // importing core styling file
