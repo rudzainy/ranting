@@ -3,7 +3,7 @@
 <div class="container-fluid text-center">
   <% if user_signed_in? %> 
     <% if @user == current_user %>
-      <div id="editLinksToggleButton" class="btn btn-sm btn-outline-secondary" onclick="toggleHidables()">Edit layout</div> 
+      <div id="editLinksToggleButton" class="btn btn-sm btn-outline-secondary" onclick="toggleEditing()">Edit layout</div> 
       <%= link_to "Profile page settings", edit_user_path(current_user), class: "btn btn-sm btn-outline-secondary" %>
     <% else %>
       <%= link_to "Go to your profile page", user_path(current_user), class: "btn btn-sm btn-outline-secondary" %>
@@ -16,7 +16,7 @@
 </div>
 
 <script>
-  let isHidden = true
+  let isEditing = false
 
   let hidables = document.querySelectorAll(".hidable")
   let editLinksToggleButton = document.getElementById("editLinksToggleButton")
@@ -24,60 +24,45 @@
   
 
   let showHidable = (id) => {
-    let moveBtn = document.getElementById(`moveButton${id}`)
-    let editBtn = document.getElementById(`update-link-${id}`)
-    moveBtn.style.display = 'block';
-    editBtn.style.display = 'block';
+    if(isEditing) {
+      let moveBtn = document.getElementById(`moveButton${id}`)
+      let editBtn = document.getElementById(`update-link-${id}`)
+      moveBtn.style.display = 'block';
+      editBtn.style.display = 'block';
+    }
   }
 
   let hideHidable = (id) => {
-    let moveBtn = document.getElementById(`moveButton${id}`)
-    let editBtn = document.getElementById(`update-link-${id}`)
-    moveBtn.style.display = 'none';
-    editBtn.style.display = 'none';
+    if(isEditing) {
+      let moveBtn = document.getElementById(`moveButton${id}`)
+      let editBtn = document.getElementById(`update-link-${id}`)
+      moveBtn.style.display = 'none';
+      editBtn.style.display = 'none';
+    }
   }
 
   let toggleDraggables = () => {
     dragables.forEach( (card) => {
       
-      isHidden = !isHidden;
-      
       card.classList.toggle('draggable');
       
-      if(isHidden) {
-        card.draggable = false;
-      } else {
+      if(isEditing) {
         card.draggable = true;
+      } else {
+        card.draggable = false;
       }
     })
   }
 
-  let toggleHidables = () => {
+  let toggleEditing = () => {
 
-    isHidden = !isHidden;
-
-    hidables.forEach( (btn) => {
-      if(isHidden) {
-        btn.style.display = 'none';
-      } else {
-        btn.style.display = 'block';
-      }
-    })
-
-    dragables.forEach( (card) => {
-      card.classList.toggle('draggable');
-      
-      if(isHidden) {
-        card.draggable = false;
-      } else {
-        card.draggable = true;
-      }
-    })
-
-    if(isHidden) {
-      editLinksToggleButton.innerHTML = "Edit layout";
-    } else {
+    isEditing = !isEditing;
+    toggleDraggables();
+    
+    if(isEditing) {
       editLinksToggleButton.innerHTML = "Finish editing";
+    } else {
+      editLinksToggleButton.innerHTML = "Edit layout";
     }
   }
 </script>

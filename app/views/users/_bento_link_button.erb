@@ -13,24 +13,19 @@
   parent: parentID
 }) do %>
 
-
-
-
-  <button id="moveButton<%= link.id %>" type="button" class="link-action-move hidable btn btn-light w-100 rounded-circle rounded-bottom-0 shadow draggable-hook" onmouseover="showHidable(<%= link.id %>)" onmouseout="hideHidable(<%= link.id %>)" onmouseenter="toggleDraggables()">
-    <i class="fa-solid fa-arrows-up-down-left-right"></i></button>
+  <button id="moveButton<%= link.id %>" type="button" class="link-action-move hidable btn btn-light w-100 rounded-circle rounded-bottom-0 shadow draggable-hook" onmouseover="showHidable(<%= link.id %>)" onmouseout="hideHidable(<%= link.id %>)"><i class="fa-solid fa-arrows-up-down-left-right"></i></button>
   
   <%= link_to edit_link_path(link), 
-              class: "link-action-edit hidable btn btn-light w-100 rounded-circle rounded-top-0 shadow", 
-              id: "update-link-#{link.id}", 
-              data: { 
-                turbo_frame: "modal",
-                # parent_id: parentID 
-              },
-              onmouseover: "showHidable(#{link.id})",
-              onmouseout: "hideHidable(#{link.id})" do %>
+    class: "link-action-edit hidable btn btn-light w-100 rounded-circle rounded-top-0 shadow", 
+    id: "update-link-#{link.id}", 
+    data: { 
+      turbo_frame: "modal",
+      # parent_id: parentID 
+    },
+    onmouseover: "showHidable(#{link.id})",
+    onmouseout: "hideHidable(#{link.id})" do %>
     <i class="fa-solid fa-pen draggable-hook"></i>
   <% end %>
-
 
   <div class="card link-card text-decoration-none" 
     onmouseover="showHidable(<%= link.id %>)" 
@@ -55,11 +50,6 @@
     </div>
   </div>
 
-
-
-
-
-
   <% if false %>
     <ul class="list-group list-group-flush">
       <li class="list-group-item"><i class="fa-<%= link.icon_style %> fa-<%= link.icon %> mr-2 <%= "color--#{link.icon}" if link.social? %>"></i></li>
@@ -69,4 +59,3 @@
     </ul>
   <% end %>
 <% end %>
-
