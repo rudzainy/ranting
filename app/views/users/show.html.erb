@@ -3,13 +3,13 @@
 <div class="container-fluid text-center">
   <% if user_signed_in? %> 
     <% if @user == current_user %>
-      <div id="editLinksButton" class="btn btn-sm btn-outline-secondary" onclick="toggleHidables()">Edit layout</div> 
+      <div id="editLinksToggleButton" class="btn btn-sm btn-outline-secondary" onclick="toggleHidables()">Edit layout</div> 
       <%= link_to "Profile page settings", edit_user_path(current_user), class: "btn btn-sm btn-outline-secondary" %>
     <% else %>
       <%= link_to "Go to your profile page", user_path(current_user), class: "btn btn-sm btn-outline-secondary" %>
     <% end %>
   <% else %>
-    <%= link_to root_path, class: "btn btn-small btn-outline-secondary mb-2" do %>
+    <%= link_to new_user_session_path, class: "btn btn-small btn-outline-secondary mb-2" do %>
       Build your own bio with gugel.my
     <% end %>
   <% end %>
@@ -19,8 +19,38 @@
   let isHidden = true
 
   let hidables = document.querySelectorAll(".hidable")
-  let editLinksButton = document.getElementById("editLinksButton")
+  let editLinksToggleButton = document.getElementById("editLinksToggleButton")
   let dragables = document.querySelectorAll(".link-card-draggable")
+  
+
+  let showHidable = (id) => {
+    let moveBtn = document.getElementById(`moveButton${id}`)
+    let editBtn = document.getElementById(`update-link-${id}`)
+    moveBtn.style.display = 'block';
+    editBtn.style.display = 'block';
+  }
+
+  let hideHidable = (id) => {
+    let moveBtn = document.getElementById(`moveButton${id}`)
+    let editBtn = document.getElementById(`update-link-${id}`)
+    moveBtn.style.display = 'none';
+    editBtn.style.display = 'none';
+  }
+
+  let toggleDraggables = () => {
+    dragables.forEach( (card) => {
+      
+      isHidden = !isHidden;
+      
+      card.classList.toggle('draggable');
+      
+      if(isHidden) {
+        card.draggable = false;
+      } else {
+        card.draggable = true;
+      }
+    })
+  }
 
   let toggleHidables = () => {
 
@@ -45,9 +75,9 @@
     })
 
     if(isHidden) {
-      editLinksButton.innerHTML = "Edit layout";
+      editLinksToggleButton.innerHTML = "Edit layout";
     } else {
-      editLinksButton.innerHTML = "Finish editing";
+      editLinksToggleButton.innerHTML = "Finish editing";
     }
   }
 </script>

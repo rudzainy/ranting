@@ -16,7 +16,8 @@
 
 
 
-  <button type="button" class="link-action-move hidable btn btn-light w-100 rounded-circle rounded-bottom-0 shadow draggable-hook"><i class="fa-solid fa-arrows-up-down-left-right"></i></button>
+  <button id="moveButton<%= link.id %>" type="button" class="link-action-move hidable btn btn-light w-100 rounded-circle rounded-bottom-0 shadow draggable-hook" onmouseover="showHidable(<%= link.id %>)" onmouseout="hideHidable(<%= link.id %>)" onmouseenter="toggleDraggables()">
+    <i class="fa-solid fa-arrows-up-down-left-right"></i></button>
   
   <%= link_to edit_link_path(link), 
               class: "link-action-edit hidable btn btn-light w-100 rounded-circle rounded-top-0 shadow", 
@@ -24,12 +25,16 @@
               data: { 
                 turbo_frame: "modal",
                 # parent_id: parentID 
-              } do %>
+              },
+              onmouseover: "showHidable(#{link.id})",
+              onmouseout: "hideHidable(#{link.id})" do %>
     <i class="fa-solid fa-pen draggable-hook"></i>
   <% end %>
 
 
-  <div class="card link-card text-decoration-none">
+  <div class="card link-card text-decoration-none" 
+    onmouseover="showHidable(<%= link.id %>)" 
+    onmouseout="hideHidable(<%= link.id %>)">
     <% if link_class(link) == "link-card-1x3" %>
       <% if link.image.attached? %>
         <%= image_tag(link.image, class: 'card-img-top', loading: 'lazy') %>
