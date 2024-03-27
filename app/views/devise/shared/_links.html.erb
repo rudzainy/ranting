@@ -1,28 +1,16 @@
-<%- if devise_mapping.omniauthable? %>
-  <p class="text-muted">You can also log in or sign up with</p>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <% service = OmniAuth::Utils.camelize(provider) %>
-    <%#= button_to "#{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-secondary", data: { turbo: false } %>
-    <%= button_to omniauth_authorize_path(resource_name, provider), class: "btn btn-outline-primary mb-2 w-100 shadow", data: { turbo: false } do %>
-      <i class="bi bi-google me-2"></i><%= service == "GoogleOauth2" ? "Google" : service %>
-    <% end %>
-  <% end %>
-  <hr />
-<% end %>
-
 <%- if controller_name != 'sessions' %>
   <p>Already have an account?<br />
-  <%= link_to "Log in here!", new_session_path(resource_name), class: "link-underline-primary" %></p>
+  <%= link_to "Log in here", new_session_path(resource_name), class: "link-underline-primary" %></p>
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
   <p>Don't have an account yet?<br />
-  <%= link_to "Register for FREE!", new_registration_path(resource_name), class: "link-underline-primary" %></p>
+  <%= link_to "Create your Gugel account here", new_registration_path(resource_name), class: "link-underline-primary" %></p>
 <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
   <p>Forgot your password?<br />
-  <%= link_to "Click here to reset your password.", new_password_path(resource_name), class: "link-underline-primary" %></p>
+  <%= link_to "Click here to reset your password", new_password_path(resource_name), class: "link-underline-primary" %></p>
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
