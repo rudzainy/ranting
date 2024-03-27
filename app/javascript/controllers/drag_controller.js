@@ -20,7 +20,7 @@ export default class extends Controller {
     // console.log(`url: ${url}`)
     let parentID = event.target.getAttribute(dataParent)
     console.log(`dragStart parentID: ${parentID}`)
-
+    
     event.dataTransfer.effectAllowed = "move"
   }
 
