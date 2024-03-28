@@ -1,58 +1,113 @@
-<div class="container py-3">
+<div class="container text-center py-5 bg-white rounded-5 shadow-lg mb-5">
   <header>
-    <div class="pricing-header p-3 pb-md-4 mx-auto">
-      <h1 class="display-4 fw-normal text-body-emphasis text-center">Use Cases</h1>
-      <p class="fs-5 text-body-secondary lead text-center">gugel.my is a link-in-bio platform that allows any Malaysian creators to showcase their work and social media profiles in a single, easy-to-share link. </p>
-      
-      <p class="fs-5 text-body-secondary">It is a platform that allows creators to add links to their website, blog, social media profiles, email address, and other online assets. It can be customized with a variety of colors, fonts, and images. gugel.my is free to use for 30 days, and there are paid plans available for creators who need more features.</p>
-      <p class="fs-5 text-body-secondary">Here are some of the features that make gugel.my a good option for Malaysian creators:</p>
-      <ul>
-        <li>Personal dashboard for anything you need.</li>
-        <li>It supports the use of Malaysian e-Wallets.</li>
-        <li>It is designed with Malaysian creators in mind, so it is easy to use and navigate.</li>
-        <li>It is a reliable and secure platform.</li>
-      </ul>
-      <p class="fs-5 text-body-secondary">Want more features? Let us know <u>here</u>.</p>
+    <div class="pricing-header px-3 py-5 pb-md-4 mx-auto">
+      <%= image_tag "illustrations/Rest-1.png", class: "img-fluid mb-3" %>
+      <h1 class="display-4 fw-normal text-body-emphasis text-center">What's in it for you?</h1>
+      <p class="fs-5 text-body-secondary lead text-center">Explore use cases on how you can utilise Gugel in your everyday life.</p>
     </div>
   </header>
 </div>
 
-<%# This is the usecase box %>
+<div class="container px-4 py-5">
+  <h2 class="pb-2 border-bottom text-center">Your own personal little space on the internet</h2>
 
-<div class="container my-5 pb-5 text-center">
-  <div class="row g-5">
-    <div class="col-12 offset-lg-3 col-lg-6">
-      <%= image_tag User.first.avatar, class: "user-avatar object-fit-cover d-block mx-auto my-3 col-3 col-md-4 col-lg-3 rounded-circle" if User.first.avatar.attached? %>
-      <h3>Use Cases for gugel.my</h3>
-      <p class="lead mb-5">
-        <%= User.first.description %>
-      </p>
+  <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
+    <div class="col d-flex flex-column align-items-center gap-2">
+      <%= image_tag "illustrations/Profile-2-nobg.png", class: "img-fluid" %>
+      <h2 class="fw-bold text-body-emphasis">gugel.my/<span class="text-primary">yourname</span>✨</h2>
+      <p class="text-body-secondary text-center">Unlock the gateway to your diverse online universe with our link-in-bio platform, empowering you to effortlessly share all facets of your digital presence from this singular, customizable hub.</p>
+      <%= link_to new_user_registration_path, class: "btn btn-lg btn-light btn-outline-primary px-4 shadow" do %>
+        <i class="fas fa-rocket me-2"></i>Ready to start already?
+      <% end %>
     </div>
-    <%# Use Case 1 %>
-    <div class="col-12 offset-lg-3 col-lg-6">
-      <h5>Link in bio</h5>
-      <div>
-        <div class="btn-group w-100 d-flex mb-3" role="group">
-          <div class="btn btn-lg btn-primary flex-shrink-1 col-2 text-center"><i class="fa-solid fa-globe mr-2"></i></div>
-          <div class="btn btn-lg btn-outline-primary w-100 text-start">Share one link everywhere.</div>
-        <%= image_tag "use_cases/Social_Media_Influencer.png", class: "img-fluid rounded-end-4" %>
-        </div>
-      </div>
-    </div>
-    <%# Use Case 2 %>
-    <div class="col-12 offset-lg-3 col-lg-6">
-      <h5>Personal dashboard for anything you need.</h5>
-      <div>
-        <% 5.times do %>
-          <div class="btn-group w-100 d-flex mb-3" role="group">
-            <div class="btn btn-lg btn-primary flex-shrink-1 col-2 text-center"><i class="fa-solid fa-globe mr-2"></i></div>
-            <div class="btn btn-lg btn-outline-primary w-100 text-start">Use Case Name</div>
+
+    <div class="col">
+      <div class="row row-cols-1 row-cols-sm-2 g-4">
+        <div class="col d-flex flex-column gap-2">
+          <div class="d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-1 rounded-3 py-5">
+            <i class="fas fa-id-badge"></i>
           </div>
-        <% end %>
+          <h4 class="fw-semibold mb-0 text-body-emphasis">Dynamic Profile Hub</h4>
+          <p class="text-body-secondary">A link-in-bio tool can serve as a dynamic hub for your online presence, functioning as a personal website. You can include links to your portfolio, blog, social media profiles, contact information, and more, providing visitors with a comprehensive overview of who you are and what you offer.</p>
+        </div>
+
+        <div class="col d-flex flex-column gap-2">
+          <div class="d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-1 rounded-3 py-5">
+            <i class="fas fa-calendar-day"></i>
+          </div>
+          <h4 class="fw-semibold mb-0 text-body-emphasis">Event Promotion</h4>
+          <p class="text-body-secondary">If you're organizing an event, such as a webinar, workshop, or meetup, using a link-in-bio tool as a personal website allows you to promote the event effectively. You can include details about the event, registration links, speaker bios, agenda, and any other relevant information, making it easy for potential attendees to learn about and sign up for the event.</p>
+        </div>
+
+        <div class="col d-flex flex-column gap-2">
+          <div class="d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-1 rounded-3 py-5">
+            <i class="fas fa-highlighter"></i>
+          </div>
+          <h4 class="fw-semibold mb-0 text-body-emphasis">Content Showcase</h4>
+          <p class="text-body-secondary">Whether you're a blogger, artist, photographer, or content creator, a link-in-bio tool can function as a personal website to showcase your work. You can include links to your latest blog posts, portfolio pieces, videos, or other content, providing visitors with a curated selection of your best work and encouraging engagement.</p>
+        </div>
+
+        <div class="col d-flex flex-column gap-2">
+          <div class="d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-1 rounded-3 py-5">
+            <i class="fas fa-file-lines"></i>
+          </div>
+          <h4 class="fw-semibold mb-0 text-body-emphasis">Online Resume/CV</h4>
+          <p class="text-body-secondary">Using a link-in-bio tool as a personal website allows you to create a dynamic online resume or CV. You can include links to your professional experience, education, skills, projects, and references, providing potential employers or clients with a comprehensive overview of your qualifications and accomplishments in a visually appealing format.</p>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
+<div class="container px-4 py-5">
+  <h2 class="pb-2 border-bottom text-center">Expand Your Digital Reach</h2>
+
+  <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
+    <div class="col">
+      <div class="row row-cols-1 row-cols-sm-2 g-4">
+        <div class="col d-flex flex-column gap-2">
+          <div class="d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-1 rounded-3 py-5">
+            <i class="fas fa-bullhorn"></i>
+          </div>
+          <h4 class="fw-semibold mb-0 text-body-emphasis">Content Promotion</h4>
+          <p class="text-body-secondary">Content creators, influencers, and bloggers can use a link-in-bio app to promote their latest content across different platforms. By including links to recent blog posts, videos, podcasts, or other creations on their link page, they can drive traffic and engagement to their content from various social media channels, increasing visibility and reach.</p>
+        </div>
+
+        <div class="col d-flex flex-column gap-2">
+          <div class="d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-1 rounded-3 py-5">
+            <i class="fas fa-bell-concierge"></i>
+          </div>
+          <h4 class="fw-semibold mb-0 text-body-emphasis">Product and Service Promotion</h4>
+          <p class="text-body-secondary">Businesses or entrepreneurs selling products or services online can utilize a link-in-bio app to showcase their offerings and drive sales. They can include links to product pages, online stores, promotional offers, customer testimonials, and contact forms on their link page, making it easy for potential customers to explore their offerings and make purchases directly from their social media profiles.</p>
+        </div>
+
+        <div class="col d-flex flex-column gap-2">
+          <div class="d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-1 rounded-3 py-5">
+            <i class="fas fa-ticket"></i>
+          </div>
+          <h4 class="fw-semibold mb-0 text-body-emphasis">Event Promotion and Ticket Sales</h4>
+          <p class="text-body-secondary">Individuals or organizations hosting events, such as workshops, concerts, or webinars, can include links to event registration pages, ticket purchase portals, event agendas, speaker bios, and more, providing a centralized location for interested attendees to learn about and participate in their events.</p>
+        </div>
+
+        <div class="col d-flex flex-column gap-2">
+          <div class="d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-1 rounded-3 py-5">
+            <i class="fas fa-thumbs-up"></i>
+          </div>
+          <h4 class="fw-semibold mb-0 text-body-emphasis">Social Media Optimization</h4>
+          <p class="text-body-secondary">A link-in-bio app is ideal for individuals or businesses looking to optimize their social media profiles. Instead of being limited to one link in their social media bios, users can create a curated landing page with multiple links to various online destinations, such as their website, blog, online store, social media profiles, and more. This enables them to efficiently direct their audience to relevant content or actions.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col d-flex flex-column align-items-center gap-2">
+      <%= image_tag "illustrations/STARTUP-8-nobg.png", class: "img-fluid" %>
+      <h2 class="fw-bold text-body-emphasis">Manage all your links in one place.</h2>
+      <p class="text-body-secondary text-center">You not only centralize your online presence but also provide your audience with a seamless navigation experience, ensuring they can easily access all your important content and resources without any hassle or confusion.</p>
+      <%= link_to new_user_registration_path, class: "btn btn-lg btn-light btn-outline-primary px-4 shadow" do %>
+        <i class="fas fa-id-badge me-2"></i>See some examples here
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <%= render "/layouts/footer" %>

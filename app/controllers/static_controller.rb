@@ -17,7 +17,6 @@ class StaticController < ApplicationController
   end
 
   def use_cases
-    @use_cases = User.find(2)
   end
 
   def faq 

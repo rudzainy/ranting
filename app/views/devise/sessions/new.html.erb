@@ -1,15 +1,24 @@
 <div class="container d-flex flex-column justify-content-center mt-5">
-  <%= image_tag "3500703.png", class: "my-3 img-fluid col-10 col-md-8 col-lg-4 mx-auto", height: "128" %>
   
   <header>
     <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-      <%= image_tag "logo.png", class: "mx-auto d-block mb-3", height: "64" %>
-      <h1 class="display-4 fw-normal text-body-emphasis">Welcome back to gugel.my</h1>
-      <p class="fs-5 text-body-secondary lead">gugel.my is a link-in-bio platform that allows any Malaysian creators to showcase their work and social media profiles in a single, easy-to-share link. </p>
+      <h1 class="display-4 fw-normal text-body-emphasis">Login to your Gugel</h1>
+      <p class="fs-5 text-body-secondary lead">Hello again!</p>
     </div>
   </header>
-  <div class="card text-bg-light my-3 mx-auto col-10 col-md-8 col-lg-4">
-    <div class="card-header">Log in</div>
+  <div class="card text-bg-light my-3 mx-auto col-12 col-md-8 col-lg-4">
+    <div class="card-body pt-5">
+      <%- if devise_mapping.omniauthable? %>
+        <%- resource_class.omniauth_providers.each do |provider| %>
+          <% service = OmniAuth::Utils.camelize(provider) %>
+          <%#= button_to "#{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-secondary", data: { turbo: false } %>
+          <%= button_to omniauth_authorize_path(resource_name, provider), class: "btn btn-outline-primary mb-2 w-100 shadow", data: { turbo: false } do %>
+            <i class="bi bi-google me-2"></i>Log in with <%= service == "GoogleOauth2" ? "Google" : service %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="card-body text-center">or</div>
     <div class="card-body">
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-inputs">

@@ -1,8 +1,12 @@
 <div class="container d-flex flex-column justify-content-center mt-5">
-  <%= image_tag "logo.png", class: "mx-auto d-block", height: "64" %>
-  <%= image_tag "3500703.png", class: "my-3 img-fluid col-10 col-md-8 col-lg-4 mx-auto", height: "128" %>
-  <div class="card text-bg-light my-3 mx-auto col-10 col-md-8 col-lg-4">
-    <div class="card-header">Forgot your password?</div>
+  
+  <header>
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+      <h1 class="display-4 fw-normal text-body-emphasis">Reset your password</h1>
+      <p class="fs-5 text-body-secondary lead">Enter the email you created your account with.</p>
+    </div>
+  </header>
+  <div class="card text-bg-light my-3 mx-auto col-12 col-md-8 col-lg-4">
     <div class="card-body">
       <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
         <%= f.error_notification %>
