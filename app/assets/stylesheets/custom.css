@@ -14,6 +14,10 @@
   border-bottom-left-radius: 0;
 }
 
+.navbar-brand strong {
+  letter-spacing: 1px;
+}
+
 .navbar-avatar {
   height: 24px;
 }
@@ -210,3 +214,8 @@ select {
     width: 24px;
 }
 /* } */
+
+.feature-icon-small {
+  width: 3rem;
+  height: 3rem;
+}
