@@ -4,7 +4,7 @@ class StaticController < ApplicationController
   def index
   end
 
-  def pricing
+  def membership
   end
 
   def licences_disclaimer

@@ -1,32 +1,31 @@
-<div class="row">
-  <div class="col-sm-10 col-md-8 col-lg-6 col-xl-4 offset-sm-1 offset-md-2 offset-lg-3 offset-xl-4">
-    <div class="card mb-4">
-      <div class="card-header d-flex flex-row align-items-center justify-content-between">
-        <h2 class="card-title">Create Short Link</h2>
-        <%= link_to :back do %>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" data-bs-target="#my-alert" aria-label="Close"></button>
-        <% end %>
-      </div>
-      <div class="card-body">
-        <%= simple_form_for @short_links do |f| %>
-          <div class="row mb-3">
-            <label for="title" class="col-sm-3 col-form-label">Paste your long URL here</label>
-            <div class="col-sm-9">
-              <%= text_field_tag :url, nil, label: false, class:"form-control rounded-start-0 high-z" %>
+<div class="container text-center py-5 bg-white rounded-5 shadow-lg mb-5">
+  <header>
+    <div class="px-3 py-5 pb-md-4 mx-auto">
+      <%= image_tag "illustrations/Leader-nobg.png", class: "img-fluid mb-3" %>
+      <h1 class="display-4 fw-normal text-body-emphasis text-center text-warning">Create Short Link</h1>
+      <p class="fs-5 text-body-secondary lead text-center">Free by default.</p>
+      <p class="fs-5 text-body-secondary lead text-center"><%= link_to "Become a member", new_user_registration_path, class: "link-warning" %> when you need more advanced features for your short links.<sup><i class="fas fa-circle-question" data-bs-toggle="tooltip" data-bs-title="Features like advanced dashboard and analytics requires you to have access to a Gugel account."></i></sup></p>
+      
+      <%= simple_form_for @short_links do |f| %>
+        <div class="mb-3">
+          <%= text_field_tag :url, nil, label: false, autofocus: true, class:"form-control rounded high-z text-center" %>
+          <div id="longUrlHelp" class="form-text text-center d-flex justify-content-between flex-nowrap px-5">
+            <div class="overflow-hidden d-inline-block flex-fill text-nowrap">Paste your looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo</div><div  class="d-inline-block flex-fill text-nowrap">ooooooong URL here<i class="fas fa-hand-point-up ms-2"></i></div></div>
+
+        </div>
+        <%= f.submit "Shorten Link", class:"btn btn-warning mx-auto shadow" %>
+        <div class="row d-none">
+          <label for="url" class="col-sm-3 col-form-label">Here's your short URL</label>
+          <div class="col-sm-9">
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text h-50">https://gugel.my/</span>
+              <%= text_field_tag :url, "ABCDE", label: false, disabled: true, class:"form-control rounded-start-0 high-z" %>
             </div>
           </div>
-          <%= f.submit "Shorten Link", class:"btn btn-primary me-auto shadow" %>
-          <div class="row d-none">
-            <label for="url" class="col-sm-3 col-form-label">Here's your short URL</label>
-            <div class="col-sm-9">
-              <div class="input-group flex-nowrap">
-                <span class="input-group-text h-50">https://gugel.my/</span>
-                <%= text_field_tag :url, "ABCDE", label: false, disabled: true, class:"form-control rounded-start-0 high-z" %>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
-  </div>  
+  </header>
 </div>
+
+<%= render "layouts/footer" %>

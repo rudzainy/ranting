@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get "/service-worker.js" => "service_worker#service_worker"
   get "/manifest.json" => "service_worker#manifest"
 
-  get 'pricing', to: 'static#pricing'
+  get 'membership', to: 'static#membership'
   get 'licences_disclaimer', to: 'static#licences_disclaimer'
   get 'contact', to: 'static#contact'
   get 'usecases', to: 'static#use_cases'
