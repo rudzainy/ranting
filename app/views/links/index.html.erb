@@ -67,12 +67,27 @@
             <th scope="col">URL</th>
             <th scope="col">Clicks</th>
             <th scope="col"></th>
-            <th scope="col"></th>
           </tr>
         </thead>
         <tbody id="linksContainer">
           <% @free_links.each do |link| %>
-          <%= render "links/table_row", link: link, parentID: "linksContainer" %>
+            <%= render "links/table_row", link: link, parentID: "linksContainer" %>
+            <% unless link.short_links.empty? %>
+              <tr class=""><td class="py-0" scope="col" colspan="5"><small>Short links</small></td></tr>
+              <% link.short_links.each do |short_link| %>
+                <tr>
+                  <td></td>
+                  <td colspan="2" class="flex-grow-1">
+                    <%= link_to "https://gugel.my/r/#{short_link.url_token}" do %>
+                      https://gugel.my/r/<%= short_link.url_token %><br />
+                    <% end %>
+                </td>
+                <td><%= link.impressionist_count %></td>
+                <td></td>
+              <% end %>
+              </tr> 
+              <tr class="table-sm"></tr>
+            <% end %>
           <% end %>
         </tbody>
       </table>
