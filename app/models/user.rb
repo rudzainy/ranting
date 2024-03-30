@@ -24,7 +24,7 @@ class User < ApplicationRecord
 
   def valid_username
     
-    restricted_username_list = %(admin root dashboard analytics design settings preferences membership licences_disclaimer contact usecases about faq)
+    restricted_username_list = %(admin root dashboard analytics design settings preferences membership licences_disclaimer contact usecases faq)
 
     errors.add(:username, ' is restricted.') if restricted_username_list.include?(username)
   end
