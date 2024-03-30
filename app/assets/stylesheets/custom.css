@@ -1,3 +1,7 @@
+img {
+  user-drag: none;
+}
+
 .gradient-custom {
   /* fallback for old browsers */
   background: #667eea;
