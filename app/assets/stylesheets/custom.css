@@ -1,5 +1,7 @@
 img {
-  user-drag: none;
+  user-drag: none; 
+  -webkit-user-drag: none;
+  -ms-user-select: none;
 }
 
 .gradient-custom {
