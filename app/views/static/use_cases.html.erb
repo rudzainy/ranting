@@ -11,7 +11,7 @@
 <div class="container px-4 py-5">
   <h2 class="pb-2 border-bottom text-center">Your own personal little space on the internet</h2>
 
-  <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
+  <div class="row row-cols-1 row-cols-md-2 g-5 py-5">
     <div class="col d-flex flex-column align-items-center gap-2">
       <%= image_tag "illustrations/Profile-2-nobg.png", class: "img-fluid" %>
       <h2 class="fw-bold text-body-emphasis">gugel.my/<span class="text-primary">yourname</span>✨</h2>
@@ -62,7 +62,15 @@
 <div class="container px-4 py-5">
   <h2 class="pb-2 border-bottom text-center">Expand Your Digital Reach</h2>
 
-  <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
+  <div class="row row-cols-1 row-cols-md-2 g-5 py-5">
+    <div class="col d-flex flex-column align-items-center gap-2">
+      <%= image_tag "illustrations/STARTUP-8-nobg.png", class: "img-fluid" %>
+      <h2 class="fw-bold text-body-emphasis">Manage all your links in one place.</h2>
+      <p class="text-body-secondary text-center">You not only centralize your online presence but also provide your audience with a seamless navigation experience, ensuring they can easily access all your important content and resources without any hassle or confusion.</p>
+      <%= link_to new_user_registration_path, class: "btn btn-lg btn-light btn-outline-primary px-4 shadow" do %>
+        <i class="fas fa-id-badge me-2"></i>See some examples here
+      <% end %>
+    </div>
     <div class="col">
       <div class="row row-cols-1 row-cols-sm-2 g-4">
         <div class="col d-flex flex-column gap-2">
@@ -97,15 +105,6 @@
           <p class="text-body-secondary">A link-in-bio app is ideal for individuals or businesses looking to optimize their social media profiles. Instead of being limited to one link in their social media bios, users can create a curated landing page with multiple links to various online destinations, such as their website, blog, online store, social media profiles, and more. This enables them to efficiently direct their audience to relevant content or actions.</p>
         </div>
       </div>
-    </div>
-
-    <div class="col d-flex flex-column align-items-center gap-2">
-      <%= image_tag "illustrations/STARTUP-8-nobg.png", class: "img-fluid" %>
-      <h2 class="fw-bold text-body-emphasis">Manage all your links in one place.</h2>
-      <p class="text-body-secondary text-center">You not only centralize your online presence but also provide your audience with a seamless navigation experience, ensuring they can easily access all your important content and resources without any hassle or confusion.</p>
-      <%= link_to new_user_registration_path, class: "btn btn-lg btn-light btn-outline-primary px-4 shadow" do %>
-        <i class="fas fa-id-badge me-2"></i>See some examples here
-      <% end %>
     </div>
   </div>
 </div>

@@ -6,7 +6,7 @@
       <p class="fs-5 text-body-secondary lead text-center">Seamlessly connect through personalized links page, link shortener, and QR codes.</p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
         <%= link_to new_user_registration_path, class: "btn btn-lg btn-light btn-outline-primary px-4 shadow" do %>
-          <i class="fas fa-id-badge me-2"></i>Create your own page now
+          <i class="fas fa-id-badge me-2"></i>Create your link page now
         <% end %>
         <%= link_to new_user_registration_path, class: "btn btn-lg btn-light btn-outline-primary px-4 shadow" do %>
           <i class="fas fa-paperclip me-2"></i>Create a short link
@@ -47,7 +47,7 @@
   </div>
 </div>
 
-<div class="container-fluid bg-primary bg-opacity-10">
+<div class="container bg-whiterounded-3">
   <div id="useCaseCarousel" class="carousel slide">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#useCaseCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -55,23 +55,23 @@
       <button type="button" data-bs-target="#useCaseCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <%= image_tag "use_cases/Social_Media_Influencer.png", class: "d-block w-100" %>
-        <div class="carousel-caption d-none d-md-block">
+      <div class="carousel-item active justify-content-center">
+        <%= image_tag "use_cases/Advertising-5.png", class: "" %>
+        <div class="carousel-caption text-dark">
           <h5>For you</h5>
           <p>Create and personalize your very own links page.</p>
         </div>
       </div>
       <div class="carousel-item">
         <%= image_tag "jalur_gemilang_FA_no_sig.jpg", class: "d-block w-100" %>
-        <div class="carousel-caption d-none d-md-block">
+        <div class="carousel-caption">
           <h5>For your fans</h5>
           <p>One stop center for all your fan's needs.</p>
         </div>
       </div>
       <div class="carousel-item">
         <%= image_tag "use_cases/Medical.png", class: "d-block w-100" %>
-        <div class="carousel-caption d-none d-md-block">
+        <div class="carousel-caption">
           <h5>For your work</h5>
           <p>Optimize your work with our range of tools.</p>
         </div>
@@ -120,10 +120,11 @@
       </div>
     </div>
     <div class="col-md-6">
-      <div class="h-100 p-5 bg-body-tertiary border rounded-3">
-        <h2>Unmatchable features.</h2>
-        <p>Free, forever.</p>
-        <button class="btn btn-outline-secondary" type="button">Example button</button>
+      <div class="h-100 p-5 bg-white text-center border rounded-3">
+        <%= image_tag "illustrations/STARTUP-4.png", class: "img-fluid" %>
+        <h2>100% free for 30 days.</h2>
+        <p>No credit card required.</p>
+        <button class="btn btn-outline-secondary" type="button">Become a member now</button>
       </div>
     </div>
   </div>
@@ -135,7 +136,7 @@
     <p class="fs-5 text-body-secondary lead text-center">Seamlessly connect through personalized links page, link shortener, and QR codes.</p>
     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
       <%= link_to new_user_registration_path, class: "btn btn-lg btn-light btn-outline-primary px-4 shadow" do %>
-        <i class="fas fa-id-badge me-2"></i>Create your own page now
+        <i class="fas fa-id-badge me-2"></i>Create your link page now
       <% end %>
       <%= link_to new_user_registration_path, class: "btn btn-lg btn-light btn-outline-primary px-4 shadow" do %>
         <i class="fas fa-paperclip me-2"></i>Create a short link
@@ -143,6 +144,95 @@
       <%= link_to new_user_registration_path, class: "btn btn-lg btn-light btn-outline-primary px-4 shadow" do %>
         <i class="fas fa-qrcode me-2"></i>Create a QR code
       <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container py-3">
+  <div class="accordion" id="accordionFAQ">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          Link page? Link shortener? QR code?
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+        <div class="accordion-body">
+          You can learn more about our services and how you can utilise them <%= link_to "here", "#" %>.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Can I upgrade my account at any time?
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+        <div class="accordion-body">
+          <strong>Yes.</strong>You can start with our basic membership at RM3.80/year and upgrade anytime to enjoy premium features.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Is Gugel.my affiliated with the global tech company Google?
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+        <div class="accordion-body">
+          <strong>No.</strong> We <em>actually</em> do no evil.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Is Gugel.my affiliated with the global tech company Google?
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+        <div class="accordion-body">
+          <strong>No.</strong> We <em>actually</em> do no evil.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          What happens when I delete my account?
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+        <div class="accordion-body">
+          Once your account has been deleted, your subscription will be canceled and we will wipe all of your data from our servers including but not limited to your links, traffic data, uploaded attachments and all other associated data.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Your competitors offer free forever tier. Why should I pay to use Gugel? 
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+        <div class="accordion-body">
+          If cost is a major blocker for you, we recommend you look into our competitors for your solution. We bill customers after 30 days, which any customers can opt out of the service without any charge. You should only pay us if you want to continue using services provided by Gugel. 
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Is Gugel.my affiliated with the global tech company Google?
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+        <div class="accordion-body">
+          <strong>No.</strong> We <em>actually</em> do no evil.
+        </div>
+      </div>
     </div>
   </div>
 </div>

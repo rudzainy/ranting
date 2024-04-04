@@ -4,7 +4,7 @@
       <%= image_tag "illustrations/Leader-nobg.png", class: "img-fluid mb-3" %>
       <h1 class="display-4 fw-normal text-body-emphasis text-center text-warning">Create Short Link</h1>
       <p class="fs-5 text-body-secondary lead text-center">Free by default.</p>
-      <p class="fs-5 text-body-secondary lead text-center"><%= link_to "Become a member", new_user_registration_path, class: "link-warning" %> when you need more advanced features for your short links.<sup><i class="fas fa-circle-question" data-bs-toggle="tooltip" data-bs-title="Features like advanced dashboard and analytics requires you to have access to a Gugel account."></i></sup></p>
+      <p class="fs-5 text-body-secondary lead text-center"><%= link_to "Become a member", new_user_registration_path, class: "link-warning" %> when you need more advanced features for your short links.</p>
       
       <%= simple_form_for @short_links do |f| %>
         <div class="mb-3">
