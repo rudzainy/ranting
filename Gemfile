@@ -69,6 +69,8 @@ group :development, :test do
  
   # This gem helps Capybara interact with the web browser.
   gem 'webdrivers'
+
+  gem 'cloudinary'
 end
 
 group :development do
