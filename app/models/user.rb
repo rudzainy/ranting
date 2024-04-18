@@ -9,6 +9,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:google_oauth2]
 
   has_one_attached :avatar
+  has_one_attached :qr_code
   has_many :links, dependent: :destroy
 
   friendly_id :username, use: %i[slugged]
@@ -21,6 +22,10 @@ class User < ApplicationRecord
   validates_format_of :username, :with => /\A[a-z0-9]+\z/i
   validates :username, uniqueness: true
   validate :valid_username
+
+  before_create do |user|
+    generate_qr_code
+  end
 
   def valid_username
     
@@ -96,5 +101,29 @@ class User < ApplicationRecord
         user: self,
       )
     end
+  end
+
+  def generate_qr_code
+    qrcode = RQRCode::QRCode.new("#{ENV['APP_URL']}/#{user.slug}")
+
+    # NOTE: showing with default options specified explicitly
+    png = qrcode.as_png(
+      bit_depth: 1,
+      border_modules: 4,
+      color_mode: ChunkyPNG::COLOR_GRAYSCALE,
+      color: "black",
+      file: nil,
+      fill: "white",
+      module_px_size: 6,
+      resize_exactly_to: false,
+      resize_gte_to: false,
+      size: 120
+    )
+
+    user.qr_code.attach(
+      io: StringIO.new(qr_png.to_s),
+      filename: "user-#{id}-qrcode.png",
+      content_type: "image/png"
+    )
   end
 end

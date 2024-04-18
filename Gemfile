@@ -10,6 +10,8 @@ gem "rails", "~> 7.0.5"
 # gem "sprockets-rails"
 
 gem 'propshaft'
+# QRCode generator
+gem "rqrcode", "~> 2.0"
 
 # Use mysql as the database for Active Record
 
