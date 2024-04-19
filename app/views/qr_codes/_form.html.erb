@@ -1,0 +1,12 @@
+<%= simple_form_for @short_links do |f| %>
+  <div class="row">
+    <label for="url" class="col-sm-3 col-form-label">URL</label>
+    <div class="col-sm-9">
+      <div class="input-group flex-nowrap">
+        <span class="input-group-text h-50"><%= base_url%>/</span>
+        <%= f.input :url, placeholder: sanitize_link(@short_links.url), input_html: { value: sanitize_link(@short_links.url)}, label: false, class:"form-control rounded-start-0 high-z" %>
+      </div>
+    </div>
+  </div>
+  <%= f.submit "Shorten Link", class:"btn btn-primary me-auto shadow" %>
+<% end %>
