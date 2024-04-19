@@ -14,7 +14,7 @@ class User < ApplicationRecord
 
   friendly_id :username, use: %i[slugged]
 
-  after_create :create_default_links
+  after_create :create_default_links, :generate_qr_code
   after_update :create_default_links
 
   validates :full_name, length: { maximum: 64 }
@@ -23,9 +23,6 @@ class User < ApplicationRecord
   validates :username, uniqueness: true
   validate :valid_username
 
-  before_create do |user|
-    generate_qr_code
-  end
 
   def valid_username
     
@@ -104,10 +101,10 @@ class User < ApplicationRecord
   end
 
   def generate_qr_code
-    qrcode = RQRCode::QRCode.new("#{ENV['APP_URL']}/#{user.slug}")
+    qrcode = RQRCode::QRCode.new("#{ENV['APP_URL']}/#{self.slug}")
 
     # NOTE: showing with default options specified explicitly
-    png = qrcode.as_png(
+    qr_png = qrcode.as_png(
       bit_depth: 1,
       border_modules: 4,
       color_mode: ChunkyPNG::COLOR_GRAYSCALE,
@@ -120,9 +117,9 @@ class User < ApplicationRecord
       size: 120
     )
 
-    user.qr_code.attach(
+    self.qr_code.attach(
       io: StringIO.new(qr_png.to_s),
-      filename: "user-#{id}-qrcode.png",
+      filename: "user-#{self.id}-qrcode.png",
       content_type: "image/png"
     )
   end
