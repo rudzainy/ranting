@@ -16,6 +16,7 @@ class User < ApplicationRecord
 
   after_create :create_default_links, :generate_qr_code
   after_update :create_default_links
+  after_update :generate_qr_code, if: proc { |object| object.previous_changes.include?('username') }
 
   validates :full_name, length: { maximum: 64 }
   validates :description, length: { maximum: 256 }
@@ -116,6 +117,10 @@ class User < ApplicationRecord
       resize_gte_to: false,
       size: 120
     )
+
+    if self.qr_code.attached?
+      self.qr_code.purge
+    end
 
     self.qr_code.attach(
       io: StringIO.new(qr_png.to_s),
