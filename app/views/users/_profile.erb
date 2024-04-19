@@ -3,9 +3,18 @@
     <div class="col-12 offset-lg-3 col-lg-6">
       <%= image_tag user.avatar, class: "user-avatar object-fit-cover d-block mx-auto my-3 col-3 col-md-4 col-lg-3 rounded-circle" if user.avatar.attached? %>
       <h3><%= user.full_name.nil? ? user.email : user.full_name %></h3>
-      <p class="lead mb-5">
+      <p class="lead">
         <%= user.description %>
       </p>
+    </div>
+    <% index = 0 # TODO: Iterate throuugh link groups %>
+    <div class="col-12 offset-lg-3 col-lg-6">
+      <h5><%= @group_name %></h5>
+      <div id=<%= "old-links-container-" + index.to_s %>>
+        <% @free_links.each do |link| %>
+          <%= render "link_button", link: link, parentID: "links-container-" + index.to_s %>
+        <% end %>
+      </div>
     </div>
     <div class="col-12">
       <div class="grid gap-3 mb-3">
@@ -16,14 +25,41 @@
         <% end %>
       </div>
     </div>
-    <% index = 0 # TODO: Iterate throuugh link groups %>
+  </div>
+</div>
+
+<div class="container my-5">
+  <div class="row">
     <div class="col-12 offset-lg-3 col-lg-6">
-      <h5><%= @group_name %></h5>
-      <div id=<%= "links-container-" + index.to_s %>>
-        <% @free_links.each do |link| %>
-          <%= render "bento_link_button", link: link, parentID: "links-container-" + index.to_s %>
-        <% end %>
+      <div class="accordion" id="accordionShare">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              Share your profile
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionShare">
+            <div class="accordion-body text-center">
+              <span>Show this QR code to your friends</span>
+              <%= image_tag user.qr_code, class: "user-avatar object-fit-cover d-block mx-auto my-3 col-3 col-md-4 col-lg-3 rounded-circle" if user.qr_code.attached? %>
+              <% if !@user.username.nil? %>
+                <button onclick="copyProfileLink()" class="btn btn-outline-secondary">
+                  <i class="bi bi-clipboard-plus me-2"></i>Copy your profile link
+                </button>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  function copyProfileLink() {
+    /* Copy user profile link into clipboard */
+    const app_url = "<%= request.base_url %>"
+    const username = "<%= @user.username %>"
+    navigator.clipboard.writeText(app_url + "/" + username);
+  }
+</script>

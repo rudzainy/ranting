@@ -1,0 +1,30 @@
+<div class="container mb-5">
+  <header class="text-center py-5 bg-white rounded-5 shadow-lg">
+    <div class="px-3 py-5 pb-md-4 mx-auto">
+      <%= image_tag "illustrations/qr.png", class: "img-fluid mb-3" %>
+      <h1 class="display-4 fw-normal text-body-emphasis text-center text-success">Create a QR Code</h1>
+      <p class="fs-5 text-body-secondary lead text-center">Coming soon.</p>
+      
+      <%= simple_form_for @qr_code do |f| %>
+        <div class="mb-3">
+          <%= text_field_tag :url, nil, label: false, disabled: true, class:"form-control rounded high-z text-center" %>
+          <div id="longUrlHelp" class="form-text text-center d-flex justify-content-between flex-nowrap px-5">
+            <div class="overflow-hidden d-inline-block flex-fill text-nowrap">Paste your looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo</div><div  class="d-inline-block flex-fill text-nowrap">ooooooong URL here<i class="fas fa-hand-point-up ms-2"></i></div></div>
+
+        </div>
+        <%= f.submit "Generate QR Code", class:"btn btn-success mx-auto shadow", disabled: true %>
+        <div class="row d-none">
+          <label for="url" class="col-sm-3 col-form-label">Here's your short URL</label>
+          <div class="col-sm-9">
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text h-50">https://gugel.my/</span>
+              <%= text_field_tag :url, "ABCDE", label: false, disabled: true, class:"form-control rounded-start-0 high-z" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </header>
+</div>
+
+<%= render "layouts/footer" %>

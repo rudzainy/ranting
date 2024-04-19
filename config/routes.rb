@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :users, only: :edit
   resources :short_links
   resources :short_link_redirects, only: %i[show], param: :url_token
+  resources :qr_codes
 
   resources :links, only: [] do
     scope module: "links" do
