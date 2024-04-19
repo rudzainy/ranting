@@ -68,21 +68,20 @@ group :development, :test do
  
   # Capybara, the library that allows us to interact with the browser using Ruby
   gem 'capybara'
- 
+  
   # This gem helps Capybara interact with the web browser.
   gem 'webdrivers'
-
-  gem 'cloudinary'
+  
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
   gem 'byebug'
-
+  
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
-
+  
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
@@ -112,3 +111,5 @@ gem "dotenv-rails", "~> 2.8"
 gem "omniauth", "~> 2.1"
 gem "omniauth-google-oauth2", "~> 1.1"
 gem "omniauth-rails_csrf_protection", "~> 1.0"
+
+gem 'cloudinary'
