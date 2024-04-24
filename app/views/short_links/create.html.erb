@@ -6,33 +6,34 @@
         <div class="overflow-hidden d-inline-block flex-fill text-nowrap">Paste your looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo</div><div  class="d-inline-block flex-fill text-nowrap">ooooooong URL here<i class="fas fa-hand-point-up ms-2"></i></div></div>
     </div>
     <%= f.submit "Shorten Link", class:"btn btn-warning mx-auto shadow" %>
-    <div class="row mt-5">
-      <div class="col-12 col-md-4 offset-md-4">
-        <div class="card text-center">
-          <div class="card-header">
-            Here's your short URL
-          </div>
-          <div class="card-body">
-            <h5 class="card-title"><%= request.base_url %>/r/<%= @shorten_link.url_token %></h5>
-            <p class="card-text">Share this with the world!</p>
-            <button id="" onclick="copyProfileLink()" class="btn btn-outline-warning">
-              <i class="bi bi-clipboard-plus me-2"></i>Copy your profile link
-            </button>
-          </div>
-          <div class="card-footer text-body-secondary">
-            <%= link_to "Become a member", new_user_registration_path, class: "link-warning" %> when you need more advanced features for your short links.
-          </div>
+  <% end %>
+  <div class="row mt-5">
+    <div class="col-12 col-md-4 offset-md-4">
+      <div class="card text-center">
+        <div class="card-header">
+          Here's your short URL
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%= request.base_url %>/r/<%= @shorten_link.url_token %></h5>
+          <p class="card-text">Share this with the world!</p>
+          <button id="copyShortLinkButton" onclick="copyShortLink()" class="btn btn-outline-warning">
+            <i class="bi bi-clipboard-plus me-2"></i>Copy your new short link
+          </button>
+        </div>
+        <div class="card-footer text-body-secondary">
+          <%= link_to "Become a member", new_user_registration_path, class: "link-warning" %> when you need more advanced features for your short links.
         </div>
       </div>
     </div>
-  <% end %>
+  </div>
   <script>
-    function copyProfileLink() {
-      /* Copy user profile link into clipboard */
-      const app_url = "<%= request.base_url %>"
-      const username = "<%= @shorten_link.url_token %>"
-      navigator.clipboard.writeText(app_url + "/r/" + username);
+    function copyShortLink() {
+      /* Copy short link into clipboard */
+      const app_url = "<%= request.base_url %>";
+      const short_url = "<%= @shorten_link.url_token %>";
+      navigator.clipboard.writeText(app_url + "/r/" + short_url);
       this.value = "Link copied!"
+      document.getElementById("copyShortLinkButton").innerHTML = "<i class='fas fa-thumbs-up me-2'></i>Copied to your clipboard!"
     }
   </script>
 <% end %>

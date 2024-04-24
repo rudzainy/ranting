@@ -13,25 +13,6 @@
               <div class="overflow-hidden d-inline-block flex-fill text-nowrap">Paste your looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo</div><div  class="d-inline-block flex-fill text-nowrap">ooooooong URL here<i class="fas fa-hand-point-up ms-2"></i></div></div>
           </div>
           <%= f.submit "Shorten Link", class:"btn btn-warning mx-auto shadow" %>
-          <div class="row mt-5 d-none">
-            <div class="col-12 col-md-4 offset-md-4">
-              <div class="card text-center">
-                <div class="card-header">
-                  Here's your short URL
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">https://gugel.my/</h5>
-                  <p class="card-text">Share this with the world!</p>
-                  <button id="" onclick="copyProfileLink()" class="btn btn-outline-warning">
-                    <i class="bi bi-clipboard-plus me-2"></i>Copy your profile link
-                  </button>
-                </div>
-                <div class="card-footer text-body-secondary">
-                  <%= link_to "Become a member", new_user_registration_path, class: "link-warning" %> when you need more advanced features for your short links.
-                </div>
-              </div>
-            </div>
-          </div>
         <% end %>
       <% end %>
     </div>
