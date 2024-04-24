@@ -1,6 +1,6 @@
 <%# This is the individual table row %>
 
-<tr>
+<tr class="<%= "border-top border-white" unless link.short_links.empty? %>">
   <% if link.empty? %>
     <%# form to create link %>
     <td class="text-center"></td>
@@ -12,22 +12,24 @@
       <i class="fa-<%= link.icon_style %> fa-<%= link.icon %> mr-2 <%= "color--#{link.icon}" if link.social? %>"></i>
     </td>
     <td class=""><%= link.title %></td>
-    <td class=""><%= link.url %></td>
+    <td class="flex-grow-1"><%= link.url %></td>
     <td><%= link.impressionist_count %></td>
   <% end %>
-  <td class="">
-    <%= link_to edit_link_path(link), 
-                class: "btn btn-outline-primary btn-sm shadow me-2", 
-                id: "update-link-#{link.id}", 
-                data: { turbo_frame: "modal" } do %>
-      <i class="bi bi-pencil-fill me-2"></i>Edit
-    <% end %>
-    <% unless link.social? %>
-      <%= button_to link_short_links_path(link), 
-                  class: "btn btn-outline-primary btn-sm shadow", 
-                  id: "update-link-#{link.id}" do %>
-        <i class="fas fa-wand-magic-sparkles me-2"></i>Create Short Link
+  <td>
+    <div class="d-inline-flex">
+      <%= link_to edit_link_path(link), 
+                  class: "btn btn-outline-primary btn-sm shadow me-2", 
+                  id: "update-link-#{link.id}", 
+                  data: { turbo_frame: "modal" } do %>
+        <i class="bi bi-pencil-fill me-2"></i>Edit
       <% end %>
-    <% end %>
+      <% unless link.social? %>
+        <%= button_to link_short_links_path(link), 
+                    class: "btn btn-outline-primary btn-sm shadow", 
+                    id: "update-link-#{link.id}" do %>
+          <i class="fas fa-wand-magic-sparkles me-2"></i>Create Short Link
+        <% end %>
+      <% end %>
+    </div>
   </td>
 </tr>
