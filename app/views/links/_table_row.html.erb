@@ -3,17 +3,19 @@
 <tr>
   <% if link.empty? %>
     <%# form to create link %>
-    <td class="text-center flex-shrink-1"></td>
-    <td class="flex-grow-1"></td>
-    <td class="flex-grow-1"></td>
+    <td class="text-center"></td>
+    <td class=""></td>
+    <td class=""></td>
     <td></td>
   <% else %>
-    <td class="text-center flex-shrink-1"><i class="fa-<%= link.icon_style %> fa-<%= link.icon %> mr-2 <%= "color--#{link.icon}" if link.social? %>"></i></td>
-    <td class="flex-grow-1"><%= link.title %></td>
-    <td class="flex-grow-1"><%= link.url %></td>
+    <td class="text-center">
+      <i class="fa-<%= link.icon_style %> fa-<%= link.icon %> mr-2 <%= "color--#{link.icon}" if link.social? %>"></i>
+    </td>
+    <td class=""><%= link.title %></td>
+    <td class=""><%= link.url %></td>
     <td><%= link.impressionist_count %></td>
   <% end %>
-  <td class="text-end d-flex">
+  <td class="">
     <%= link_to edit_link_path(link), 
                 class: "btn btn-outline-primary btn-sm shadow me-2", 
                 id: "update-link-#{link.id}", 

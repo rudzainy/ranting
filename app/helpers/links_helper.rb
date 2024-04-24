@@ -14,6 +14,7 @@ module LinksHelper
       "youtube",
       "facebook",
       "whatsapp",
+      "google",
       "linkedin",
       "telegram",
       "tiktok",

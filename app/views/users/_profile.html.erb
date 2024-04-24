@@ -1,7 +1,12 @@
 <div class="container my-5 pb-5 text-center">
   <div class="row g-5">
     <div class="col-12 offset-lg-3 col-lg-6">
-      <%= image_tag user.avatar, class: "user-avatar object-fit-cover d-block mx-auto my-3 col-3 col-md-4 col-lg-3 rounded-circle" if user.avatar.attached? %>
+      <%= image_tag user.avatar, class: "user-avatar object-fit-cover d-block mx-auto my-3 col-3 col-md-4 col-lg-3 rounded-circle position-relative" if user.avatar.attached? %>
+      <% if @user.username == "rudzainy" %>
+        <span class="badge rounded-pill bg-primary">
+          <i class="fas fa-circle-check me-2"></i>Verified Gugler!
+        </span>
+      <% end %>
       <h3><%= user.full_name.nil? ? user.email : user.full_name %></h3>
       <p class="lead">
         <%= user.description %>
@@ -35,16 +40,18 @@
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-              Share your profile
+              Share <%= user_signed_in? && @user == current_user ? "your" : "this" %> profile
             </button>
           </h2>
           <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionShare">
             <div class="accordion-body text-center">
-              <span>Show this QR code to your friends</span>
-              <%= image_tag user.qr_code, class: "user-avatar object-fit-cover d-block mx-auto my-3 col-3 col-md-4 col-lg-3 rounded-circle" if user.qr_code.attached? %>
+              <% if user.qr_code.attached? %>
+                <p>Share this QR code to your friends</p>
+                <%= image_tag user.qr_code, class: "user-avatar object-fit-cover d-block mx-auto my-3 col-3 col-md-4 col-lg-3 rounded-circle" %>
+              <% end %>
               <% if !@user.username.nil? %>
-                <button onclick="copyProfileLink()" class="btn btn-outline-secondary">
-                  <i class="bi bi-clipboard-plus me-2"></i>Copy your profile link
+                <button onclick="copyProfileLink()" class="btn btn-outline-secondary" id="copyProfileLinkButton">
+                  <i class="bi bi-clipboard-plus me-2"></i>Copy <%= user_signed_in? && @user == current_user ? "your" : "this" %> profile link
                 </button>
               <% end %>
             </div>
@@ -56,10 +63,11 @@
 </div>
 
 <script>
+  // Copy user profile link into clipboard.
   function copyProfileLink() {
-    /* Copy user profile link into clipboard */
-    const app_url = "<%= request.base_url %>"
-    const username = "<%= @user.username %>"
+    const app_url = "<%= request.base_url %>";
+    const username = "<%= @user.username %>";
     navigator.clipboard.writeText(app_url + "/" + username);
+    document.getElementById("copyProfileLinkButton").innerHTML = "<i class='fas fa-thumbs-up me-2'></i>Copied to your clipboard!"
   }
 </script>
