@@ -49,7 +49,7 @@ class User < ApplicationRecord
       # Create default group
       default_group = Group.create(name: "My Links")
       # Creates 5 free links
-      default_group.links.create(user: self, title: '', url: '', category: 'free') while self.links.count < 5
+      default_group.links.create(user: self, title: 'Change this', url: '', category: 'free') while self.links.count < 5
       
       social_group = Group.create(name: "My Social Media")
       social_group.links.create(
@@ -63,11 +63,11 @@ class User < ApplicationRecord
       )
       social_group.links.create(
         category: 'social',
-        icon: 'youtube',
+        icon: 'whatsapp',
         icon_style: 'brands',
         position: '7',
-        title: 'Youtube',
-        url: 'youtube.com/@your_username',
+        title: 'Whatsapp',
+        url: 'wa.me/60123456789',
         user: self,
       )
       social_group.links.create(

@@ -1,42 +1,14 @@
+<%= render partial: "users/profile_statistics" %>
 <div class="container mt-5">
   <div class="row">
     <div class="col-12 col-lg-9">
       <h1>Setup your page</h1>
     </div>
-    <div class="col-12 text-end col-lg-3">
-      <% if !@user.username.nil? %>
-        <button onclick="copyProfileLink()" class="btn btn-outline-secondary">
-          <i class="bi bi-clipboard-plus me-2"></i>Copy your profile link
-        </button>
-      <% end %>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-6 col-lg-3">
-      <div class="card">
-        <div class="card-header">
-          Unique Visitors
-        </div>
-        <div class="card-body">
-          <h5 class="card-title"><%= @user.impressionist_count(filter: :ip_address) %></h5>          
-        </div>
-      </div>
-    </div>
-    <div class="col-6 col-lg-3">
-      <div class="card">
-        <div class="card-header">
-          Page Views
-        </div>
-        <div class="card-body">
-          <h5 class="card-title"><%= @user.impressionist_count %></h5>          
-        </div>
-      </div>
-    </div>
   </div>
   <div class="row g-3 mt-3">
     <div class="col-12 col-md-6">
       <div class="card mb-3">
-        <div class="card-header"><i class="bi bi-person-badge me-2"></i>Profile Details</div>
+        <div class="card-header"><i class="bi bi-person-badge me-2"></i>Your Details</div>
         <%= image_tag @user.avatar, class: "user-avatar d-block mx-auto my-3 col-3 rounded-circle object-fit-cover" if @user.avatar.attached? %>
         <%= simple_form_for(@user, url: registration_path(@user), html: { method: :put }) do |f| %>
           <div class="card-body">
@@ -120,12 +92,3 @@
     </div>
   </div>
 </div>
-
-<script>
-  function copyProfileLink() {
-    /* Copy user profile link into clipboard */
-    const app_url = "<%= request.base_url %>"
-    const username = "<%= @user.username %>"
-    navigator.clipboard.writeText(app_url + "/" + username);
-  }
-</script>

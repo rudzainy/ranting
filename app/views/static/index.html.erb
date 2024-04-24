@@ -6,49 +6,52 @@
       <p class="fs-5 text-body-secondary lead text-center">Seamlessly connect through personalized links page, link shortener, and QR codes.</p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
         <%= link_to new_user_registration_path, class: "btn btn-lg btn-light btn-outline-primary px-4 shadow" do %>
-          <i class="fas fa-id-badge me-2"></i>Create your link page now
+          <i class="fas fa-id-badge me-2"></i>Create your link page
         <% end %>
-        <%= link_to new_user_registration_path, class: "btn btn-lg btn-light btn-outline-primary px-4 shadow" do %>
+        <%= link_to new_short_link_path, class: "btn btn-lg btn-light btn-outline-warning px-4 shadow" do %>
           <i class="fas fa-paperclip me-2"></i>Create a short link
         <% end %>
-        <%= link_to new_user_registration_path, class: "btn btn-lg btn-light btn-outline-primary px-4 shadow" do %>
+        <%= link_to new_qr_code_path, class: "btn btn-lg btn-light btn-outline-success px-4 shadow" do %>
           <i class="fas fa-qrcode me-2"></i>Create a QR code
         <% end %>
       </div>
     </div>
   </header>
 </div>
-<div class="container">
+<div class="container d-none d-md-block">
   <div class="d-flex mb-3 gap-2 gap-md-5">
     <button type="button" data-bs-target="#useCaseCarousel" data-bs-slide-to="0" class="card text-start flex-fill shadow-lg" aria-current="true" aria-label="Use case 1">
-      <div class="card-body pb-0 d-none d-md-block">
+      <div class="card-body text-center w-100 pb-0">
         <%= image_tag "use_cases/Advertising-5.png", class: "img-fluid rounded-4" %>
       </div>
-      <div class="card-body">
-        <h5 class="card-title">For <br />You</h5>
+      <div class="card-body text-center w-100">
+        <h3 class="card-title">For You</h3>
+        <p>Create and personalize your very own links page.</p>
       </div>
     </button>
     <button type="button" data-bs-target="#useCaseCarousel" data-bs-slide-to="1" class="card text-start flex-fill shadow-lg" aria-label="Use case 2">
-      <div class="card-body pb-0 d-none d-md-block">
+      <div class="card-body text-center w-100 pb-0">
         <%= image_tag "use_cases/Diverse-Team-1.png", class: "img-fluid rounded-4" %>
       </div>
-      <div class="card-body">
-        <h5 class="card-title">For <br />Network</h5>
+      <div class="card-body text-center w-100">
+        <h3 class="card-title">For Network</h3>
+        <p>One stop center for all your fan's needs.</p>
       </div>
     </button>
     <button type="button" data-bs-target="#useCaseCarousel" data-bs-slide-to="2" class="card text-start flex-fill shadow-lg" aria-label="Use case 3">
-      <div class="card-body pb-0 d-none d-md-block">
+      <div class="card-body text-center w-100 pb-0">
         <%= image_tag "use_cases/STARTUP-2.png", class: "img-fluid rounded-4" %>
       </div>
-      <div class="card-body">
-        <h5 class="card-title">For <br />Work</h5>
+      <div class="card-body text-center w-100">
+        <h3 class="card-title">For Work</h3>
+        <p>Optimize your work with our range of tools.</p>
       </div>
     </button>
   </div>
 </div>
 
-<div class="container">
-  <div id="useCaseCarousel" class="carousel slide bg-primary rounded-3 overflow-hidden">
+<div class="container-fluid d-md-none bg-primary">
+  <div id="useCaseCarousel" class="carousel slide rounded-3 overflow-hidden">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#useCaseCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#useCaseCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -87,7 +90,7 @@
     </button>
   </div>
 </div>
-<div class="container pb-4">
+<div class="container pb-4 d-none">
   <div class="p-5 mb-4 bg-body-tertiary rounded-3">
     <div class="container-fluid py-5">
       <h1 class="display-5 fw-bold">All your content integrated into your personal page.</h1>
@@ -132,109 +135,9 @@
 
 <div class="container py-3">
   <div class="px-3 py-5 pb-md-4 mx-auto">
-    <h1 class="display-4 fw-normal text-body-emphasis text-center">Empowering Local Connections<br />in the Digital Sphere</h1>
-    <p class="fs-5 text-body-secondary lead text-center">Seamlessly connect through personalized links page, link shortener, and QR codes.</p>
-    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-      <%= link_to new_user_registration_path, class: "btn btn-lg btn-light btn-outline-primary px-4 shadow" do %>
-        <i class="fas fa-id-badge me-2"></i>Create your link page now
-      <% end %>
-      <%= link_to new_user_registration_path, class: "btn btn-lg btn-light btn-outline-primary px-4 shadow" do %>
-        <i class="fas fa-paperclip me-2"></i>Create a short link
-      <% end %>
-      <%= link_to new_user_registration_path, class: "btn btn-lg btn-light btn-outline-primary px-4 shadow" do %>
-        <i class="fas fa-qrcode me-2"></i>Create a QR code
-      <% end %>
-    </div>
+    <h1 class="display-4 fw-normal text-body-emphasis text-center">Answers to Common Queries</h1>
+    <p class="fs-5 text-body-secondary lead text-center">Got questions? We've got answers! Dive into our FAQ section below for quick solutions and friendly guidance.</p>
   </div>
 </div>
-
-<div class="container py-3">
-  <div class="accordion" id="accordionFAQ">
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-          Link page? Link shortener? QR code?
-        </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
-        <div class="accordion-body">
-          You can learn more about our services and how you can utilise them <%= link_to "here", "#" %>.
-        </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Can I upgrade my account at any time?
-        </button>
-      </h2>
-      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
-        <div class="accordion-body">
-          <strong>Yes.</strong>You can start with our basic membership at RM3.80/year and upgrade anytime to enjoy premium features.
-        </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Is Gugel.my affiliated with the global tech company Google?
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
-        <div class="accordion-body">
-          <strong>No.</strong> We <em>actually</em> do no evil.
-        </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-          Is Gugel.my affiliated with the global tech company Google?
-        </button>
-      </h2>
-      <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
-        <div class="accordion-body">
-          <strong>No.</strong> We <em>actually</em> do no evil.
-        </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-          What happens when I delete my account?
-        </button>
-      </h2>
-      <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
-        <div class="accordion-body">
-          Once your account has been deleted, your subscription will be canceled and we will wipe all of your data from our servers including but not limited to your links, traffic data, uploaded attachments and all other associated data.
-        </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-          Your competitors offer free forever tier. Why should I pay to use Gugel? 
-        </button>
-      </h2>
-      <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
-        <div class="accordion-body">
-          If cost is a major blocker for you, we recommend you look into our competitors for your solution. We bill customers after 30 days, which any customers can opt out of the service without any charge. You should only pay us if you want to continue using services provided by Gugel. 
-        </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-          Is Gugel.my affiliated with the global tech company Google?
-        </button>
-      </h2>
-      <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
-        <div class="accordion-body">
-          <strong>No.</strong> We <em>actually</em> do no evil.
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
+<%= render "/static/faq" %>
 <%= render "/layouts/footer" %>

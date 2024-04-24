@@ -5,10 +5,11 @@
     Mobile view should be more compact. 
 %>
 
+<%= render partial: "users/profile_statistics" %>
 <div class="container mt-5">
   <div class="row">
     <div class="col">
-      <h1>Link dashboard</h1>
+      <h1>Manage your links</h1>
     </div>
   </div>
 </div>
@@ -33,6 +34,11 @@
       </ul>
     </div>
   </div>
+  <div class="container mt-5">
+    <div class="alert alert-info" role="alert">
+      <i class="fas fa-lightbulb me-2"></i>Pro tip: View this page from your computer to access more features!
+    </div>
+  </div>
 <% else %>
   <div class="container mt-5">
     <h5>Social Links</h5>
@@ -42,9 +48,8 @@
           <tr>
             <th scope="col" class="text-center">Icon</th>
             <th scope="col">Link Title</th>
-            <th scope="col">URL</th>
+            <th scope="col" class="flex-grow-1">URL</th>
             <th scope="col">Clicks</th>
-            <th scope="col"></th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -56,7 +61,7 @@
       </table>
     </div>
   </div>
-  <div class="container mt-5">
+  <div class="container my-5">
     <h5><%= @group_name %></h5>
     <div class="card table-responsive">
       <table class="table table-hover align-middle mb-0">
@@ -64,7 +69,7 @@
           <tr>
             <th scope="col" class="text-center">Icon</th>
             <th scope="col">Link Title</th>
-            <th scope="col">URL</th>
+            <th scope="col" class="flex-grow-1">URL</th>
             <th scope="col">Clicks</th>
             <th scope="col"></th>
           </tr>
@@ -73,20 +78,24 @@
           <% @free_links.each do |link| %>
             <%= render "links/table_row", link: link, parentID: "linksContainer" %>
             <% unless link.short_links.empty? %>
-              <tr class=""><td class="py-0" scope="col" colspan="5"><small>Short links</small></td></tr>
+              <tr class="">
+                <td colspan="2"></td>
+                <td class="pt-0 text-secondary" scope="col" colspan="3">
+                  <small>Short links:</small>
+                </td>
+              </tr>
               <% link.short_links.each do |short_link| %>
-                <tr>
-                  <td></td>
-                  <td colspan="2" class="flex-grow-1">
+                <tr class="">
+                  <td colspan="2"></td>
+                  <td class="">
                     <%= link_to "https://gugel.my/r/#{short_link.url_token}" do %>
                       https://gugel.my/r/<%= short_link.url_token %><br />
                     <% end %>
-                </td>
-                <td><%= link.impressionist_count %></td>
-                <td></td>
+                  </td>
+                  <td><%= link.impressionist_count %></td>
+                  <td></td>
+                </tr> 
               <% end %>
-              </tr> 
-              <tr class="table-sm"></tr>
             <% end %>
           <% end %>
         </tbody>
@@ -94,3 +103,8 @@
     </div>
   </div>
 <% end %>
+<div class="container">
+  <div class="alert alert-info" role="alert">
+    <i class="fas fa-lightbulb me-2"></i>Pro tip: Links with empty URL field will be hidden on your profile page.
+  </div>
+</div>
