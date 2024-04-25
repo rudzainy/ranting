@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show]
   before_action :link_params, only: [:update]
   before_action :set_user, only: [:edit, :index]
   before_action :set_link, only: [:update, :edit, :show]
