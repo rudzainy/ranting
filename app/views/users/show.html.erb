@@ -3,7 +3,6 @@
 <div class="container-fluid text-center">
   <% if user_signed_in? %> 
     <% if @user == current_user %>
-      <%# <div id="editLinksToggleButton" class="btn btn-sm btn-outline-secondary" onclick="toggleEditing()">Edit layout</div>  %>
       <%= link_to "Profile page settings", edit_user_path(current_user), class: "btn btn-sm btn-outline-secondary" %>
     <% else %>
       <%= link_to "Go to your profile page", user_path(current_user), class: "btn btn-sm btn-outline-secondary" %>
@@ -14,55 +13,3 @@
     <% end %>
   <% end %>
 </div>
-
-<script>
-  let isEditing = false
-
-  let hidables = document.querySelectorAll(".hidable")
-  let editLinksToggleButton = document.getElementById("editLinksToggleButton")
-  let dragables = document.querySelectorAll(".link-card-draggable")
-  
-
-  let showHidable = (id) => {
-    if(isEditing) {
-      let moveBtn = document.getElementById(`moveButton${id}`)
-      let editBtn = document.getElementById(`update-link-${id}`)
-      moveBtn.style.display = 'block';
-      editBtn.style.display = 'block';
-    }
-  }
-
-  let hideHidable = (id) => {
-    if(isEditing) {
-      let moveBtn = document.getElementById(`moveButton${id}`)
-      let editBtn = document.getElementById(`update-link-${id}`)
-      moveBtn.style.display = 'none';
-      editBtn.style.display = 'none';
-    }
-  }
-
-  let toggleDraggables = () => {
-    dragables.forEach( (card) => {
-      
-      // card.classList.toggle('draggable');
-      
-      if(isEditing) {
-        card.draggable = true;
-      } else {
-        card.draggable = false;
-      }
-    })
-  }
-
-  let toggleEditing = () => {
-
-    isEditing = !isEditing;
-    toggleDraggables();
-    
-    if(isEditing) {
-      editLinksToggleButton.innerHTML = "Finish editing";
-    } else {
-      editLinksToggleButton.innerHTML = "Edit layout";
-    }
-  }
-</script>
