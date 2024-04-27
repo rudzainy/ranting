@@ -1,4 +1,4 @@
-<%= link_to link_path(link), target: "_blank", class: "btn-group w-100 d-flex text-decoration-none" do %>
+<%= link_to link_path(link), target: :_blank, rel: 'noopener', class: "btn-group w-100 d-flex text-decoration-none" do %>
   <div class="btn btn-lg btn-primary flex-shrink-1 col-2 text-center"><i class="fa-<%= link.icon_style %> fa-<%= link.icon %> mr-2"></i></div>
   <div class="btn btn-lg btn-outline-primary w-100 text-start"><%= link.title %></div>
 <% end %>
