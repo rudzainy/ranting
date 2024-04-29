@@ -23,6 +23,7 @@ class User < ApplicationRecord
   validates :username, uniqueness: true
   validate :valid_username
 
+  scope :anonymous_short_links, -> { where(self.links.where(categories: :anonymous_short_link)) }
 
   def valid_username
     

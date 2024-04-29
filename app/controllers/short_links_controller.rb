@@ -1,5 +1,13 @@
 class ShortLinksController < ApplicationController
 
+  before_action :authenticate_user!, only: [:index]
+
+  def index
+    @should_render_navbar = true
+    # Find all current_user's short_links
+    @short_links = current_user.anonymous_short_links
+  end
+
   def new
     @short_link = ShortLink.new
   end

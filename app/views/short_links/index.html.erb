@@ -1,0 +1,71 @@
+
+<%#
+    This page should show all user's short links by group. 
+    Short links are sorted by view count. 
+    Web view should show data table to focus on analytics. 
+    Mobile view should be more compact. 
+%>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <h1>Manage your short links</h1>
+    </div>
+  </div>
+</div>
+
+
+
+  <div class="container mt-5">
+    <%= turbo_frame_tag "social_links_title" do %>
+      <h5>Social Links</h5>
+    <% end %>
+    <div class="card table-responsive">
+      <table class="table table-hover align-middle mb-0">
+        <thead class="table-primary">
+          <tr>
+            <th scope="col" class="text-center"></th>
+            <th scope="col" class="flex-grow-1">Long URL</th>
+            <th scope="col">Short URL</th>
+            <th scope="col">Clicks</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody id="socialContainer">
+          <% @short_links.each do |short_link| %>
+            
+            <%# This is the individual table row %>
+
+<tr class="">
+  <% if short_link.nil? %>
+    <%# form to create link %>
+    <td class="text-center"></td>
+    <td class=""></td>
+    <td class=""></td>
+    <td></td>
+  <% else %>
+    <td class="text-center">
+      <i class="fa-fas fa-grip-lines mr-2"></i>
+    </td>
+    <td class=""><%= short_link.link.url %><br><% unless short_link.link.title.blank? %>(<%= short_link.link.title %>)<% end %></td>
+    <td class="flex-grow-1"><%= short_link.url_token %></td>
+    <td><%= short_link.impressionist_count %></td>
+  <% end %>
+  <td>
+    <div class="d-inline-flex">
+    </div>
+  </td>
+</tr>
+
+
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="alert alert-info" role="alert">
+    <i class="fas fa-lightbulb me-2"></i>Pro tip: Links with empty URL field will be hidden on your profile page.
+  </div>
+</div>
