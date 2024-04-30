@@ -6,13 +6,14 @@ class LinksController < ApplicationController
 
   def index
     @should_render_navbar = true
+    # @groups = Group.includes(:links)
     @free_links = current_user.links.where(category: "free").order(position: :asc)
     @social_links = current_user.links.where(category: "social").order(position: :asc)
 
     unless @free_links.empty?
-      @group_name = @free_links.first.group.name
+      @group = @free_links.first.group
     else
-      @group_name = ""
+      @group = ""
     end
   end
 

@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "edit_group_#{@group.id}" do %>
+  <%= render partial: 'edit_group_name', locals: { group: @group } %>
+<% end %>
