@@ -1,7 +1,6 @@
 <%# This is the individual table row %>
-
-<tr class="<%= "border-top border-white" unless link.short_links.empty? %>">
-  <% if link.empty? %>
+<tr class="<%= "border-top border-white" unless link.short_links.empty? %>" id="link_<%= link.id %>">
+  <% if link.blank? %>
     <%# form to create link %>
     <td class="text-center"></td>
     <td class=""></td>

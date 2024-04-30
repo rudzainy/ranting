@@ -1,0 +1,14 @@
+<%= turbo_frame_tag "edit_group_#{@group.id}" do %>
+  <%= form_with(model: @group, local: true, data: { turbo_frame: 'replace' }, class: "row g-3 align-items-center mb-3") do |form| %>
+    <div class="col-auto">
+      <label class="visually-hidden" for="groupName">Group Name</label>
+      <%= form.text_field :name, class:"form-control", id: "groupName", placeholder: "Group name" %>
+    </div>
+    <div class="col-auto">
+      <%= form.submit 'Save', class:"btn btn-primary shadow" %>
+    </div>
+  <% end %>
+<% end %>
+
+
+
