@@ -6,13 +6,14 @@ class LinksController < ApplicationController
 
   def index
     @should_render_navbar = true
+    # @groups = Group.includes(:links)
     @free_links = current_user.links.where(category: "free").order(position: :asc)
     @social_links = current_user.links.where(category: "social").order(position: :asc)
 
     unless @free_links.empty?
-      @group_name = @free_links.first.group.name
+      @group = @free_links.first.group
     else
-      @group_name = ""
+      @group = ""
     end
   end
 
@@ -26,7 +27,16 @@ class LinksController < ApplicationController
   def update
     respond_to do |format|
       if @link.update(link_params)
-        format.turbo_stream { render turbo_stream: turbo_stream.prepend('links', partial: 'links/form', locals: {link: @link}) }
+
+        @edit_link_id = "edit_link_#{@link.id}"
+        
+        format.turbo_stream do
+          if mobile_device?
+            render turbo_stream: turbo_stream.replace("edit_link_mobile_#{@link.id}", partial: "links/table_row_mobile", locals: {link: @link}, notice: "Link was successfully updated.") 
+          else 
+            render turbo_stream: turbo_stream.replace("link_#{@link.id}", partial: "links/table_row", locals: {link: @link}, notice: "Link was successfully updated.") 
+          end
+        end
         format.html { redirect_to user_path(current_user), notice: "Link was successfully updated." }
         format.json { render :show, status: :created, location: @link }
       else
@@ -48,5 +58,9 @@ class LinksController < ApplicationController
 
   rescue StandardError
     @link = nil
+  end
+  
+  def mobile_device?
+    request.user_agent =~ /Mobile|webOS/
   end
 end

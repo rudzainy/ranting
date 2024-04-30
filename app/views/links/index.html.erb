@@ -25,11 +25,20 @@
     </div>
   </div>
   <div class="container mt-5">
-    <h5 class="text-center mb-3"><%= @group_name %></h5>
+    <%= turbo_frame_tag "edit_group_#{@group.id}" do %>
+      <h5 class="text-center mb-3">
+        <%= @group.name %>
+        <%= link_to edit_group_path(@group), remote: true, class: "btn btn-link btn-small", data: { turbo_frame: "edit_group_#{@group.id}" } do %>
+          <i class="bi bi-pencil-fill ml-2"></i>
+        <% end %>
+      </h5>
+    <% end %>
     <div id="mobileLinksContainer" class="card col-12">
-      <ul class="list-group list-group-flush">
+      <ul class="list-group list-group-flush" id="free_links">
         <% @free_links.each do |link| %>
-          <%= render "links/table_row_mobile", link: link, parentID: "mobileLinksContainer" %>
+          <%= turbo_frame_tag "edit_link_#{link.id}" do %>
+            <%= render "links/table_row_mobile", link: link, parentID: "mobileLinksContainer" %>
+          <% end %>
         <% end %>
       </ul>
     </div>
@@ -62,7 +71,14 @@
     </div>
   </div>
   <div class="container my-5">
-    <h5><%= @group_name %></h5>
+    <%= turbo_frame_tag "edit_group_#{@group.id}" do %>
+      <h5 class="mb-3">
+        <%= @group.name %>
+        <%= link_to edit_group_path(@group), remote: true, class: "btn btn-link btn-small",  data: { turbo_frame: "edit_group_#{@group.id}" } do %>
+          <i class="bi bi-pencil-fill ml-2"></i>
+        <% end %>
+      </h5>
+    <% end %>
     <div class="card table-responsive">
       <table class="table table-hover align-middle mb-0">
         <thead class="table-primary">

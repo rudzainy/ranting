@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  
   get "/service-worker.js" => "service_worker#service_worker"
   get "/manifest.json" => "service_worker#manifest"
 
@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :short_links
   resources :short_link_redirects, only: %i[show], param: :url_token
   resources :qr_codes
+  resources :groups, only: [:edit, :update]
 
   resources :links, only: [] do
     scope module: "links" do

@@ -7,11 +7,11 @@ import { application } from "./application"
 import DragController from "./drag_controller"
 application.register("drag", DragController)
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import InlineEditController from "./inline_edit_controller"
+application.register("inline-edit", InlineEditController)
+
+import LinkController from "./link_controller"
+application.register("link", LinkController)
 
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
-
-import TurboController from "./turbo_controller"
-application.register("turbo", TurboController)
