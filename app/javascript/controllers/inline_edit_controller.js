@@ -1,5 +1,5 @@
 // app/javascript/controllers/inline_edit_controller.js
-import { Controller } from "stimulus"
+import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = ["groupName", "editForm"]
