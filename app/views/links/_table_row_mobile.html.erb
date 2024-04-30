@@ -7,6 +7,7 @@
     <%= link_to edit_link_path(link), 
                 class: "btn btn-outline-primary btn-sm ms-3", 
                 id: "update-link-#{link.id}", 
+                remote: true,
                 data: { turbo_frame: "modal" } do %>
       <i class="bi bi-pencil-fill"></i>
     <% end %>
@@ -16,6 +17,7 @@
     <%= link_to edit_link_path(link), 
                 class: "btn btn-outline-primary btn-sm", 
                 id: "update-link-#{link.id}", 
+                remote: true,
                 data: { turbo_frame: "modal" } do %>
       <i class="bi bi-pencil-fill"></i>
     <% end %>

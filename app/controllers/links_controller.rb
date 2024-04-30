@@ -27,7 +27,8 @@ class LinksController < ApplicationController
   def update
     respond_to do |format|
       if @link.update(link_params)
-        format.turbo_stream { render turbo_stream: turbo_stream.prepend('links', partial: 'links/form', locals: {link: @link}) }
+
+        format.turbo_stream { render turbo_stream: turbo_stream.replace('free_links'), locals: {link: @link}, notice: "Link was successfully updated." }
         format.html { redirect_to user_path(current_user), notice: "Link was successfully updated." }
         format.json { render :show, status: :created, location: @link }
       else

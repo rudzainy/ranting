@@ -1,2 +1,10 @@
 <%= turbo_stream.prepend "links", @link %>
+<%= turbo_stream.replace "free_links" do %>
+  <% if mobile_device? %>
+    <%= render "links/table_row_mobile", link: @link, parentID: "mobileLinksContainer" %>
+  <% end %>
+  <% else %>
+    <%= render "links/table_row", link: @link, parentID: "linksContainer" %>
+  <% end %>
+<% end %>
 <%= turbo_stream.update "modal", "" %>
