@@ -14,7 +14,7 @@ class User < ApplicationRecord
 
   friendly_id :username, use: %i[slugged]
 
-  after_create :create_default_links, :generate_qr_code
+  after_save :create_default_links, :generate_qr_code
   after_update :create_default_links
 
   validates :full_name, length: { maximum: 64 }
