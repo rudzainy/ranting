@@ -10,9 +10,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+
+    if resource.save!
+      GenerateLinksForNewUser.new(resource).call
+      GenerateQrCodeForUser.new(resource).call
+    else
+      redirect_to new_user_registration_path
+    end
+  end
 
   # GET /resource/edit
   def edit
