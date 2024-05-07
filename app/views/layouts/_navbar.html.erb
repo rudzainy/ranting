@@ -13,10 +13,15 @@
             <i class="bi bi-signpost-split me-2"></i>Links
           <% end %>
         </li>
-        <div class="vr"></div>
         <li class="nav-item mx-2">
           <%= link_to edit_user_path(current_user), class: "btn btn-outline-primary border-0" do %>
             <i class="bi bi-person-badge me-2"></i>Layout
+          <% end %>
+        </li>
+        <div class="vr"></div>
+        <li class="nav-item mx-2">
+          <%= link_to short_links_path, class: "btn btn-outline-primary border-0" do %>
+            <i class="bi bi-person-badge me-2"></i>Short Links
           <% end %>
         </li>
       </ul>
@@ -46,6 +51,11 @@
         <li class="nav-item">
           <%= link_to edit_user_path(current_user), class: "btn btn-light d-block mb-1 shadow" do %>
             <i class="bi bi-person-badge me-2"></i>Layout
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to short_links_path, class: "btn btn-light d-block mb-1 shadow" do %>
+            <i class="bi bi-person-badge me-2"></i>Short Links
           <% end %>
         </li>
         <hr class="border-light"/>
