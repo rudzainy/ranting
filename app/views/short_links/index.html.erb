@@ -1,11 +1,11 @@
-
 <%#
-    This page should show all user's short links by group. 
+    This page should show all user's short links. 
     Short links are sorted by view count. 
     Web view should show data table to focus on analytics. 
     Mobile view should be more compact. 
 %>
 
+<%= render partial: "users/profile_statistics" %>
 <div class="container mt-5">
   <div class="row">
     <div class="col">
@@ -14,58 +14,51 @@
   </div>
 </div>
 
+<div class="container mt-5">
+  <h5>Short Links</h5>
+</div>
 
-
-  <div class="container mt-5">
-    <%= turbo_frame_tag "social_links_title" do %>
-      <h5>Social Links</h5>
-    <% end %>
-    <div class="card table-responsive">
-      <table class="table table-hover align-middle mb-0">
-        <thead class="table-primary">
-          <tr>
-            <th scope="col" class="text-center"></th>
-            <th scope="col" class="flex-grow-1">Long URL</th>
-            <th scope="col">Short URL</th>
-            <th scope="col">Clicks</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody id="socialContainer">
-          <% @short_links.each do |short_link| %>
-            
-            <%# This is the individual table row %>
-
-<tr class="">
-  <% if short_link.nil? %>
-    <%# form to create link %>
-    <td class="text-center"></td>
-    <td class=""></td>
-    <td class=""></td>
-    <td></td>
-  <% else %>
-    <td class="text-center">
-      <i class="fa-fas fa-grip-lines mr-2"></i>
-    </td>
-    <td class=""><%= short_link.link.url %><br><% unless short_link.link.title.blank? %>(<%= short_link.link.title %>)<% end %></td>
-    <td class="flex-grow-1"><%= short_link.url_token %></td>
-    <td><%= short_link.impressionist_count %></td>
-  <% end %>
-  <td>
-    <div class="d-inline-flex">
-    </div>
-  </td>
-</tr>
-
-
-          <% end %>
-        </tbody>
-      </table>
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <%= turbo_frame_tag "shorten_link_container" do %>
+        <%= simple_form_for @short_link do |f| %>
+          <div class="mb-3">
+            <%= text_field_tag :url, nil, label: false, autofocus: true, class:"form-control rounded high-z" %>
+            <%= hidden_field_tag :user_id, current_user.id %>
+            <div id="longUrlHelp" class="form-text d-flex justify-content-between flex-nowrap px-2">
+              <div class="overflow-hidden d-inline-block flex-fill text-nowrap">Paste your looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo</div><div class="d-inline-block flex-fill text-nowrap">ooooooong URL here<i class="fas fa-hand-point-up ms-2"></i></div></div>
+          </div>
+          <%= f.submit "Shorten Link", class:"btn btn-warning mx-auto shadow" %>
+        <% end %>
+      <% end %>
     </div>
   </div>
+</div>
+<div class="container my-5">
+  <div class="card table-responsive">
+    <table class="table table-hover align-middle mb-0">
+      <thead class="table-primary">
+        <tr>
+          <th scope="col" class="text-center"></th>
+          <th scope="col" class="flex-grow-1">Long URL</th>
+          <th scope="col">Short URL</th>
+          <th scope="col">Clicks</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody id="short-links-container">
+        <% @links.each do |link| %>
+          <%# This is the individual table row %>
+          <%= render "short_links/table_row", link: link %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 <div class="container">
   <div class="alert alert-info" role="alert">
-    <i class="fas fa-lightbulb me-2"></i>Pro tip: Links with empty URL field will be hidden on your profile page.
+    <i class="fas fa-lightbulb me-2"></i>Short links format: <strong>https://gugel.my/r/<span class="text-primary">short_url</span></strong>
   </div>
 </div>

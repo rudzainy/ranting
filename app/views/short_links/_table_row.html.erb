@@ -1,0 +1,27 @@
+<%# This is the individual table row %>
+<tr class="short_link_row-">
+  <% if link.nil? %>
+    <%# form to create link %>
+    <td class="text-center"></td>
+    <td class=""></td>
+    <td class=""></td>
+    <td></td>
+  <% else %>
+    <td class="text-center">
+      <i class="fas fa-grip-lines mr-2"></i>
+    </td>
+    <td class=""><%= link.url %><br><% unless link.title.blank? %>(<%= link.title %>)<% end %></td>
+    <td class="flex-grow-1"><%= link.short_links.first.url_token %></td>
+    <td><%= link.short_links.first.impressionist_count %></td>
+  <% end %>
+  <td>
+    <div class="d-inline-flex">
+      <%= link_to edit_link_path(link), 
+                  class: "btn btn-outline-danger btn-sm shadow me-2", 
+                  id: "update-link-#{link.id}", 
+                  data: { turbo_frame: "modal" } do %>
+        <i class="fas fa-trash-can me-2"></i>Delete
+      <% end %>
+    </div>
+  </td>
+</tr>
