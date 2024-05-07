@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'usecases', to: 'static#use_cases'
   get 'about', to: 'users#about', as: :about
   get 'faq', to: 'static#faq'
+  get 'short_links/free', to: 'short_links#free', as: :free_short_links
 
   patch 'drag/links'
 
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
   end
 
   root 'static#index'
+
 
   get ':id', to: 'users#show', as: :user
 
