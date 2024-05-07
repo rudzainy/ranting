@@ -22,8 +22,8 @@ class ShortLinksController < ApplicationController
 
     @shorten_link = ShortLink.create!(
       link: link,
-      statistics_token: SecureRandom.base64(8),
-      url_token: SecureRandom.base64(8)
+      statistics_token: SecureRandom.urlsafe_base64(4),
+      url_token: SecureRandom.urlsafe_base64(4)
     )
     
   end
