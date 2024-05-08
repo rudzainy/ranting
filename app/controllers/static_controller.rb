@@ -22,6 +22,16 @@ class StaticController < ApplicationController
   def faq 
   end
 
+  def mailing_list
+
+    path = "./db/mailing_list.txt"
+    File.open(path, "a") do |f|
+      f.write(params[:email_address])
+      f.write "\n"
+    end
+    render turbo_stream: turbo_stream.replace("mailing_list_form", partial: "static/mailing_list_form") 
+  end
+
   private
 
   def set_should_render_navbar
