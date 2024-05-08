@@ -1,5 +1,5 @@
 class ShortLinksController < ApplicationController
-
+  impressionist actions: [:free]
   before_action :authenticate_user!, only: [:index]
 
   def index

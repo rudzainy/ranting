@@ -1,4 +1,5 @@
 class StaticController < ApplicationController
+  impressionist
   before_action :set_should_render_navbar
 
   def index
