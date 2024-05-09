@@ -41,7 +41,6 @@ class ShortLinksController < ApplicationController
     if user_signed_in?
       render turbo_stream: turbo_stream.prepend("short-links-container", partial: "short_links/table_row", locals: {link: link}, notice: "Link was successfully shorten.") 
     end
-    
   end
 
   private

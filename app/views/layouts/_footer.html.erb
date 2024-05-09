@@ -33,7 +33,7 @@
         <%= turbo_frame_tag "mailing_list_form" do %>
           <%= form_tag("/mailing_list", method: "POST") do %>
             <h5>Want to know when we officially launch?</h5>
-            <p>Enter your email address below and we'll include you in our launching announcement mailing list! We will discard the mailing list after that :)</p>
+            <p>Enter your email address below and we'll include you in our launching announcement mailing list!<br>We will discard the mailing list after that 👌✨</p>
             <div class="d-flex flex-column flex-sm-row w-100 gap-2">
               <label for="newsletter1" class="visually-hidden">Email address</label>
               <%= email_field_tag(:email_address, "", class: "form-control") %>
