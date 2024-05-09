@@ -30,18 +30,19 @@
         </div>
       <% end %>
       <div class="col-md-5 offset-md-1 mb-3">
-        <form>
-          <h5>Want to know when we officially launch?</h5>
-          <p>Enter your email address below and we'll include you in our launching announcement mailing list! We will discard the mailing list after that :)</p>
-          <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-            <label for="newsletter1" class="visually-hidden">Email address</label>
-            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-            <button class="btn btn-primary" type="button">Loop me in!</button>
-          </div>
-        </form>
+        <%= turbo_frame_tag "mailing_list_form" do %>
+          <%= form_tag("/mailing_list", method: "POST") do %>
+            <h5>Want to know when we officially launch?</h5>
+            <p>Enter your email address below and we'll include you in our launching announcement mailing list!<br>We will discard the mailing list after that 👌✨</p>
+            <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+              <label for="newsletter1" class="visually-hidden">Email address</label>
+              <%= email_field_tag(:email_address, "", class: "form-control") %>
+              <%= submit_tag("Proceed!", class: "btn btn-primary") %>
+            </div>
+          <% end %>
+        <% end %>
       </div>
     </div>
-
     <div class="d-flex flex-column flex-sm-row justify-content-between pt-4 mt-4 border-top">
       <p>© <%= Time.zone.now.year %> gugel.my is a trademark of Nasi Forge. All rights reserved.</p>
       <ul class="list-unstyled d-flex">

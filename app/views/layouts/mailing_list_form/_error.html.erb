@@ -1,0 +1,11 @@
+<%= turbo_frame_tag "mailing_list_form" do %>
+  <%= form_tag("/mailing_list", method: "POST") do %>
+    <h5>Something went wrong 🥶</h5>
+    <p>Apologies, it seems that the email address <strong><%= subscribed_email %></strong> was not saved. We will figure out what happened.<br>In the meantime, you can try entering another email address.</p>
+    <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+      <label for="newsletter1" class="visually-hidden">Email address</label>
+      <%= email_field_tag(:email_address, "", class: "form-control") %>
+      <%= submit_tag("Proceed!", class: "btn btn-primary") %>
+    </div>
+  <% end %>
+<% end %>
