@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_hacker_variables
-    if user_signed_in? && current_user.username == "rudzainy"
+    if user_signed_in? && current_user.username == ENV['SUPERADMIN_USER']
       @hacker_variables = []
       @hacker_variables[0] = User.count
       @hacker_variables[1] = Link.count
