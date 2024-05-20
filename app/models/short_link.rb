@@ -3,7 +3,7 @@ class ShortLink < ApplicationRecord
   has_one_attached :qr_code
   belongs_to :link
 
-  before_create :generate_qr_code
+  after_create :generate_qr_code
 
   private
 
