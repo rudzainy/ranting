@@ -14,6 +14,10 @@ class User < ApplicationRecord
 
   friendly_id :username, use: %i[slugged]
 
+  after_create :create_default_links, :generate_qr_code
+  after_update :create_default_links
+  after_update :generate_qr_code, if: proc { |object| object.previous_changes.include?('username') }
+
   validates :full_name, length: { maximum: 64 }
   validates :description, length: { maximum: 256 }
   validates_format_of :username, :with => /\A[a-z0-9]+\z/i
