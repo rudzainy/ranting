@@ -3,6 +3,9 @@ class LinksController < ApplicationController
   before_action :link_params, only: [:update]
   before_action :set_user, only: [:edit, :index]
   before_action :set_link, only: [:update, :edit, :show]
+  before_action lambda {
+    resize_before_save(user_params[:image], 500, 500)
+  }, only: [:update]
 
   def index
     @should_render_navbar = true
@@ -62,5 +65,20 @@ class LinksController < ApplicationController
   
   def mobile_device?
     request.user_agent =~ /Mobile|webOS/
+  end
+
+  def resize_before_save(image_param, width, height)
+    return unless image_param
+  
+    begin
+      ImageProcessing::MiniMagick
+        .source(image_param)
+        .resize_to_fit(width, height)
+        .call(destination: image_param.tempfile.path)
+    rescue StandardError => _e
+      # Do nothing. If this is catching, it probably means the
+      # file type is incorrect, which can be caught later by
+      # model validations.
+    end
   end
 end
