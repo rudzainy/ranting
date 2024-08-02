@@ -4,7 +4,7 @@ class LinksController < ApplicationController
   before_action :set_user, only: [:edit, :index]
   before_action :set_link, only: [:update, :edit, :show]
   before_action lambda {
-    resize_before_save(user_params[:image], 500, 500)
+    resize_before_save(params[:image], 500, 500)
   }, only: [:update]
 
   def index

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_29_160927) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_09_020918) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -90,6 +90,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_29_160927) do
     t.integer "css_class", default: 3
     t.index ["group_id"], name: "index_links_on_group_id"
     t.index ["user_id"], name: "index_links_on_user_id"
+  end
+
+  create_table "mailing_list_emails", force: :cascade do |t|
+    t.string "email_address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "short_links", force: :cascade do |t|
