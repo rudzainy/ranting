@@ -1,35 +1,45 @@
 # gugel.my
 
-## Setup: 
+Welcome to **Gugel.my**, the ultimate link-in-bio platform designed with love for Malaysian customers! Think of us as your very own personalized link manager, much like Bitly, but tailored just for you. And guess what? We offer this amazing service as a paid, hosted solution so you can focus on what you do best.
 
-```bash
-yarn
-bin/rails db:create
-bin/rails db:migrate
-```
+## Table of Contents
 
-## Run
+- [gugel.my](#gugelmy)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Core Values](#core-values)
+  - [Use Cases](#use-cases)
+  - [B2C SaaS Model](#b2c-saas-model)
+  - [Membership](#membership)
+  - [Sign Up](#sign-up)
+  - [Setup](#setup)
+    - [Prerequisites](#prerequisites)
+  - [Run](#run)
 
-```bash
-bin/dev
-```
+## Features
 
-## Take control to your presence on the Internet
+- **Customizable Bio Page:** Create a stunning bio page that showcases your links, social profiles, and websites.
+- **Link Management:** Shorten, track, and manage your links effortlessly.
+- **Analytics:** Gain valuable insights with our comprehensive link performance analytics.
+- **Localization:** Fully localized for Malaysia, including support for Bahasa Malaysia.
+- **Responsive Design:** Your bio page will look fantastic on any device, big or small.
 
-### Solving the problem of maintaining accounts on multiple platforms
+## Core Values
 
-#### Links
+At Gugel.my, we believe in:
 
-- Links are the fundamental of the internet.
-- Every person who is on the internet should have a safe place they can call home.
-- Social media platforms like Friendster, Facebook and Twitter initially was popular because of the impression that it has the potential to become that safe space. History has proven otherwise.
-- Gugel.my wants to solve that problem for Malaysia.
+- **Empowerment:** Giving you the tools to present yourself in the best light.
+- **Innovation:** Continuously improving to provide you with the latest and greatest features.
+- **Community:** Supporting and celebrating our Malaysian users.
 
-#### Malaysia
+## Use Cases
 
-- Malaysia is a very unique country.
-- As digital citizens, we Malaysians are very quick adopters to new technologies (Read why Apple is opening it's store in Kuala Lumpur).
-- 
+Gugel.my is perfect for:
+
+- **Influencers:** Showcase all your social media links in one place.
+- **Small Businesses:** Drive traffic to your website and online stores.
+- **Freelancers:** Create a professional online presence.
+- **Event Planners:** Share event details and ticket links seamlessly.
 
 ## B2C SaaS Model
 
@@ -37,40 +47,73 @@ bin/dev
   - As low price as possible.
   - Lean operation
 
+## Membership
 
-### Pricing Strategy
+We offer competitive membership plans designed to fit your needs:
 
-| Item                | Trial      | Basic    | Supporter               | Business   |
-| ------------------- | ---------- | -------- | ----------------------- | ---------- |
-| Price               | Free       | RM4/year | RM48/year or RM4/month  | RM48/year  |
-| Account Maintenance | 30 days    | 1 year   | 1 Year or 30 days       | 1 year     |
-| Features            | Restricted | Limited  | Essentials              | Expandable |
-| Cost                | Minimal    | Minimal  | Bearable                | Expensive  |
+| Item                | Trial      | Basic       | Supporter                  | Business   |
+| ------------------- | ---------- | ----------- | -------------------------- | ---------- |
+| Price               | Free       | RM5.80/year | RM38/year or RM5.80/month  | RM88/year  |
+| Account Maintenance | 30 days    | 1 year      | 1 Year or 30 days          | 1 year     |
+| Features            | Restricted | Limited     | Essentials                 | Expandable |
+| Cost                | Minimal    | Minimal     | Bearable                   | Affordable |
+
+Check out our [pricing page](#) for detailed information.
+
+## Sign Up
+
+Ready to join the Gugel.my family? [Sign up](#) today and start managing your links like a pro!
+
+## Setup
+
+### Prerequisites
+
+- Ruby (version 3.2.2)
+- Rails (version 7.0.5)
+- PostgreSQL
+
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/rudzainy/ranting.git
+    cd ranting
+    ```
+
+2. Install dependencies:
+    ```sh
+    yarn
+    bundle install
+    ```
+
+3. Set up the database:
+    ```sh
+    bin/rails db:create
+    bin/rails db:migrate
+    ```
+
+## Run
+
+Start the development server:
+```sh
+bin/dev
+```
+
+## Usage
+
+Sign up for an account or log in if you already have one.
+Create your bio page by adding links to your social media profiles and other websites.
+Customize your bio page with a profile picture and a short bio.
+Share the link to your bio page with others.
+
+## License
+
+This project is licensed under the NasiForge License. See the LICENSE file for details.
+
+## Contact
+
+For any questions or suggestions, please contact us at support@gugel.my.
 
 ## References
 
-- https://learn.deanin.com/courses/build-a-linktree-on-rails
+[Build a Linktree on Rails](https://learn.deanin.com/courses/build-a-linktree-on-rails)
 
-
-## IA
-
-### User
-
-- user has many links
-- user can create groups, however group does not belong to a user
-  - TODO: might need to add `creator_id` in group table
-- user can be private or public
-
-### Link
-
-- link belongs to a user
-- link belongs to a group
-
-### Group
-
-- group has may links
-- group can have many users
-  - users create and share / collaborate groups
-  - TODO: this has not been built
-- group can be private or public
-
+Thank you for choosing Gugel.my, your go-to link-in-bio platform!
