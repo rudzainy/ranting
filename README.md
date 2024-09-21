@@ -114,6 +114,4 @@ For any questions or suggestions, please contact us at support@gugel.my.
 
 ## References
 
-[Build a Linktree on Rails](https://learn.deanin.com/courses/build-a-linktree-on-rails)
-
-Thank you for choosing Gugel.my, your go-to link-in-bio platform!
+Thank you for choosing Gugel.my, Malaysia's go-to link-in-bio platform!
