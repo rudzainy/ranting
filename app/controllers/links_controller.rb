@@ -3,9 +3,9 @@ class LinksController < ApplicationController
   before_action :link_params, only: [:update]
   before_action :set_user, only: [:edit, :index]
   before_action :set_link, only: [:update, :edit, :show]
-  before_action lambda {
-    resize_before_save(params[:image], 500, 500)
-  }, only: [:update]
+  # before_action lambda {
+  #   resize_before_save(params[:image], 500, 500)
+  # }, only: [:update]
 
   def index
     @should_render_navbar = true
