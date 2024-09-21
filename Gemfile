@@ -115,3 +115,4 @@ gem "omniauth-google-oauth2", "~> 1.1"
 gem "omniauth-rails_csrf_protection", "~> 1.0"
 
 # gem 'cloudinary'
+gem "truemail", "~> 3.3"

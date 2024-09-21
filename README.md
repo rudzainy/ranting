@@ -10,7 +10,7 @@ Welcome to **Gugel.my**, the ultimate link-in-bio platform designed with love fo
   - [Core Values](#core-values)
   - [Use Cases](#use-cases)
   - [B2C SaaS Model](#b2c-saas-model)
-  - [Pricing](#pricing)
+  - [Membership](#membership)
   - [Sign Up](#sign-up)
   - [Setup](#setup)
     - [Prerequisites](#prerequisites)
@@ -47,16 +47,16 @@ Gugel.my is perfect for:
   - As low price as possible.
   - Lean operation
 
-## Pricing
+## Membership
 
-We offer competitive pricing plans designed to fit your needs:
+We offer competitive membership plans designed to fit your needs:
 
-| Item                | Trial      | Basic    | Supporter               | Business   |
-| ------------------- | ---------- | -------- | ----------------------- | ---------- |
-| Price               | Free       | RM4/year | RM48/year or RM4/month  | RM48/year  |
-| Account Maintenance | 30 days    | 1 year   | 1 Year or 30 days       | 1 year     |
-| Features            | Restricted | Limited  | Essentials              | Expandable |
-| Cost                | Minimal    | Minimal  | Bearable                | Expensive  |
+| Item                | Trial      | Basic       | Supporter                  | Business   |
+| ------------------- | ---------- | ----------- | -------------------------- | ---------- |
+| Price               | Free       | RM5.80/year | RM38/year or RM5.80/month  | RM88/year  |
+| Account Maintenance | 30 days    | 1 year      | 1 Year or 30 days          | 1 year     |
+| Features            | Restricted | Limited     | Essentials                 | Expandable |
+| Cost                | Minimal    | Minimal     | Bearable                   | Affordable |
 
 Check out our [pricing page](#) for detailed information.
 
@@ -96,3 +96,22 @@ Start the development server:
 ```sh
 bin/dev
 ```
+
+## Usage
+
+Sign up for an account or log in if you already have one.
+Create your bio page by adding links to your social media profiles and other websites.
+Customize your bio page with a profile picture and a short bio.
+Share the link to your bio page with others.
+
+## License
+
+This project is licensed under the NasiForge License. See the LICENSE file for details.
+
+## Contact
+
+For any questions or suggestions, please contact us at support@gugel.my.
+
+## References
+
+Thank you for choosing Gugel.my, Malaysia's go-to link-in-bio platform!

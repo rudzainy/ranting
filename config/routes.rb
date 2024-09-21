@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'about', to: 'users#about', as: :about
   get 'faq', to: 'static#faq'
   get 'short_links/free', to: 'short_links#free', as: :free_short_links
+  post 'mailing_list', to: 'static#mailing_list'
 
   patch 'drag/links'
 

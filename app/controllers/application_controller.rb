@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :set_should_render_navbar
   before_action :set_should_render_navbar_public
   before_action :set_hacker_variables
+  # before_action :set_page_impressions
   before_action :turbo_frame_request_variant
 
   private
@@ -31,13 +32,19 @@ class ApplicationController < ActionController::Base
   end
 
   def set_hacker_variables
-    if user_signed_in? && current_user.username == "rudzainy"
+    if user_signed_in? && current_user.username == ENV['SUPERADMIN_USER']
       @hacker_variables = []
       @hacker_variables[0] = User.count
       @hacker_variables[1] = Link.count
     else
       @hacker_variables = false
     end
+  end
+
+  def set_page_impressions
+    # TODO: Count pageviews and figure out where to display
+    # @pageviews = 0
+    # @pageviews += Impression.where(controller_name: params[:controller_name], action_name: params[:action_name]).count
   end
 
   def turbo_frame_request_variant
