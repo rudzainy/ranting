@@ -116,3 +116,4 @@ gem "omniauth-rails_csrf_protection", "~> 1.0"
 
 # gem 'cloudinary'
 gem "truemail", "~> 3.3"
+gem "recaptcha"
