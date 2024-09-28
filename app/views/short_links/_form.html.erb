@@ -6,6 +6,11 @@
         <span class="input-group-text h-50"><%= base_url%>/</span>
         <%= f.input :url, placeholder: sanitize_link(@short_links.url), input_html: { value: sanitize_link(@short_links.url)}, label: false, class:"form-control rounded-start-0 high-z" %>
       </div>
+      <% if @show_checkbox_recaptcha %>
+        <%= recaptcha_tags %>
+      <% else %>
+        <%= recaptcha_v3(action: 'anonymous_shortlink', site_key: ENV['RECAPTCHA_SITE_KEY_V3']) %>
+      <% end %>
     </div>
   </div>
   <%= f.submit "Shorten Link", class:"btn btn-primary me-auto shadow" %>

@@ -1,3 +1,6 @@
+include Recaptcha::Adapters::ViewMethods
+include Recaptcha::Adapters::ControllerMethods
+
 class ShortLinksController < ApplicationController
   impressionist actions: [:free]
   before_action :authenticate_user!, only: [:index]
@@ -14,6 +17,9 @@ class ShortLinksController < ApplicationController
   end
 
   def free
+    unless user_signed_in?
+      @show_checkbox_recaptcha = true
+    end
     @short_link = ShortLink.new
   end
 
@@ -23,23 +29,39 @@ class ShortLinksController < ApplicationController
         url: url,
         category: 2,
       )
-    else
-      link = Link.create!(
-        url: url,
-        category: 2
-      )
-    end
     
-    @short_link = ShortLink.new
-
-    @shorten_link = ShortLink.create!(
-      link: link,
-      statistics_token: SecureRandom.urlsafe_base64(4),
-      url_token: SecureRandom.urlsafe_base64(4)
-    )
-
-    if user_signed_in?
+      @short_link = ShortLink.new
+  
+      @shorten_link = ShortLink.create!(
+        link: link,
+        statistics_token: SecureRandom.urlsafe_base64(4),
+        url_token: SecureRandom.urlsafe_base64(4)
+      )
+      
       render turbo_stream: turbo_stream.prepend("short-links-container", partial: "short_links/table_row", locals: {link: link}, notice: "Link was successfully shorten.") 
+    else
+      success = verify_recaptcha(action: 'free_shortlinks', minimum_score: 0.5, secret_key: ENV['RECAPTCHA_SITE_KEY'])
+      checkbox_success = verify_recaptcha unless success
+      if success || checkbox_success
+        link = Link.create!(
+          url: url,
+          category: 2
+        )
+        if link
+          @short_link = ShortLink.new
+  
+          @shorten_link = ShortLink.create!(
+            link: link,
+            statistics_token: SecureRandom.urlsafe_base64(4),
+            url_token: SecureRandom.urlsafe_base64(4)
+          )
+        end
+      else
+        if !success
+          @show_checkbox_recaptcha = true
+        end
+        render 'free'
+      end
     end
   end
 
