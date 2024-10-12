@@ -17,10 +17,11 @@ class ShortLinksController < ApplicationController
   end
 
   def free
-    unless user_signed_in?
-      @show_checkbox_recaptcha = true
-    end
-    @short_link = ShortLink.new
+    redirect_to "/"
+    # unless user_signed_in?
+    #   @show_checkbox_recaptcha = true
+    # end
+    # @short_link = ShortLink.new
   end
 
   def create
