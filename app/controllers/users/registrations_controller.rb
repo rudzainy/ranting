@@ -36,6 +36,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource_updated = update_resource(resource, account_update_params)
     yield resource if block_given?
     if resource_updated
+      GenerateQrCodeForUser.new(resource_updated).call if resource.previous_changes.include?('username')
       set_flash_message_for_update(resource, prev_unconfirmed_email)
       bypass_sign_in resource, scope: resource_name if sign_in_after_change_password?
 
