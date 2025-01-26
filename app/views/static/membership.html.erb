@@ -1,289 +1,210 @@
-<div class="container mb-5">
-  <header class="text-center py-5 bg-white rounded-5 shadow-lg">
-    <div class="px-3 py-5 pb-md-4 mx-auto">
-      <%= image_tag "illustrations/High-Five-2.png", class: "img-fluid mb-3" %>
-      <h1 class="display-4 fw-normal text-body-emphasis text-center">Membership</h1>
-      <p class="fs-5 text-body-secondary lead text-center">Become a member to enjoy all the goodies that we have to offer!</p>
-      <p class="fs-5 text-body-secondary text-center">Every new registration comes with free 30 days of use, of which before the 30 days ends, you are required to select a pricing model that suits you to secure the username for yourself.</p>
-      <p class="fs-5 text-body-secondary text-center">Don't want to pay? Just re-register your account after the 30 days has expired! 😂</p>
+<section class="bg-white dark:bg-gray-900">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+    <div class="max-w-screen-md mx-auto mb-8 text-center lg:mb-12">
+      <%= image_tag "illustrations/High-Five-2.png", class: "mx-auto mb-6 max-w-md" %>
+      <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+        Membership
+      </h1>
+      <p class="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">
+        Become a member to enjoy all the goodies that we have to offer!
+      </p>
+      <p class="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">
+        Every new registration comes with free 30 days of use, of which before the 30 days ends, you are required to select a pricing model that suits you to secure the username for yourself.
+      </p>
+      <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">
+        Don't want to pay? Just re-register your account after the 30 days has expired! 😂
+      </p>
     </div>
-  </header>
-</div>
-<div class="container py-3">
-  <main>
-    <p class="lead fs-5 text-body-secondary text-center mb-5 px-5">You will only be charged after 30 days. Your commitment to us will directly benefit you as a member where we will continue to introduce more features to help you get things done 👍✨</p>
-    <div class="row row-cols-1 row-cols-md-3 mb-1 text-center">
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm mt-lg-5">
-          <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">🐣 Basic ✨</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">RM3.80<small class="text-body-secondary fw-light">/year</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>Secure your username!</li>
-              <li>Quick links for popular social media sites</li>
-              <li>Unlimited external links</li>
-              <li>Help center access</li>
-            </ul>
-            <button type="button" class="w-100 btn btn-lg btn-outline-primary shadow">Reserve your username</button>
-          </div>
-          <div class="card-footer text-body-secondary">
-            <small class="card-title text-muted">Expected launch price RM5.80<small class="fw-light">/year</small></small>
-          </div>
+
+    <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 sm:text-xl dark:text-gray-400">
+      You will only be charged after 30 days. Your commitment to us will directly benefit you as a member where we will continue to introduce more features to help you get things done 👍✨
+    </p>
+
+    <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
+      <!-- Basic Tier -->
+      <div class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+        <h3 class="mb-4 text-2xl font-semibold">🐣 Basic ✨</h3>
+        <div class="flex justify-center items-baseline my-8">
+          <span class="mr-2 text-5xl font-extrabold">RM3.80</span>
+          <span class="text-gray-500 dark:text-gray-400">/year</span>
         </div>
+        <ul role="list" class="mb-8 space-y-4 text-left">
+          <li class="flex items-center space-x-3">
+            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            <span>Secure your username!</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            <span>Quick links for popular social media sites</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            <span>Unlimited external links</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            <span>Help center access</span>
+          </li>
+        </ul>
+        <button type="button" class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white dark:focus:ring-primary-900">Reserve your username</button>
+        <p class="mt-4 text-sm text-gray-500 dark:text-gray-400">Expected launch price RM5.80/year</p>
       </div>
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm border-primary">
-          <div class="card-header py-3 text-bg-primary border-primary">
-            <h4 class="my-0 fw-normal">✨🐤✨ Supporter ✨🫰✨</h4>
+
+      <!-- Supporter Tier -->
+      <div class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-primary-600 shadow dark:border-primary-500 xl:p-8 dark:bg-gray-800 dark:text-white">
+        <h3 class="mb-4 text-2xl font-semibold">✨🐤✨ Supporter ✨🫰✨</h3>
+        <div class="flex flex-col justify-center items-baseline my-8">
+          <div class="mb-4">
+            <p class="text-gray-500 dark:text-gray-400 mb-2">Support yearly for only</p>
+            <div class="flex justify-center items-baseline">
+              <span class="mr-2 text-5xl font-extrabold">RM18.00</span>
+              <span class="text-gray-500 dark:text-gray-400">/year</span>
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Equivalent to RM1.50/month for 12 months</p>
           </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              <p class="mt-3">Support yearly for only</p>
-              <h1 class="card-title pricing-card-title">RM18.00<small class="text-body-secondary fw-light">/year</small></h1>
-              <small class="card-title text-muted">Equivalant to RM1.50<small class="fw-light">/month</small> for 12 months</small>
-              <p class="mt-3">or support monthly for only</p>
-              <h1 class="card-title pricing-card-title">RM3.80<small class="text-body-secondary fw-light">/month</small></h1>
-              <small class="card-title text-muted">Difference of RM1.30<small class="fw-light">/month</small> compared to yearly</small>
-            </li>
-          </ul>
-          <div class="card-body">
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>Basic tier features plus...</li>
-              <li>A supporter badge on your profile page!</li>
-              <li>Analytic dashboard</li>
-              <li>Early access to new features</li>
-            </ul>
-            <button type="button" class="w-100 btn btn-lg btn-primary shadow">Become a supporter</button>
-          </div>
-          <div class="card-footer text-body-secondary border-primary bg-primary bg-opacity-10">
-            <small class="card-title text-muted">Expected launch price RM38<small class="fw-light">/year</small> or RM5.80<small class="fw-light">/month</small></small>
+          <div>
+            <p class="text-gray-500 dark:text-gray-400 mb-2">or support monthly for only</p>
+            <div class="flex justify-center items-baseline">
+              <span class="mr-2 text-5xl font-extrabold">RM3.80</span>
+              <span class="text-gray-500 dark:text-gray-400">/month</span>
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Difference of RM1.30/month compared to yearly</p>
           </div>
         </div>
+        <ul role="list" class="mb-8 space-y-4 text-left">
+          <li class="flex items-center space-x-3">
+            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            <span>Basic tier features plus...</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            <span>A supporter badge on your profile page!</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            <span>Analytic dashboard</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            <span>Early access to new features</span>
+          </li>
+        </ul>
+        <button type="button" class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white dark:focus:ring-primary-900">Become a supporter</button>
+        <p class="mt-4 text-sm text-gray-500 dark:text-gray-400">Expected launch price RM38/year or RM5.80/month</p>
       </div>
-      <!--div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm mt-lg-5">
-          <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">🐥🐥 Tribe 🐥🐥</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">RM18<small class="text-body-secondary fw-light">/year</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li></li>
-              <li>Basic tier features plus...</li>
-              <li>5 sub-accounts</li>
-              <li>but can try to ask for more</li>
-              <li>Support for custom integrations</li>
-            </ul>
-            <button type="button" class="w-100 btn btn-lg btn-outline-primary shadow">Connect your tribe</button>
-          </div>
-          <div class="card-footer text-body-secondary">
-            <small class="card-title text-muted">Expected launch price RM38<small class="fw-light">/year</small></small>
-          </div>
+
+      <!-- Business Tier -->
+      <div class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+        <h3 class="mb-4 text-2xl font-semibold">✨🐓 Business 🏢✨</h3>
+        <div class="flex justify-center items-baseline my-8">
+          <span class="mr-2 text-5xl font-extrabold">RM28</span>
+          <span class="text-gray-500 dark:text-gray-400">/year</span>
         </div>
-      </!--div-->
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm mt-lg-5">
-          <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">✨🐓 Business 🏢✨</h4>
-          </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">RM28<small class="text-body-secondary fw-light">/year</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li></li>
-              <li>Basic & Supporter tier features plus...</li>
-              <li>Unlimited sub-accounts</li>
-              <li>Priority support for custom integrations</li>
-              <li>Priority support</li>
-            </ul>
-            <button type="button" class="w-100 btn btn-lg btn-outline-primary shadow disabled">Coming soon</button>
-          </div>
-          <div class="card-footer text-body-secondary">
-            <small class="card-title text-muted">Expected launch price RM88<small class="fw-light">/year</small></small>
-          </div>
-        </div>
+        <ul role="list" class="mb-8 space-y-4 text-left">
+          <li class="flex items-center space-x-3">
+            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            <span>Basic & Supporter tier features plus...</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            <span>Unlimited sub-accounts</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            <span>Priority support for custom integrations</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            <span>Priority support</span>
+          </li>
+        </ul>
+        <button type="button" class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white dark:focus:ring-primary-900">Coming soon</button>
+        <p class="mt-4 text-sm text-gray-500 dark:text-gray-400">Expected launch price RM88/year</p>
       </div>
     </div>
-    <p class="lead fs-5 text-body-secondary text-center mb-5 px-5">Not sure what to choose? The cheapest one is never a wrong choice! 👌</p
 
-    <h2 class="display-6 text-center mb-4">Compare plans</h2>
+    <p class="mt-8 mb-16 font-light text-center text-gray-500 sm:text-xl dark:text-gray-400">
+      Not sure what to choose? The cheapest one is never a wrong choice! 👌
+    </p>
 
-    <div class="table-responsive">
-      <table class="table table-striped-columns table-hover text-center">
-        <caption><small class="text-muted"><em>* Terms & conditions apply. Read more <u>here</u></em></small></caption>
-        <thead>
-          <tr>
-            <th style="width: 34%;"></th>
-            <th style="width: 22%;">Basic</th>
-            <th style="width: 22%;">Supporter</th>
-            <th style="width: 22%;">Business</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="table-primary">
-            <th scope="row" class="text-start">Profile Page</th>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td class="text-start">
-              Your personal profile page at<br />
-              <small>gugel.my/</small><strong class="text-primary">your_username</strong> ✨
-            </td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-          </tr>
-          <tr>
-            <td class="text-start">Popular social media links</td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-          </tr>
-          <tr>
-            <td class="text-start">Standard 5 external links<br />(30 days trial)</td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-          </tr>
-          <tr>
-            <td class="text-start">Additional <strong class="text-primary">UNLIMITED</strong> external links</td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-          </tr>
-          <tr>
-            <td class="text-start">Personal branding</td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-          </tr>
-          <tr>
-            <td class="text-start">Custom domain</td>
-            <td></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-          </tr>
-          <tr>
-            <td class="text-start">Manage multiple accounts</td>
-            <td></td>
-            <td></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-          </tr>
-        </tbody>
-
-        <tbody>
-          <tr class="table-primary">
-            <th scope="row" class="text-start">Future New Features</th>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td class="text-start">New feature request</td>
-            <td></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-          </tr>
-          <tr>
-            <td class="text-start">Access to pre-release features</td>
-            <td></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-          </tr>
-        </tbody>
-
-        <tbody>
-          <tr class="table-primary">
-            <th scope="row" class="text-start">Analytic Dashboard</th>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td class="text-start">Visitor count</td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-          </tr>
-          <tr>
-            <td class="text-start">Clicks per link</td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-          </tr>
-          <tr>
-            <td class="text-start">Data retention</td>
-            <td>7 days</td>
-            <td>7 days</td>
-            <td>Longer than 7 days</td>
-          </tr>
-        </tbody>
-
-        <tbody>
-          <tr class="table-primary">
-            <th scope="row" class="text-start">Customer Support</th>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td class="text-start">Access to Help Center</td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-          </tr>
-          <tr>
-            <td class="text-start">Email support</td>
-            <td></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-          </tr>
-          <tr>
-            <td class="text-start">Priority support</td>
-            <td></td>
-            <td></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-          </tr>
-          <tr>
-            <td class="text-start">Support for custom integrations</td>
-            <td></td>
-            <td></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-          </tr>
-        </tbody>
-
-        <tbody>
-          <tr class="table-primary">
-            <th scope="row" class="text-start">Pricing</th>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td class="text-start">Price</td>
-            <td>RM3.80<small class="text-body-secondary fw-light">/year</small></td>
-            <td>RM18.00<small class="text-body-secondary fw-light">/month</small></td>
-            <td>RM28<small class="text-body-secondary fw-light">/year</small></td>
-          </tr>
-          <tr>
-            <td class="text-start">Upgrade & downgrade plans anytime</td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-          </tr>
-          <tr>
-            <td class="text-start">Cancel anytime</td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-            <td><i class="fa-solid fa-check mr-2 text-success"></i></td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- Comparison Table -->
+    <div class="max-w-screen-xl mx-auto">
+      <h2 class="mb-8 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white text-center">Compare plans</h2>
+      <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+              <th scope="col" class="px-6 py-3">Feature</th>
+              <th scope="col" class="px-6 py-3 text-center">Basic</th>
+              <th scope="col" class="px-6 py-3 text-center">Supporter</th>
+              <th scope="col" class="px-6 py-3 text-center">Business</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                Custom domain
+              </th>
+              <td class="px-6 py-4 text-center">✨</td>
+              <td class="px-6 py-4 text-center">✨</td>
+              <td class="px-6 py-4 text-center">✨</td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                Unlimited external links
+              </th>
+              <td class="px-6 py-4 text-center">✨</td>
+              <td class="px-6 py-4 text-center">✨</td>
+              <td class="px-6 py-4 text-center">✨</td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                Link shortener
+              </th>
+              <td class="px-6 py-4 text-center">✨</td>
+              <td class="px-6 py-4 text-center">✨</td>
+              <td class="px-6 py-4 text-center">✨</td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                QR code generator
+              </th>
+              <td class="px-6 py-4 text-center">✨</td>
+              <td class="px-6 py-4 text-center">✨</td>
+              <td class="px-6 py-4 text-center">✨</td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                Analytics
+              </th>
+              <td class="px-6 py-4 text-center">-</td>
+              <td class="px-6 py-4 text-center">✨</td>
+              <td class="px-6 py-4 text-center">✨</td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                Early access to new features
+              </th>
+              <td class="px-6 py-4 text-center">-</td>
+              <td class="px-6 py-4 text-center">✨</td>
+              <td class="px-6 py-4 text-center">✨</td>
+            </tr>
+            <tr class="bg-white dark:bg-gray-800">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                Sub-accounts
+              </th>
+              <td class="px-6 py-4 text-center">-</td>
+              <td class="px-6 py-4 text-center">-</td>
+              <td class="px-6 py-4 text-center">✨</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-4 text-sm text-gray-500 dark:text-gray-400 text-center">
+        <em>* Terms & conditions apply. Read more <a href="#" class="text-primary-600 hover:underline dark:text-primary-500">here</a></em>
+      </p>
     </div>
-  </main>
-</div>
+  </div>
+</section>
 
 <%= render "/layouts/footer" %>

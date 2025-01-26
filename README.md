@@ -15,6 +15,7 @@ Welcome to **Gugel.my**, the ultimate link-in-bio platform designed with love fo
   - [Setup](#setup)
     - [Prerequisites](#prerequisites)
   - [Run](#run)
+  - [TODO](#todo)
 
 ## Features
 
@@ -103,6 +104,18 @@ Sign up for an account or log in if you already have one.
 Create your bio page by adding links to your social media profiles and other websites.
 Customize your bio page with a profile picture and a short bio.
 Share the link to your bio page with others.
+
+## TODO
+
+### High Priority
+- **Modal Component**: Fix modal closing behavior in links management page. Current issues:
+  - Background dimming doesn't clear properly when closing
+  - Inconsistent behavior between Turbo Frames and Flowbite modal
+  - Need to implement proper integration between Turbo Frames, Stimulus, and Flowbite
+  Files to check:
+  - `app/views/layouts/_modal.html.erb`
+  - `app/javascript/controllers/modal_controller.js`
+  - `app/controllers/links_controller.rb`
 
 ## License
 

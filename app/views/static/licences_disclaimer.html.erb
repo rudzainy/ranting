@@ -1,2 +1,98 @@
-<h1>Static#licences_disclaimer</h1>
-<p>Find me in app/views/static/licences_disclaimer.html.erb</p>
+<section class="bg-white dark:bg-gray-900">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+    <div class="max-w-screen-md mx-auto">
+      <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white text-center">
+        Licenses & Disclaimers
+      </h1>
+      <p class="mb-8 font-light text-gray-500 sm:text-xl dark:text-gray-400 text-center">
+        Important information about our service's terms, licenses, and disclaimers.
+      </p>
+
+      <div class="space-y-8">
+        <!-- Open Source Licenses -->
+        <div>
+          <h2 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">Open Source Licenses</h2>
+          <p class="mb-4 text-gray-500 dark:text-gray-400">
+            Gugel is built using various open-source software components, each with its own license. We are grateful to the open-source community for their contributions. Key components include:
+          </p>
+          <ul class="space-y-4 text-gray-500 dark:text-gray-400">
+            <li class="flex items-center space-x-3">
+              <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              <span>Ruby on Rails (MIT License)</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              <span>Tailwind CSS (MIT License)</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              <span>Flowbite (MIT License)</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Service Disclaimer -->
+        <div>
+          <h2 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">Service Disclaimer</h2>
+          <div class="space-y-4 text-gray-500 dark:text-gray-400">
+            <p>
+              The services provided by Gugel are offered "as is" and "as available" without any warranties, either express or implied. While we strive to maintain high availability and reliability, we cannot guarantee uninterrupted access to our services.
+            </p>
+            <p>
+              We reserve the right to modify, suspend, or discontinue any part of our service at any time without prior notice. This includes changes to features, pricing, and availability of the service.
+            </p>
+          </div>
+        </div>
+
+        <!-- Data Usage -->
+        <div>
+          <h2 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">Data Usage</h2>
+          <div class="space-y-4 text-gray-500 dark:text-gray-400">
+            <p>
+              By using our service, you acknowledge and agree that:
+            </p>
+            <ul class="list-disc pl-5 space-y-2">
+              <li>We collect and process user data in accordance with our privacy policy</li>
+              <li>User-generated content remains the property of the user</li>
+              <li>We may use anonymized data for service improvement</li>
+              <li>Users are responsible for the content they share through our service</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Third-Party Services -->
+        <div>
+          <h2 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">Third-Party Services</h2>
+          <div class="space-y-4 text-gray-500 dark:text-gray-400">
+            <p>
+              Our service integrates with various third-party services. While we carefully select our partners, we are not responsible for:
+            </p>
+            <ul class="list-disc pl-5 space-y-2">
+              <li>The availability or reliability of third-party services</li>
+              <li>Content hosted on third-party platforms</li>
+              <li>Changes to third-party service terms or functionality</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Updates to Terms -->
+        <div>
+          <h2 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">Updates to Terms</h2>
+          <p class="text-gray-500 dark:text-gray-400">
+            We may update these terms and licenses from time to time. We will notify users of any significant changes through our service or via email. Continued use of our service after such changes constitutes acceptance of the updated terms.
+          </p>
+        </div>
+
+        <!-- Contact Information -->
+        <div>
+          <h2 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">Questions?</h2>
+          <p class="text-gray-500 dark:text-gray-400">
+            If you have any questions about our licenses or disclaimers, please <%= link_to "contact us", contact_path, class: "font-medium text-primary-600 hover:underline dark:text-primary-500" %>. We're here to help!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%= render "/layouts/footer" %>

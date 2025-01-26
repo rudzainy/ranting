@@ -6,121 +6,135 @@
 %>
 
 <%= render partial: "users/profile_statistics" %>
-<div class="container mt-5">
-  <div class="row">
-    <div class="col">
-      <h1>Manage your links</h1>
-    </div>
+
+<div class="container max-w-screen-xl mx-auto p-4">
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Manage your links</h1>
   </div>
-</div>
-<% if mobile_device? %>
-  <div class="container mt-5 border-3">
-    <h5 class="text-center mb-3">Social Links</h5>
-    <div id="mobileSocialContainer" class="card col-12">
-      <ul class="list-group list-group-flush">
-        <% @social_links.each do |link| %>
-          <%= render "links/table_row_mobile", link: link, parentID: "mobileSocialContainer" %>
+
+  <% if mobile_device? %>
+    <div class="space-y-6">
+      <!-- Social Links Section -->
+      <div>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4 text-center">Social Links</h2>
+        <div id="mobileSocialContainer" class="bg-white dark:bg-gray-800 shadow-sm rounded-lg overflow-hidden">
+          <ul class="divide-y divide-gray-200 dark:divide-gray-700">
+            <% @social_links.each do |link| %>
+              <%= render "links/table_row_mobile", link: link, parentID: "mobileSocialContainer" %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Group Links Section -->
+      <div>
+        <%= turbo_frame_tag "edit_group_#{@group.id}" do %>
+          <div class="flex items-center justify-center gap-2 mb-4">
+            <h2 class="text-xl font-semibold text-gray-900 dark:text-white"><%= @group.name %></h2>
+            <%= link_to edit_group_path(@group), remote: true, class: "text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300", data: { turbo_frame: "edit_group_#{@group.id}" } do %>
+              <i class="fas fa-pencil"></i>
+            <% end %>
+          </div>
         <% end %>
-      </ul>
-    </div>
-  </div>
-  <div class="container mt-5">
-    <%= turbo_frame_tag "edit_group_#{@group.id}" do %>
-      <h5 class="text-center mb-3">
-        <%= @group.name %>
-        <%= link_to edit_group_path(@group), remote: true, class: "btn btn-link btn-small", data: { turbo_frame: "edit_group_#{@group.id}" } do %>
-          <i class="bi bi-pencil-fill ml-2"></i>
-        <% end %>
-      </h5>
-    <% end %>
-    <div id="mobileLinksContainer" class="card col-12">
-      <ul class="list-group list-group-flush" id="free_links">
-        <% @free_links.each do |link| %>
-          <%= turbo_frame_tag "edit_link_#{link.id}" do %>
-            <%= render "links/table_row_mobile", link: link, parentID: "mobileLinksContainer" %>
-          <% end %>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-  <div class="container mt-5">
-    <div class="alert alert-info" role="alert">
-      <i class="fas fa-lightbulb me-2"></i>Pro tip: View this page from your computer to access more features!
-    </div>
-  </div>
-<% else %>
-  <div class="container mt-5">
-    <h5>Social Links</h5>
-    <div class="card table-responsive">
-      <table class="table table-hover align-middle mb-0">
-        <thead class="table-primary">
-          <tr>
-            <th scope="col" class="text-center">Icon</th>
-            <th scope="col">Link Title</th>
-            <th scope="col" class="flex-grow-1">URL</th>
-            <th scope="col">Clicks</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody id="socialContainer">
-          <% @social_links.each do |link| %>
-            <%= render "links/table_row", link: link, parentID: "socialContainer" %>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <div class="container my-5">
-    <%= turbo_frame_tag "edit_group_#{@group.id}" do %>
-      <h5 class="mb-3">
-        <%= @group.name %>
-        <%= link_to edit_group_path(@group), remote: true, class: "btn btn-link btn-small",  data: { turbo_frame: "edit_group_#{@group.id}" } do %>
-          <i class="bi bi-pencil-fill ml-2"></i>
-        <% end %>
-      </h5>
-    <% end %>
-    <div class="card table-responsive">
-      <table class="table table-hover align-middle mb-0">
-        <thead class="table-primary">
-          <tr>
-            <th scope="col" class="text-center">Icon</th>
-            <th scope="col">Link Title</th>
-            <th scope="col" class="flex-grow-1">URL</th>
-            <th scope="col">Clicks</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody id="linksContainer">
-          <% @free_links.each do |link| %>
-            <%= render "links/table_row", link: link, parentID: "linksContainer" %>
-            <% unless link.short_links.empty? %>
-              <tr class="">
-                <td colspan="2"></td>
-                <td class="pt-0 text-secondary" scope="col" colspan="3">
-                  <small>Short links:</small>
-                </td>
-              </tr>
-              <% link.short_links.each do |short_link| %>
-                <tr class="">
-                  <td colspan="2"></td>
-                  <td class="">
-                    <%= link_to "https://gugel.my/r/#{short_link.url_token}" do %>
-                      https://gugel.my/r/<%= short_link.url_token %><br />
-                    <% end %>
-                  </td>
-                  <td><%= link.impressionist_count %></td>
-                  <td></td>
-                </tr> 
+
+        <div id="mobileLinksContainer" class="bg-white dark:bg-gray-800 shadow-sm rounded-lg overflow-hidden">
+          <ul class="divide-y divide-gray-200 dark:divide-gray-700" id="free_links">
+            <% @free_links.each do |link| %>
+              <%= turbo_frame_tag "edit_link_#{link.id}" do %>
+                <%= render "links/table_row_mobile", link: link, parentID: "mobileLinksContainer" %>
               <% end %>
             <% end %>
-          <% end %>
-        </tbody>
-      </table>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Pro Tip -->
+      <div class="flex p-4 mb-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800" role="alert">
+        <i class="fa-solid fa-lightbulb flex-shrink-0 inline w-5 h-5 me-3"></i>
+        <span class="sr-only">Info</span>
+        <div>
+          <span class="font-medium">Pro tip!</span> View this page from your computer to access more features!
+        </div>
+      </div>
     </div>
-  </div>
-<% end %>
-<div class="container">
-  <div class="alert alert-info" role="alert">
-    <i class="fas fa-lightbulb me-2"></i>Pro tip: Links with empty URL field will be hidden on your profile page.
-  </div>
+
+  <% else %>
+    <div class="space-y-8">
+      <!-- Social Links Table -->
+      <div>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Social Links</h2>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+          <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+              <tr>
+                <th scope="col" class="px-6 py-3 text-center">Icon</th>
+                <th scope="col" class="px-6 py-3">Link Title</th>
+                <th scope="col" class="px-6 py-3">URL</th>
+                <th scope="col" class="px-6 py-3">Clicks</th>
+                <th scope="col" class="px-6 py-3"></th>
+              </tr>
+            </thead>
+            <tbody id="socialContainer">
+              <% @social_links.each do |link| %>
+                <%= render "links/table_row", link: link, parentID: "socialContainer" %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Group Links Table -->
+      <div>
+        <%= turbo_frame_tag "edit_group_#{@group.id}" do %>
+          <div class="flex items-center gap-2 mb-4">
+            <h2 class="text-xl font-semibold text-gray-900 dark:text-white"><%= @group.name %></h2>
+            <%= link_to edit_group_path(@group), remote: true, class: "text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300", data: { turbo_frame: "edit_group_#{@group.id}" } do %>
+              <i class="fas fa-pencil"></i>
+            <% end %>
+          </div>
+        <% end %>
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+          <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+              <tr>
+                <th scope="col" class="px-6 py-3 text-center">Icon</th>
+                <th scope="col" class="px-6 py-3">Link Title</th>
+                <th scope="col" class="px-6 py-3">URL</th>
+                <th scope="col" class="px-6 py-3">Clicks</th>
+                <th scope="col" class="px-6 py-3"></th>
+              </tr>
+            </thead>
+            <tbody id="linksContainer">
+              <% @free_links.each do |link| %>
+                <%= turbo_frame_tag "edit_link_#{link.id}" do %>
+                  <%= render "links/table_row", link: link, parentID: "linksContainer" %>
+                <% end %>
+                <% unless link.short_links.empty? %>
+                  <tr class="bg-gray-50 dark:bg-gray-600">
+                    <td colspan="2"></td>
+                    <td class="px-6 py-2 text-gray-500 dark:text-gray-400" colspan="3">
+                      <small>Short links:</small>
+                    </td>
+                  </tr>
+                  <% link.short_links.each do |short_link| %>
+                    <%= render "short_links/table_row", short_link: short_link %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Pro Tip -->
+      <div class="flex p-4 text-sm text-blue-800 border border-blue-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800" role="alert">
+        <i class="fa-solid fa-lightbulb flex-shrink-0 inline w-5 h-5 me-3"></i>
+        <span class="sr-only">Info</span>
+        <div>
+          <span class="font-medium">Pro tip!</span> Links with empty URL field will be hidden on your profile page.
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>

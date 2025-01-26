@@ -1,8 +1,12 @@
 // Entry point for the build script in your package.json
 import "@hotwired/turbo-rails"
 import "./controllers"
-// import "./dragdroptouch"
-import * as bootstrap from "bootstrap"
+
+// Initialize Flowbite
+import { initFlowbite } from 'flowbite'
+document.addEventListener('turbo:load', () => {
+    initFlowbite();
+})
 
 // https://discuss.rubyonrails.org/t/unable-to-import-font-awesome/82423
 // importing core styling file

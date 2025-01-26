@@ -1,40 +1,99 @@
-<nav class="navbar navbar-expand-lg bg-body-light">
-  <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <strong><span class="text-primary">G</span><span class="text-danger">u</span><span class="text-warning">g</span><span class="text-success">e</span><span class="text-primary">l</span><span class="text-success">.</span><span class="text-warning">m</span><span class="text-danger">y</span></strong>
+<nav class="bg-white border-gray-200 dark:bg-gray-900">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <%= link_to root_path, class: "flex items-center space-x-3 rtl:space-x-reverse" do %>
+      <span class="self-center text-2xl font-semibold whitespace-nowrap">
+        <span class="text-blue-600">G</span><span class="text-red-600">u</span><span class="text-yellow-500">g</span><span class="text-green-600">e</span><span class="text-blue-600">l</span><span class="text-green-600">.</span><span class="text-yellow-500">m</span><span class="text-red-600">y</span>
+      </span>
     <% end %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <%= link_to "Use Cases", usecases_path, class: "nav-link" %>
+
+    <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+      <!-- Theme Switcher -->
+      <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mx-2">
+        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+        </svg>
+        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path>
+        </svg>
+      </button>
+
+      <!-- Mobile menu button -->
+      <button data-collapse-toggle="navbar-user" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-user" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
+      <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+        <li>
+          <%= link_to "Use Cases", usecases_path, class: "block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Membership", membership_path, class: "nav-link" %>
+        <li>
+          <%= link_to "Membership", membership_path, class: "block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "About", about_path, class: "nav-link" %>
+        <li>
+          <%= link_to "About", about_path, class: "block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" %>
         </li>
       </ul>
+
       <% unless user_signed_in? %>
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="me-lg-2 mb-3 mb-lg-0">
-            <%= link_to free_short_links_path, class: "btn btn-warning navbar-btn shadow w-100 disabled" do %>
-              <i class="fas fa-wand-magic-sparkles me-2"></i>Shorten a Link
-            <% end %>
-          </li>
-          <li class="me-lg-2 mb-3 mb-lg-0">
-            <%= link_to new_qr_code_path, class: "btn btn-success navbar-btn shadow w-100 disabled" do %>
-              <i class="fas fa-qrcode me-2"></i>Create a QR Code
-            <% end %>
-          </li>
-          <li>
-            <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-primary navbar-btn shadow w-100" %>
-          </li>
-        </ul>
+        <div class="flex flex-col md:flex-row gap-2 mt-4 md:mt-0 md:ml-4">
+          <%= link_to free_short_links_path, class: "text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-yellow-900 disabled:opacity-50 disabled:cursor-not-allowed", disabled: true do %>
+            <i class="fas fa-wand-magic-sparkles mr-2"></i>Shorten a Link
+          <% end %>
+
+          <%= link_to new_qr_code_path, class: "text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 disabled:opacity-50 disabled:cursor-not-allowed", disabled: true do %>
+            <i class="fas fa-qrcode mr-2"></i>Create a QR Code
+          <% end %>
+
+          <%= link_to "Log in", new_user_session_path, class: "text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800" %>
+        </div>
       <% end %>
     </div>
   </div>
 </nav>
+
+<%= content_tag :script do %>
+  // Theme switcher functionality
+  var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+  var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+  // Change the icons inside the button based on previous settings
+  if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    themeToggleLightIcon.classList.remove('hidden');
+    document.documentElement.classList.add('dark');
+  } else {
+    themeToggleDarkIcon.classList.remove('hidden');
+    document.documentElement.classList.remove('dark');
+  }
+
+  var themeToggleBtn = document.getElementById('theme-toggle');
+
+  themeToggleBtn.addEventListener('click', function() {
+    // Toggle icons
+    themeToggleDarkIcon.classList.toggle('hidden');
+    themeToggleLightIcon.classList.toggle('hidden');
+
+    // If is set in localStorage
+    if (localStorage.getItem('color-theme')) {
+      if (localStorage.getItem('color-theme') === 'light') {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      }
+    } else {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+      }
+    }
+  });
+<% end %>

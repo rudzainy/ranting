@@ -1,47 +1,83 @@
-<div class="container d-flex flex-column justify-content-center mt-5">
-  
-  <header>
-    <div class="p-3 pb-md-4 mx-auto text-center">
-      <h1 class="display-4 fw-normal text-body-emphasis">Login to your Gugel</h1>
-      <p class="fs-5 text-body-secondary lead">Hello again!</p>
-    </div>
-  </header>
-  <div class="card text-bg-light my-3 mx-auto col-12 col-md-8 col-lg-4">
-    <div class="card-body pt-5">
+<div class="max-w-screen-xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-lg">
+    <header class="text-center">
+      <h1 class="text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl">Login to your Gugel</h1>
+      <p class="mt-4 text-gray-500 dark:text-gray-400">Hello again!</p>
+    </header>
+
+    <div class="mt-8 mb-0 space-y-4 rounded-lg p-8 shadow-lg bg-white dark:bg-gray-800">
       <%- if devise_mapping.omniauthable? %>
         <%- resource_class.omniauth_providers.each do |provider| %>
           <% service = OmniAuth::Utils.camelize(provider) %>
-          <%#= button_to "#{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-secondary", data: { turbo: false } %>
-          <%= button_to omniauth_authorize_path(resource_name, provider), class: "btn btn-outline-primary mb-2 w-100 shadow", data: { turbo: false } do %>
-            <i class="bi bi-google me-2"></i>Log in with <%= service == "GoogleOauth2" ? "Google" : service %>
+          <%= button_to omniauth_authorize_path(resource_name, provider), 
+                       class: "w-full flex items-center justify-center px-5 py-2.5 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700", 
+                       data: { turbo: false } do %>
+            <i class="fas fa-google mr-2"></i>Log in with <%= service == "GoogleOauth2" ? "Google" : service %>
           <% end %>
         <% end %>
       <% end %>
-    </div>
-    <div class="card-body text-center">or</div>
-    <div class="card-body">
-      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="form-inputs">
-          <%= f.input :email,
-                      required: false,
-                      autofocus: true,
-                      input_html: { autocomplete: "email" } %>
-          <%= f.input :password,
-                      required: false,
-                      input_html: { autocomplete: "current-password" } %>
-          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-        </div>
 
-        <div class="form-actions d-grid">
-          <%= f.button :submit, "Log in", class: "btn btn-primary shadow" %>
-        </div>
-      <% end %>
+      <div class="relative flex py-5 items-center">
+        <div class="flex-grow border-t border-gray-200 dark:border-gray-700"></div>
+        <span class="flex-shrink mx-4 text-gray-400 dark:text-gray-500">or</span>
+        <div class="flex-grow border-t border-gray-200 dark:border-gray-700"></div>
+      </div>
+
+      <div>
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="space-y-4">
+            <div>
+              <%= f.input :email,
+                          required: false,
+                          autofocus: true,
+                          input_html: { 
+                            class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500",
+                            autocomplete: "email" 
+                          } %>
+            </div>
+
+            <div>
+              <%= f.input :password,
+                          required: false,
+                          input_html: { 
+                            class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500",
+                            autocomplete: "current-password" 
+                          } %>
+            </div>
+
+            <% if devise_mapping.rememberable? %>
+              <div class="flex items-center">
+                <%= f.input :remember_me, 
+                           as: :boolean,
+                           input_html: {
+                             class: "w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                           },
+                           wrapper_html: {
+                             class: "flex items-center"
+                           },
+                           label_html: {
+                             class: "ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                           } %>
+              </div>
+            <% end %>
+
+            <div>
+              <%= f.button :submit, "Log in", 
+                          class: "w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
-    <div class="card-footer text-body-secondary">
+
+    <div class="mt-4 text-center text-sm text-gray-500 dark:text-gray-400">
       <%= render "devise/shared/links" %>
     </div>
   </div>
-  <small class="text-muted text-center">(Pre-release v0.0.1)</small>
+
+  <div class="text-center mt-4">
+    <small class="text-gray-500 dark:text-gray-400">(Pre-release v0.0.1)</small>
+  </div>
 </div>
 
 <%= render "/layouts/footer" %>

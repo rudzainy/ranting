@@ -1,26 +1,31 @@
 <%# This is the individual table row %>
-<tr class="short_link_row-">
+<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
   <% if link.nil? %>
     <%# form to create link %>
-    <td class="text-center"></td>
-    <td class=""></td>
-    <td class=""></td>
-    <td></td>
+    <td class="px-6 py-4 text-center"></td>
+    <td class="px-6 py-4"></td>
+    <td class="px-6 py-4"></td>
+    <td class="px-6 py-4"></td>
   <% else %>
-    <td class="text-center">
-      <i class="fas fa-grip-lines mr-2"></i>
+    <td class="px-6 py-4 text-center">
+      <i class="fas fa-grip-lines text-gray-500 dark:text-gray-400"></i>
     </td>
-    <td class=""><%= link.url %><br><% unless link.title.blank? %>(<%= link.title %>)<% end %></td>
-    <td class="flex-grow-1"><%= link.short_links.first.url_token %></td>
-    <td><%= link.short_links.first.impressionist_count %></td>
+    <td class="px-6 py-4">
+      <div class="text-gray-900 dark:text-white"><%= link.url %></div>
+      <% unless link.title.blank? %>
+        <div class="text-sm text-gray-500 dark:text-gray-400">(<%= link.title %>)</div>
+      <% end %>
+    </td>
+    <td class="px-6 py-4 font-medium text-gray-900 dark:text-white"><%= link.short_links.first.url_token %></td>
+    <td class="px-6 py-4"><%= link.short_links.first.impressionist_count %></td>
   <% end %>
-  <td>
-    <div class="d-inline-flex">
+  <td class="px-6 py-4">
+    <div class="flex">
       <%= link_to edit_link_path(link), 
-                  class: "btn btn-outline-danger btn-sm shadow me-2", 
+                  class: "text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900", 
                   id: "update-link-#{link.id}", 
                   data: { turbo_frame: "modal" } do %>
-        <i class="fas fa-trash-can me-2"></i>Delete
+        <i class="fas fa-trash-can mr-2"></i>Delete
       <% end %>
     </div>
   </td>

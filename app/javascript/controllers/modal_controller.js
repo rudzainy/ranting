@@ -1,20 +1,20 @@
 import { Controller } from "@hotwired/stimulus"
-import * as bootstrap from "bootstrap"
+import { Modal } from 'flowbite'
 
 export default class extends Controller {
   connect() {
-    this.modal = new bootstrap.Modal(this.element)
+    const options = {
+      placement: 'center',
+      backdrop: 'dynamic',
+      backdropClasses: 'bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-40',
+      closable: true
+    }
+
+    this.modal = new Modal(this.element)
   }
 
-  open() {
-    if (!this.modal.isOpened) {
-      this.modal.show()
-    }
-  }
-
-  close(event) {
-    if (event.detail.success) {
-      this.modal.hide()
-    }
+  disconnect() {
+    // Clean up when the element is removed
+    this.modal = null
   }
 }

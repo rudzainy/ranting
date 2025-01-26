@@ -20,7 +20,12 @@ class LinksController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    respond_to do |format|
+      format.html
+      format.turbo_stream { render turbo_stream: turbo_stream.update("modal", "") }
+    end
+  end
 
   def show
     impressionist(@link)

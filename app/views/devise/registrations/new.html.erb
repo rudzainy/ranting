@@ -1,60 +1,88 @@
-<div class="container d-flex flex-column justify-content-center mt-5">
-  
-  <header>
-    <div class="p-3 pb-md-4 mx-auto text-center">
-      <h1 class="display-4 fw-normal text-body-emphasis">Create your Gugel</h1>
-      <p class="fs-5 text-body-secondary lead">Get started in no time.</p>
-    </div>
-  </header>
-  <div class="card text-bg-light my-3 mx-auto col-12 col-md-8 col-lg-4">
-    <div class="card-body pt-5">
+<div class="max-w-screen-xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-lg">
+    <header class="text-center">
+      <h1 class="text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl">Create your Gugel</h1>
+      <p class="mt-4 text-gray-500 dark:text-gray-400">Get started in no time.</p>
+    </header>
+
+    <div class="mt-8 mb-0 space-y-4 rounded-lg p-8 shadow-lg bg-white dark:bg-gray-800">
       <%- if devise_mapping.omniauthable? %>
         <%- resource_class.omniauth_providers.each do |provider| %>
           <% service = OmniAuth::Utils.camelize(provider) %>
-          <%#= button_to "#{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-secondary", data: { turbo: false } %>
-          <%= button_to omniauth_authorize_path(resource_name, provider), class: "btn btn-outline-primary mb-2 w-100 shadow", data: { turbo: false } do %>
-            <i class="bi bi-google me-2"></i>Sign up with <%= service == "GoogleOauth2" ? "Google" : service %>
+          <%= button_to omniauth_authorize_path(resource_name, provider), 
+                       class: "w-full flex items-center justify-center px-5 py-2.5 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700", 
+                       data: { turbo: false } do %>
+            <i class="fas fa-google mr-2"></i>Sign up with <%= service == "GoogleOauth2" ? "Google" : service %>
           <% end %>
         <% end %>
       <% end %>
-    </div>
-    <div class="card-body text-center">or</div>
-    <div class="card-body">
-      <h5 class="card-title mb-4 text-center">Sign up with email & password</h5>
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= f.error_notification %>
-        <div class="form-inputs">
-          <%= f.input :username, 
-                      wrapper: :input_group, 
-                      placeholder: "Your username", 
-                      label: false, 
-                      class: "form-control mb-3 rounded-3", 
-                      required: true, 
-                      autofocus: true,
-                      prepend: "gugel.my/" %>
-          <%= f.input :email,
-                      required: true,
-                      input_html: { autocomplete: "email" }%>
-          <%= f.input :password,
-                      required: true,
-                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                      input_html: { autocomplete: "new-password" } %>
-          <%= f.input :password_confirmation,
-                      required: true,
-                      input_html: { autocomplete: "new-password" } %>
-        </div>
 
-        <div class="form-actions d-grid">
-          <%= f.button :submit, "Sign up", class: "btn btn-primary shadow" %>
-        </div>
-      <% end %>
+      <div class="relative flex py-5 items-center">
+        <div class="flex-grow border-t border-gray-200 dark:border-gray-700"></div>
+        <span class="flex-shrink mx-4 text-gray-400 dark:text-gray-500">or</span>
+        <div class="flex-grow border-t border-gray-200 dark:border-gray-700"></div>
+      </div>
+
+      <div>
+        <h5 class="text-lg font-medium text-center text-gray-900 dark:text-white mb-6">Sign up with email & password</h5>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
+          <div class="space-y-4">
+            <div>
+              <%= f.input :username, 
+                          wrapper: :input_group, 
+                          placeholder: "Your username", 
+                          label: false, 
+                          class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", 
+                          required: true, 
+                          autofocus: true,
+                          prepend: "gugel.my/" %>
+            </div>
+
+            <div>
+              <%= f.input :email,
+                          required: true,
+                          input_html: { 
+                            class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500",
+                            autocomplete: "email" 
+                          } %>
+            </div>
+
+            <div>
+              <%= f.input :password,
+                          required: true,
+                          hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                          input_html: { 
+                            class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500",
+                            autocomplete: "new-password" 
+                          } %>
+            </div>
+
+            <div>
+              <%= f.input :password_confirmation,
+                          required: true,
+                          input_html: { 
+                            class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500",
+                            autocomplete: "new-password" 
+                          } %>
+            </div>
+
+            <div>
+              <%= f.button :submit, "Sign up", 
+                          class: "w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
-    <div class="card-footer text-body-secondary">
-      <%= render "devise/shared/links" %>
+
+    <div class="mt-4 text-center text-sm text-gray-500 dark:text-gray-400">
+      Already have an account?
+      <%= link_to "Sign in", new_session_path(resource_name), class: "text-blue-700 hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-600" %>
     </div>
   </div>
-  <small class="text-muted text-center">(Pre-release v0.0.1)</small>
 </div>
 
-<%= render "/layouts/footer" %>
+<small class="text-muted text-center">(Pre-release v0.0.1)</small>
 
+<%= render "/layouts/footer" %>

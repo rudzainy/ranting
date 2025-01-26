@@ -1,112 +1,155 @@
-<div class="container mb-5">
-  <header class="text-center py-5 bg-white rounded-5 shadow-lg">
-    <div class="px-3 py-5 pb-md-4 mx-auto">
-      <%= image_tag "illustrations/Rest-1.png", class: "img-fluid mb-3" %>
-      <h1 class="display-4 fw-normal text-body-emphasis text-center">Use Cases</h1>
-      <p class="fs-5 text-body-secondary lead text-center">What's in it for you? Explore use cases below on how you can utilise Gugel in your everyday life.</p>
-    </div>
-  </header>
-</div>
-
-<div class="container px-4 py-5">
-  <h2 class="pb-2 border-bottom text-center">Your own personal little space on the internet</h2>
-
-  <div class="row row-cols-1 row-cols-md-2 g-5 py-5">
-    <div class="col d-flex flex-column align-items-center gap-2">
-      <%= image_tag "illustrations/Profile-2-nobg.png", class: "img-fluid" %>
-      <h2 class="fw-bold text-body-emphasis">gugel.my/<span class="text-primary">yourname</span>✨</h2>
-      <p class="text-body-secondary text-center">Unlock the gateway to your diverse online universe with our link-in-bio platform, empowering you to effortlessly share all facets of your digital presence from this singular, customizable hub.</p>
-      <%= link_to new_user_registration_path, class: "btn btn-lg btn-light btn-outline-primary px-4 shadow" do %>
-        <i class="fas fa-rocket me-2"></i>Ready to start already?
-      <% end %>
+<section class="bg-white dark:bg-gray-900">
+  <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+    <div class="max-w-screen-md mx-auto mb-8 lg:mb-16 text-center">
+      <%= image_tag "illustrations/Rest-1.png", class: "mx-auto mb-4 max-w-lg h-auto" %>
+      <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+        Use Cases
+      </h1>
+      <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">
+        What's in it for you? Explore use cases below on how you can utilise Gugel in your everyday life.
+      </p>
     </div>
 
-    <div class="col">
-      <div class="row row-cols-1 row-cols-sm-2 g-4">
-        <div class="col d-flex flex-column gap-2">
-          <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-1 rounded-3 py-5 px-5">
-            <i class="fas fa-id-badge"></i>
+    <!-- Personal Space Section -->
+    <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-2 md:gap-12 md:space-y-0 mb-16">
+      <div class="text-center">
+        <%= image_tag "illustrations/Profile-2-nobg.png", class: "mx-auto mb-4 max-w-lg h-auto" %>
+        <h2 class="mb-4 text-3xl font-bold text-gray-900 dark:text-white">
+          gugel.my/<span class="text-primary-600">yourname</span>✨
+        </h2>
+        <p class="mb-4 text-gray-500 dark:text-gray-400">
+          Unlock the gateway to your diverse online universe with our link-in-bio platform, empowering you to effortlessly share all facets of your digital presence from this singular, customizable hub.
+        </p>
+        <%= link_to new_user_registration_path, class: "inline-flex items-center px-5 py-3 text-base font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900" do %>
+          <i class="fas fa-rocket mr-2"></i>Ready to start already?
+        <% end %>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Dynamic Profile Hub -->
+        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div class="w-10 h-10 mb-2 text-primary-600 dark:text-primary-500">
+            <i class="fas fa-id-badge text-2xl"></i>
           </div>
-          <h4 class="fw-semibold mb-0 text-body-emphasis">Dynamic Profile Hub</h4>
-          <p class="text-body-secondary">A link-in-bio tool can serve as a dynamic hub for your online presence, functioning as a personal website. You can include links to your portfolio, blog, social media profiles, contact information, and more, providing visitors with a comprehensive overview of who you are and what you offer.</p>
+          <h3 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+            Dynamic Profile Hub
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400">
+            A link-in-bio tool can serve as a dynamic hub for your online presence, functioning as a personal website. You can include links to your portfolio, blog, social media profiles, contact information, and more.
+          </p>
         </div>
 
-        <div class="col d-flex flex-column gap-2">
-          <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-1 rounded-3 py-5 px-5">
-            <i class="fas fa-calendar-day"></i>
+        <!-- Event Promotion -->
+        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div class="w-10 h-10 mb-2 text-primary-600 dark:text-primary-500">
+            <i class="fas fa-calendar-day text-2xl"></i>
           </div>
-          <h4 class="fw-semibold mb-0 text-body-emphasis">Event Promotion</h4>
-          <p class="text-body-secondary">If you're organizing an event, such as a webinar, workshop, or meetup, using a link-in-bio tool as a personal website allows you to promote the event effectively. You can include details about the event, registration links, speaker bios, agenda, and any other relevant information, making it easy for potential attendees to learn about and sign up for the event.</p>
+          <h3 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+            Event Promotion
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400">
+            Promote upcoming events, workshops, or webinars by including links to registration pages, event details, and promotional materials on your link page.
+          </p>
         </div>
 
-        <div class="col d-flex flex-column gap-2">
-          <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-1 rounded-3 py-5 px-5">
-            <i class="fas fa-highlighter"></i>
+        <!-- Content Showcase -->
+        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div class="w-10 h-10 mb-2 text-primary-600 dark:text-primary-500">
+            <i class="fas fa-highlighter text-2xl"></i>
           </div>
-          <h4 class="fw-semibold mb-0 text-body-emphasis">Content Showcase</h4>
-          <p class="text-body-secondary">Whether you're a blogger, artist, photographer, or content creator, a link-in-bio tool can function as a personal website to showcase your work. You can include links to your latest blog posts, portfolio pieces, videos, or other content, providing visitors with a curated selection of your best work and encouraging engagement.</p>
+          <h3 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+            Content Showcase
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400">
+            Whether you're a blogger, artist, photographer, or content creator, showcase your work with links to your latest blog posts, portfolio pieces, videos, or other content.
+          </p>
         </div>
 
-        <div class="col d-flex flex-column gap-2">
-          <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-1 rounded-3 py-5 px-5">
-            <i class="fas fa-file-lines"></i>
+        <!-- Online Resume/CV -->
+        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div class="w-10 h-10 mb-2 text-primary-600 dark:text-primary-500">
+            <i class="fas fa-file-lines text-2xl"></i>
           </div>
-          <h4 class="fw-semibold mb-0 text-body-emphasis">Online Resume/CV</h4>
-          <p class="text-body-secondary">Using a link-in-bio tool as a personal website allows you to create a dynamic online resume or CV. You can include links to your professional experience, education, skills, projects, and references, providing potential employers or clients with a comprehensive overview of your qualifications and accomplishments in a visually appealing format.</p>
+          <h3 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+            Online Resume/CV
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400">
+            Create a dynamic online resume or CV with links to your professional experience, education, skills, projects, and references in a visually appealing format.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Digital Reach Section -->
+    <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-2 md:gap-12 md:space-y-0">
+      <div class="text-center">
+        <%= image_tag "illustrations/STARTUP-8-nobg.png", class: "mx-auto mb-4 max-w-lg h-auto" %>
+        <h2 class="mb-4 text-3xl font-bold text-gray-900 dark:text-white">
+          Manage all your links in one place.
+        </h2>
+        <p class="mb-4 text-gray-500 dark:text-gray-400">
+          You not only centralize your online presence but also provide your audience with a seamless navigation experience, ensuring they can easily access all your important content and resources without any hassle or confusion.
+        </p>
+        <%= link_to new_user_registration_path, class: "inline-flex items-center px-5 py-3 text-base font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900" do %>
+          <i class="fas fa-id-badge mr-2"></i>See some examples here
+        <% end %>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Content Promotion -->
+        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div class="w-10 h-10 mb-2 text-primary-600 dark:text-primary-500">
+            <i class="fas fa-bullhorn text-2xl"></i>
+          </div>
+          <h3 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+            Content Promotion
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400">
+            Drive traffic and engagement to your content from various social media channels by including links to recent blog posts, videos, podcasts, or other creations.
+          </p>
+        </div>
+
+        <!-- Product and Service Promotion -->
+        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div class="w-10 h-10 mb-2 text-primary-600 dark:text-primary-500">
+            <i class="fas fa-bell-concierge text-2xl"></i>
+          </div>
+          <h3 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+            Product and Service Promotion
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400">
+            Showcase your offerings and drive sales with links to product pages, online stores, promotional offers, customer testimonials, and contact forms.
+          </p>
+        </div>
+
+        <!-- Event Promotion and Ticket Sales -->
+        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div class="w-10 h-10 mb-2 text-primary-600 dark:text-primary-500">
+            <i class="fas fa-ticket text-2xl"></i>
+          </div>
+          <h3 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+            Event Promotion and Ticket Sales
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400">
+            Promote upcoming events, workshops, or webinars by including links to registration pages, event details, and promotional materials on your link page.
+          </p>
+        </div>
+
+        <!-- Social Media Optimization -->
+        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div class="w-10 h-10 mb-2 text-primary-600 dark:text-primary-500">
+            <i class="fas fa-thumbs-up text-2xl"></i>
+          </div>
+          <h3 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+            Social Media Optimization
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400">
+            Optimize your social media profiles by creating a curated landing page with multiple links to various online destinations, such as your website, blog, online store, social media profiles, and more.
+          </p>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-<div class="container px-4 py-5">
-  <h2 class="pb-2 border-bottom text-center">Expand Your Digital Reach</h2>
-
-  <div class="row row-cols-1 row-cols-md-2 g-5 py-5">
-    <div class="col d-flex flex-column align-items-center gap-2">
-      <%= image_tag "illustrations/STARTUP-8-nobg.png", class: "img-fluid" %>
-      <h2 class="fw-bold text-body-emphasis">Manage all your links in one place.</h2>
-      <p class="text-body-secondary text-center">You not only centralize your online presence but also provide your audience with a seamless navigation experience, ensuring they can easily access all your important content and resources without any hassle or confusion.</p>
-      <%= link_to new_user_registration_path, class: "btn btn-lg btn-light btn-outline-primary px-4 shadow" do %>
-        <i class="fas fa-id-badge me-2"></i>See some examples here
-      <% end %>
-    </div>
-    <div class="col">
-      <div class="row row-cols-1 row-cols-sm-2 g-4">
-        <div class="col d-flex flex-column gap-2">
-          <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-1 rounded-3 py-5 px-5">
-            <i class="fas fa-bullhorn"></i>
-          </div>
-          <h4 class="fw-semibold mb-0 text-body-emphasis">Content Promotion</h4>
-          <p class="text-body-secondary">Content creators, influencers, and bloggers can use a link-in-bio app to promote their latest content across different platforms. By including links to recent blog posts, videos, podcasts, or other creations on their link page, they can drive traffic and engagement to their content from various social media channels, increasing visibility and reach.</p>
-        </div>
-
-        <div class="col d-flex flex-column gap-2">
-          <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-1 rounded-3 py-5 px-5">
-            <i class="fas fa-bell-concierge"></i>
-          </div>
-          <h4 class="fw-semibold mb-0 text-body-emphasis">Product and Service Promotion</h4>
-          <p class="text-body-secondary">Businesses or entrepreneurs selling products or services online can utilize a link-in-bio app to showcase their offerings and drive sales. They can include links to product pages, online stores, promotional offers, customer testimonials, and contact forms on their link page, making it easy for potential customers to explore their offerings and make purchases directly from their social media profiles.</p>
-        </div>
-
-        <div class="col d-flex flex-column gap-2">
-          <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-1 rounded-3 py-5 px-5">
-            <i class="fas fa-ticket"></i>
-          </div>
-          <h4 class="fw-semibold mb-0 text-body-emphasis">Event Promotion and Ticket Sales</h4>
-          <p class="text-body-secondary">Individuals or organizations hosting events, such as workshops, concerts, or webinars, can include links to event registration pages, ticket purchase portals, event agendas, speaker bios, and more, providing a centralized location for interested attendees to learn about and participate in their events.</p>
-        </div>
-
-        <div class="col d-flex flex-column gap-2">
-          <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-1 rounded-3 py-5 px-5">
-            <i class="fas fa-thumbs-up"></i>
-          </div>
-          <h4 class="fw-semibold mb-0 text-body-emphasis">Social Media Optimization</h4>
-          <p class="text-body-secondary">A link-in-bio app is ideal for individuals or businesses looking to optimize their social media profiles. Instead of being limited to one link in their social media bios, users can create a curated landing page with multiple links to various online destinations, such as their website, blog, online store, social media profiles, and more. This enables them to efficiently direct their audience to relevant content or actions.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+</section>
 
 <%= render "/layouts/footer" %>

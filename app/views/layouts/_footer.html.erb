@@ -1,55 +1,97 @@
-<div class="container mt-5">
-  <footer class="pt-5 border-top border-primary">
-    <div class="row">
-      <div class="col-6 col-md-2 mb-3">
-        <ul class="nav flex-column">
-          <li class="nav-item mb-2"><%= link_to "Home", root_path, class: "nav-link p-0 text-body-secondary" %></li>
-          <li class="nav-item mb-2"><%= link_to "Use Cases", usecases_path, class: "nav-link p-0 text-body-secondary" %></li>
-          <li class="nav-item mb-2"><%= link_to "Membership", membership_path, class: "nav-link p-0 text-body-secondary" %></li>
-          <li class="nav-item mb-2"><%= link_to "About", about_path, class: "nav-link p-0 text-body-secondary" %></li>
-          <li class="nav-item mb-2"><%= link_to "FAQ", faq_path, class: "nav-link p-0 text-body-secondary" %></li>
-        </ul>
-      </div>
-      <% if user_signed_in? %>
-        <div class="col-6 col-md-4 mb-3">
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2"><%= link_to "Links", links_path, class: "nav-link p-0 text-body-secondary" %></li>
-            <li class="nav-item mb-2"><%= link_to "Layout", edit_user_path(current_user), class: "nav-link p-0 text-body-secondary" %></li>
-            <li class="nav-item mb-2"><%= link_to "Account Settings", edit_user_registration_path, class: "nav-link p-0 text-body-secondary" %></li>
-            <li class="nav-item mb-2"><%= link_to "View your page", user_path(current_user.slug), class: "nav-link p-0 text-body-secondary" %></li>
-            <li class="nav-item mb-2"><%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link p-0 text-body-secondary" %></li>
+<footer class="bg-white dark:bg-gray-900">
+  <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+    <div class="md:flex md:justify-between">
+      <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+        <div>
+          <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Navigation</h2>
+          <ul class="text-gray-500 dark:text-gray-400 font-medium">
+            <li class="mb-4">
+              <%= link_to "Home", root_path, class: "hover:underline" %>
+            </li>
+            <li class="mb-4">
+              <%= link_to "Use Cases", usecases_path, class: "hover:underline" %>
+            </li>
+            <li class="mb-4">
+              <%= link_to "Membership", membership_path, class: "hover:underline" %>
+            </li>
+            <li class="mb-4">
+              <%= link_to "About", about_path, class: "hover:underline" %>
+            </li>
+            <li class="mb-4">
+              <%= link_to "FAQ", faq_path, class: "hover:underline" %>
+            </li>
           </ul>
         </div>
-      <% end %>
-      <% if !user_signed_in? %>
-        <div class="col-6 col-md-4 mb-3">
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2"><%= link_to "Log in", new_user_session_path, class: "nav-link p-0 text-body-secondary" %></li>
-            <li class="nav-item mb-2"><%= link_to "Sign up", new_user_registration_path, class: "nav-link p-0 text-body-secondary" %></li>
-          </ul>
-        </div>
-      <% end %>
-      <div class="col-md-5 offset-md-1 mb-3">
-        <%= turbo_frame_tag "mailing_list_form" do %>
-          <%= form_tag("/mailing_list", method: "POST") do %>
-            <h5>Want to know when we officially launch?</h5>
-            <p>Enter your email address below and we'll include you in our launching announcement mailing list!<br>We will discard the mailing list after that 👌✨</p>
-            <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-              <label for="newsletter1" class="visually-hidden">Email address</label>
-              <%= email_field_tag(:email_address, "", class: "form-control") %>
-              <%= submit_tag("Proceed!", class: "btn btn-primary") %>
-            </div>
-          <% end %>
+
+        <% if user_signed_in? %>
+          <div>
+            <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Account</h2>
+            <ul class="text-gray-500 dark:text-gray-400 font-medium">
+              <li class="mb-4">
+                <%= link_to "Links", links_path, class: "hover:underline" %>
+              </li>
+              <li class="mb-4">
+                <%= link_to "Layout", edit_user_path(current_user), class: "hover:underline" %>
+              </li>
+              <li class="mb-4">
+                <%= link_to "Account Settings", edit_user_registration_path, class: "hover:underline" %>
+              </li>
+              <li class="mb-4">
+                <%= link_to "View your page", user_path(current_user.slug), class: "hover:underline" %>
+              </li>
+              <li class="mb-4">
+                <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "hover:underline" %>
+              </li>
+            </ul>
+          </div>
+        <% else %>
+          <div>
+            <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Account</h2>
+            <ul class="text-gray-500 dark:text-gray-400 font-medium">
+              <li class="mb-4">
+                <%= link_to "Log in", new_user_session_path, class: "hover:underline" %>
+              </li>
+              <li class="mb-4">
+                <%= link_to "Sign up", new_user_registration_path, class: "hover:underline" %>
+              </li>
+            </ul>
+          </div>
         <% end %>
+
+        <div>
+          <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Newsletter</h2>
+          <%= turbo_frame_tag "mailing_list_form" do %>
+            <%= form_tag("/mailing_list", method: "POST") do %>
+              <div class="items-center mx-auto mb-3 space-y-4 max-w-screen-sm sm:flex sm:space-y-0">
+                <div class="relative w-full">
+                  <label for="email" class="hidden mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email address</label>
+                  <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+                      <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
+                      <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
+                    </svg>
+                  </div>
+                  <input class="block p-3 pl-10 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 sm:rounded-none sm:rounded-l-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter your email" type="email" id="email" name="email" required="">
+                </div>
+                <div>
+                  <button type="submit" class="py-3 px-5 w-full text-sm font-medium text-center text-white rounded-lg border cursor-pointer bg-blue-700 border-blue-600 sm:rounded-none sm:rounded-r-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Subscribe</button>
+                </div>
+              </div>
+              <div class="mx-auto max-w-screen-sm text-sm text-left text-gray-500 newsletter-form-footer dark:text-gray-300">
+                Want to know when we officially launch? Enter your email address and we'll include you in our launching announcement mailing list!
+              </div>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
-    <div class="d-flex flex-column flex-sm-row justify-content-between pt-4 mt-4 border-top">
-      <p>© <%= Time.zone.now.year %> gugel.my is a trademark of Nasi Forge. All rights reserved.</p>
-      <ul class="list-unstyled d-flex">
-        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
-      </ul>
+    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+    <div class="sm:flex sm:items-center sm:justify-between">
+      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400"> 2024 <a href="/" class="hover:underline">Gugel.my</a>. All Rights Reserved.
+      </span>
+      <div class="flex mt-4 sm:justify-center sm:mt-0">
+        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">(Pre-release v0.0.1)</span>
+      </div>
     </div>
-  </footer>
-</div>
+  </div>
+</footer>

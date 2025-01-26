@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-gb" data-bs-theme="light">
+<html lang="en-gb" class="dark">
   <head>
     <title>gugel.my</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -13,18 +13,22 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body class="<%= "bg-light bg-opacity-70" unless @inject_background_color %> pb-3" style="<%= @inject_background_color %>">
+  <body class="<%= "bg-gray-50 dark:bg-gray-900" unless @inject_background_color %>" style="<%= @inject_background_color %>">
     <%= render partial: "layouts/navbar" if @should_render_navbar %>
     <%= render partial: "layouts/navbar_public" if @should_render_navbar_public %>
     <%= render partial: "layouts/alerts" %>
     <%= yield %>
     
-    <div class="modal fade" 
-         tabindex="-1"
+    <!-- Modal -->
+    <div id="default-modal" 
+         tabindex="-1" 
+         aria-hidden="true" 
+         class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
          data-controller="modal"
          data-action="turbo:frame-load->modal#open turbo:submit-end->modal#close">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+      <div class="relative w-full max-w-2xl max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
           <%= turbo_frame_tag "modal" %>
         </div>
       </div>
