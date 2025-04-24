@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_one_attached :qr_code
   has_many :links, dependent: :destroy
+  has_one :profile
+  accepts_nested_attributes_for :profile
 
   friendly_id :username, use: %i[slugged]
 

@@ -52,7 +52,7 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to user_path(current_user.slug), target: "_blank", class: "block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" do %>
+                <%= link_to profile_path(current_user.slug), target: "_blank", class: "block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" do %>
                   <i class="fas fa-rocket mr-2"></i>View Profile
                 <% end %>
               </li>
@@ -95,7 +95,7 @@
 
           <div class="border-t border-gray-200 dark:border-gray-700 my-4"></div>
 
-          <%= link_to user_path(current_user.slug), target: "_blank", class: "block w-full text-left px-4 py-2 text-blue-700 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:text-blue-500 dark:hover:bg-gray-700 rounded-lg" do %>
+          <%= link_to profile_path(current_user.slug), target: "_blank", class: "block w-full text-left px-4 py-2 text-blue-700 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:text-blue-500 dark:hover:bg-gray-700 rounded-lg" do %>
             <i class="fas fa-rocket mr-2"></i>Open Your Profile Page
           <% end %>
 

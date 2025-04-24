@@ -55,6 +55,14 @@ class LinksController < ApplicationController
     end
   end
 
+  def reorder
+    params.require(:order)
+    params[:order].each_with_index do |id, index|
+      current_user.links.find(id).update(position: index + 1)
+    end
+    head :ok
+  end
+
   private
 
   def link_params

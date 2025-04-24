@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'short_links/free', to: 'short_links#free', as: :free_short_links
   post 'mailing_list', to: 'static#mailing_list'
 
-  patch 'drag/links'
+  patch 'drag/links', to: 'links#reorder', as: :drag_links
 
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
@@ -34,9 +34,15 @@ Rails.application.routes.draw do
   end
 
   root 'static#index'
+  get 'search', to: 'search#index'
+  get 'analytics', to: 'analytics#index'
 
+  namespace :api, defaults: { format: :json } do
+    get 'search', to: 'search#index'
+    get 'analytics/:id', to: 'analytics#show'
+  end
 
-  get ':id', to: 'users#show', as: :user
+  resources :profiles, only: %i[show edit update], param: :id, path: ''
 
   get '/r/:url_token', to: redirect('/short_link_redirects/%{url_token}')
 end

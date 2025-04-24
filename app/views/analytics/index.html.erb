@@ -1,0 +1,6 @@
+<div class="container mx-auto max-w-lg py-8" data-controller="analytics" data-analytics-username-value="<%= current_user.username %>">
+  <h2 class="text-2xl font-semibold mb-4">Analytics for @<%= current_user.username %></h2>
+  <div class="bg-white p-6 border border-gray-200 rounded-lg shadow-sm">
+    <canvas data-analytics-target="chart"></canvas>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="container mx-auto max-w-md py-8" data-controller="search">
+  <h2 class="text-xl font-semibold mb-4">Search Links</h2>
+  <%= form_tag search_path, method: :get do %>
+    <%= text_field_tag :query, params[:query], placeholder: "Search links...", class: "w-full border border-gray-300 rounded-md p-2", data: { action: "input->search#perform", search_target: "input" } %>
+  <% end %>
+
+  <div data-search-target="results" class="mt-4 space-y-2">
+    <% if defined?(@results) %>
+      <% if @results.any? %>
+        <% @results.each do |item| %>
+          <div class="p-3 bg-white border border-gray-200 rounded shadow-sm flex justify-between">
+            <div>
+              <%= link_to "@#{item.username}", "/#{item.username}", class: "font-medium text-blue-600 hover:underline" %>
+              <span class="mx-2">/</span>
+              <%= link_to item.title, item.url, target: "_blank", rel: "noopener", class: "text-gray-800 hover:underline" %>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <p class="text-gray-500">No results found.</p>
+      <% end %>
+    <% end %>
+  </div>
+</div>

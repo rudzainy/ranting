@@ -6,11 +6,13 @@
     "@hotwired/stimulus": "^3.2.1",
     "@hotwired/turbo-rails": "^7.3.0",
     "autoprefixer": "^10.4.14",
+    "chart.js": "^4.4.9",
     "esbuild": "^0.18.9",
     "flowbite": "^2.2.1",
     "nodemon": "^2.0.22",
     "postcss": "^8.4.24",
     "postcss-cli": "^10.1.0",
+    "sortablejs": "^1.15.6",
     "tailwindcss": "^3.4.1"
   },
   "scripts": {

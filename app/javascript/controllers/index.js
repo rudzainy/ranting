@@ -15,3 +15,12 @@ application.register("link", LinkController)
 
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
+
+import ReorderController from "./reorder_controller"
+application.register("reorder", ReorderController)
+
+import SearchController from "./search_controller"
+application.register("search", SearchController)
+
+import AnalyticsController from "./analytics_controller"
+application.register("analytics", AnalyticsController)
