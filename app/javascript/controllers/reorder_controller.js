@@ -16,7 +16,9 @@ export default class extends Controller {
     const ids = Array.from(this.element.children).map(el => el.dataset.id)
     fetch(this.urlValue, {
       method: "PATCH",
+      credentials: "include",
       headers: {
+        "Accept": "application/json",
         "Content-Type": "application/json",
         "X-CSRF-Token": document.querySelector("meta[name='csrf-token']").content
       },

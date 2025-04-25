@@ -24,3 +24,6 @@ application.register("search", SearchController)
 
 import AnalyticsController from "./analytics_controller"
 application.register("analytics", AnalyticsController)
+
+import ClickAnalyticsController from "./click_analytics_controller"
+application.register("click-analytics", ClickAnalyticsController)

@@ -1,4 +1,4 @@
-<div class="container mx-auto max-w-md py-8">
+<div class="container mx-auto max-w-sm md:max-w-md lg:max-w-lg px-4 sm:px-6 lg:px-8 font-sans py-8">
   <div class="flex flex-col items-center">
     <% if @profile.avatar.attached? %>
       <%= image_tag @profile.avatar.variant(resize_to_fill: [150,150]), class: "rounded-full w-32 h-32" %>
@@ -7,14 +7,41 @@
     <% end %>
 
     <h1 class="mt-4 text-2xl font-semibold"><%= @user.full_name.presence || @user.username %></h1>
-    <p class="mt-2 text-center text-gray-600"><%= @profile.bio %></p>
+    <div data-controller="inline-edit" class="mt-2 w-full">
+      <p data-inline-edit-target="groupName" class="text-center text-gray-600"><%= @profile.bio %></p>
+      <div data-inline-edit-target="editForm" class="hidden mt-2">
+        <%= form_with model: @profile, url: profile_path(@user), method: :patch, local: true, data: { turbo: false }, class: "flex flex-col space-y-2" do |f| %>
+          <%= f.text_area :bio, class: "border rounded p-2 w-full" %>
+          <div class="flex space-x-2 justify-center">
+            <%= f.submit "Save", class: "bg-indigo-600 text-white rounded px-4 py-2" %>
+            <button data-action="inline-edit#cancel" type="button" class="bg-gray-300 text-gray-800 rounded px-4 py-2">Cancel</button>
+          </div>
+        <% end %>
+      </div>
+      <button data-action="inline-edit#edit" class="mt-1 text-sm text-blue-600">Edit Bio</button>
+    </div>
   </div>
 
   <div data-controller="reorder" data-reorder-url-value="<%= drag_links_path %>" class="mt-8 space-y-4">
     <% @user.links.order(position: :asc).each do |link| %>
-      <div data-id="<%= link.id %>" class="flex items-center space-x-2">
-        <i class="fas fa-grip-vertical drag-handle cursor-move mr-2"></i>
-        <%= link_to link.title, link.url, target: "_blank", rel: "noopener", class: "block w-full bg-white rounded-lg border border-gray-200 shadow-sm hover:bg-gray-50 active:bg-gray-100 py-3 px-4 text-center text-lg font-medium" %>
+      <div data-controller="inline-edit" data-id="<%= link.id %>">
+        <div data-inline-edit-target="groupName" class="flex items-center space-x-2">
+          <i class="fas fa-grip-vertical drag-handle cursor-move mr-2"></i>
+          <%= link_to link.title, link.url, target: "_blank", rel: "noopener", class: "block w-full bg-white rounded-lg border border-gray-200 shadow-sm hover:bg-gray-50 active:bg-gray-100 transform transition duration-150 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 py-3 px-4 text-center text-lg font-medium", aria: { label: "Open #{link.title}" }, data: { controller: "click-analytics", action: "click->click-analytics#track", "click-analytics-link-id-value": link.id } %>
+          <button data-action="inline-edit#edit" type="button" class="text-sm text-gray-500 ml-2">Edit</button>
+        </div>
+        <div data-inline-edit-target="editForm" class="hidden mt-2 w-full">
+          <%= form_with model: link, url: link_path(link), method: :patch, local: true, data: { turbo: false }, class: "flex flex-col space-y-2" do |f| %>
+            <div class="flex space-x-2">
+              <%= f.text_field :title, class: "border rounded px-2 py-1 flex-1" %>
+              <%= f.url_field :url, class: "border rounded px-2 py-1 flex-1" %>
+            </div>
+            <div class="flex space-x-2 justify-end">
+              <%= f.submit "Save", class: "bg-indigo-600 text-white rounded px-4 py-2" %>
+              <button data-action="inline-edit#cancel" type="button" class="bg-gray-300 text-gray-800 rounded px-4 py-2">Cancel</button>
+            </div>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>

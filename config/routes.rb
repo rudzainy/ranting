@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   root 'static#index'
   get 'search', to: 'search#index'
   get 'analytics', to: 'analytics#index'
+  post 'analytics/clicks', to: 'analytics#create'
 
   namespace :api, defaults: { format: :json } do
     get 'search', to: 'search#index'
